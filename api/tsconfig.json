@@ -16,7 +16,9 @@
     "noUncheckedIndexedAccess": false,
     "declaration": false,
     "sourceMap": true,
-    "incremental": true,
+    // incremental disabled: nest's deleteOutDir wipes dist/ but not the
+    // .tsbuildinfo, so incremental builds would skip emit and leave dist/ empty.
+    "incremental": false,
     "strictPropertyInitialization": false,
     "skipLibCheck": true
   },

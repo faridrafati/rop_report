@@ -109,17 +109,21 @@ export class RopService {
     }
     if (and.length) where.AND = and;
 
-    const rows = await this.prisma.bitRun.findMany({
-      where,
-      include: {
-        bitMaster: true,
-        wellbore: { include: { well: true } },
-        wellSection: { include: { holeSize: true } },
-        reasonPulled: true,
-      },
-      orderBy: { createdAt: 'asc' },
-      take: MAX_POINTS + 1,
-    });
+    // RLS-scoped: runs inside a tx with SET LOCAL app.current_client_id so the
+    // database returns only the caller's tenant rows.
+    const rows = await this.prisma.tenant((db) =>
+      db.bitRun.findMany({
+        where,
+        include: {
+          bitMaster: true,
+          wellbore: { include: { well: true } },
+          wellSection: { include: { holeSize: true } },
+          reasonPulled: true,
+        },
+        orderBy: { createdAt: 'asc' },
+        take: MAX_POINTS + 1,
+      }),
+    );
 
     const truncated = rows.length > MAX_POINTS;
     const used = truncated ? rows.slice(0, MAX_POINTS) : rows;
@@ -296,24 +300,27 @@ export class RopService {
     bitFamilies: string[];
     mudTypes: { id: string; name: string }[];
   }> {
-    const [wells, holeSizes, bitFamilyRows, mudTypes] = await Promise.all([
-      this.prisma.well.findMany({
-        select: { id: true, name: true },
-        orderBy: { name: 'asc' },
-      }),
-      this.prisma.holeSize.findMany({
-        select: { label: true },
-        orderBy: { label: 'asc' },
-      }),
-      this.prisma.bitMaster.findMany({
-        select: { bitFamily: true },
-        distinct: ['bitFamily'],
-      }),
-      this.prisma.mudType.findMany({
-        select: { id: true, name: true },
-        orderBy: { name: 'asc' },
-      }),
-    ]);
+    // One RLS-scoped transaction: well/bitMaster are tenant-scoped; holeSize and
+    // mudType are global lookups (RLS-exempt) but reading them here is harmless.
+    const { wells, holeSizes, bitFamilyRows, mudTypes } =
+      await this.prisma.tenant(async (db) => ({
+        wells: await db.well.findMany({
+          select: { id: true, name: true },
+          orderBy: { name: 'asc' },
+        }),
+        holeSizes: await db.holeSize.findMany({
+          select: { label: true },
+          orderBy: { label: 'asc' },
+        }),
+        bitFamilyRows: await db.bitMaster.findMany({
+          select: { bitFamily: true },
+          distinct: ['bitFamily'],
+        }),
+        mudTypes: await db.mudType.findMany({
+          select: { id: true, name: true },
+          orderBy: { name: 'asc' },
+        }),
+      }));
 
     const holeLabels = [...new Set(holeSizes.map((h) => h.label))].sort(
       (a, b) =>

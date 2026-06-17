@@ -10,6 +10,7 @@
     "start": "node dist/main.js",
     "start:prod": "node dist/main.js",
     "test": "jest",
+    "test:e2e": "tsx test/auth-rls.e2e.ts",
     "lint": "tsc --noEmit",
     "typecheck": "tsc --noEmit"
   },
@@ -29,7 +30,9 @@
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
     "swagger-ui-express": "^5.0.1",
-    "@drilliq/shared": "workspace:*"
+    "@drilliq/shared": "workspace:*",
+    "argon2": "^0.41.1",
+    "nestjs-cls": "^4.4.1"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.4.5",

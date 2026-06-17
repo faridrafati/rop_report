@@ -13,6 +13,7 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { PrismaClient, Role, BitFamily } from "@prisma/client";
+import * as argon2 from "argon2";
 
 const prisma = new PrismaClient();
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -200,30 +201,32 @@ async function seedDemoTenants() {
     });
   }
 
-  // A contractor user in each tenant (read-only role) for the isolation test.
-  // Password hash is a placeholder; Phase 2 wires real auth.
-  await prisma.user.upsert({
-    where: { email: "contractor-a@demo.drilliq" },
-    update: {},
-    create: {
-      clientId: clientA.id,
-      email: "contractor-a@demo.drilliq",
-      passwordHash: "PLACEHOLDER",
-      role: Role.CONTRACTOR,
-      displayName: "Contractor A",
-    },
-  });
-  await prisma.user.upsert({
-    where: { email: "contractor-b@demo.drilliq" },
-    update: {},
-    create: {
-      clientId: clientB.id,
-      email: "contractor-b@demo.drilliq",
-      passwordHash: "PLACEHOLDER",
-      role: Role.CONTRACTOR,
-      displayName: "Contractor B",
-    },
-  });
+  // Demo users — one per role, plus a second contractor bound to client B, all
+  // sharing the same demo password (argon2-hashed). The cross-client contractor
+  // pair (A vs B) is what the RLS/RBAC e2e gate exercises.
+  const DEMO_PASSWORD = "demo-password";
+  const passwordHash = await argon2.hash(DEMO_PASSWORD);
+
+  const demoUsers: {
+    email: string;
+    role: Role;
+    clientId: string;
+    displayName: string;
+  }[] = [
+    { email: "management@demo.drilliq", role: Role.MANAGEMENT, clientId: clientA.id, displayName: "Management A" },
+    { email: "office@demo.drilliq", role: Role.OFFICE_ENGINEER, clientId: clientA.id, displayName: "Office Engineer A" },
+    { email: "operation@demo.drilliq", role: Role.OPERATION_ENGINEER, clientId: clientA.id, displayName: "Operation Engineer A" },
+    { email: "contractor-a@demo.drilliq", role: Role.CONTRACTOR, clientId: clientA.id, displayName: "Contractor A" },
+    { email: "contractor-b@demo.drilliq", role: Role.CONTRACTOR, clientId: clientB.id, displayName: "Contractor B" },
+  ];
+  for (const u of demoUsers) {
+    await prisma.user.upsert({
+      where: { email: u.email },
+      update: { passwordHash, role: u.role, clientId: u.clientId, displayName: u.displayName },
+      create: { ...u, passwordHash },
+    });
+  }
+  console.log(`[seed] demo users (password "${DEMO_PASSWORD}"): ${demoUsers.map((u) => u.email).join(", ")}`);
 
   return { CLIENT_A, CLIENT_B };
 }

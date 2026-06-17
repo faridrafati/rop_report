@@ -78,6 +78,11 @@ rop_report/
 | **Operation Engineer** | DDR + bit-run capture (incl. 8-position IADC dull grade) |
 | **Contractor** | **read-only**, **own client's wells only** (RLS-enforced) |
 
+**Demo logins** (seeded; password `demo-password`): `management@demo.drilliq`,
+`office@demo.drilliq`, `operation@demo.drilliq`, `contractor-a@demo.drilliq`
+(tenant A), `contractor-b@demo.drilliq` (tenant B). `POST /api/auth/login`
+returns access + refresh tokens; send `Authorization: Bearer <access>`.
+
 ### Contractor isolation (defense-in-depth)
 
 1. **PostgreSQL RLS** — every client-scoped table has `ENABLE`/`FORCE ROW LEVEL
@@ -134,9 +139,9 @@ bit type), scatter/by-size/table views. All math comes from `@drilliq/shared`.
 |-------|--------|
 | 0 — Foundations & spec | ✅ done |
 | 1 — Data model & migrations + RLS | ✅ done |
+| 2 — Auth & RBAC (JWT + RolesGuard + per-request RLS) | ✅ done |
 | 4 — Analytics engine (formulas + tests) | ✅ done |
 | ROP Optimization tab (standalone) | ✅ done |
-| 2 — Auth & RBAC | ⏳ planned |
 | 3 — Capture (DDR + bit run) | ⏳ planned |
 | 5 — Plan & analyze + dashboards | ⏳ planned |
 | 6 — Reporting & exports (PDF/Excel) | ⏳ planned |

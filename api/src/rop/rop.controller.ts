@@ -1,5 +1,17 @@
-import { BadRequestException, Body, Controller, Get, Post } from '@nestjs/common';
-import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  Post,
+} from '@nestjs/common';
+import {
+  ApiBearerAuth,
+  ApiOkResponse,
+  ApiOperation,
+  ApiTags,
+} from '@nestjs/swagger';
 import {
   RopOptimizationFiltersSchema,
   type RopData,
@@ -16,11 +28,13 @@ export interface RopOptionsResponse {
 }
 
 @ApiTags('rop')
+@ApiBearerAuth()
 @Controller('rop-optimization')
 export class RopController {
   constructor(private readonly ropService: RopService) {}
 
   @Post()
+  @HttpCode(200)
   @ApiOperation({
     summary:
       'ROP-optimization dataset: bit runs mapped to operating points with MSE/HSI/cost.',

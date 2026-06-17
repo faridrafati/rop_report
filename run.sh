@@ -120,11 +120,35 @@ rls_gate() {
   APP_DATABASE_URL="${APP_URL}" pnpm --filter @drilliq/db exec tsx prisma/rls.test.ts
 }
 
+# Phase 2 gate: start the API as the restricted RLS role, run the auth+RBAC+RLS
+# e2e suite, then stop it. Connects as drilliq_app so RLS is genuinely enforced.
+e2e_gate() {
+  log "Building API for the auth/RBAC/RLS e2e gate"
+  pnpm --filter @drilliq/api build
+  log "Starting API (restricted role) for e2e"
+  ( cd api && DATABASE_URL="${APP_URL}" \
+      JWT_ACCESS_SECRET="${JWT_ACCESS_SECRET:-dev-access}" \
+      JWT_REFRESH_SECRET="${JWT_REFRESH_SECRET:-dev-refresh}" \
+      API_PORT="${API_PORT:-3000}" node dist/main.js >/tmp/drilliq-api-e2e.log 2>&1 & echo $! >/tmp/drilliq-api-e2e.pid )
+  local pid; pid="$(cat /tmp/drilliq-api-e2e.pid)"
+  for i in $(seq 1 30); do
+    curl -sf "http://localhost:${API_PORT:-3000}/api/health" >/dev/null 2>&1 && break
+    sleep 1
+  done
+  local rc=0
+  BASE="http://localhost:${API_PORT:-3000}/api" pnpm --filter @drilliq/api exec tsx test/auth-rls.e2e.ts || rc=$?
+  kill "$pid" 2>/dev/null || true
+  [ "$rc" -eq 0 ] || die "Phase 2 e2e gate failed (see /tmp/drilliq-api-e2e.log)"
+}
+
 run_tests() {
   build_shared
   log "Running analytics unit tests"
   pnpm --filter @drilliq/shared test
+  log "Running API unit tests"
+  pnpm --filter @drilliq/api test
   rls_gate
+  e2e_gate
   ok "All tests passed"
 }
 

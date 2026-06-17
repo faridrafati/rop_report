@@ -144,7 +144,7 @@ ROLLBACK;
 
 ---
 
-## Phase 2 — Auth & RBAC  ⬜
+## Phase 2 — Auth & RBAC  ✅
 
 **Goal:** JWT access+refresh auth, four-role `RolesGuard`, and **enforced contractor isolation**
 combining Postgres RLS (`SET LOCAL` per request transaction) with app-layer scoping.

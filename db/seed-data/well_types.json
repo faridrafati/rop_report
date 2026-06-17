@@ -1,0 +1,62 @@
+[
+  {
+    "code": "01",
+    "name": "Exploration-Drilling"
+  },
+  {
+    "code": "02",
+    "name": "Delineation-Drilling"
+  },
+  {
+    "code": "03",
+    "name": "OUTPOST-CUM-DEEPER POOL TEST"
+  },
+  {
+    "code": "04",
+    "name": "WILDCAT"
+  },
+  {
+    "code": "05",
+    "name": "Development-Drilling"
+  },
+  {
+    "code": "06",
+    "name": "Exploration-Reentry"
+  },
+  {
+    "code": "07",
+    "name": "Exploration-WorkOver"
+  },
+  {
+    "code": "08",
+    "name": "Delineation-ReEntry"
+  },
+  {
+    "code": "09",
+    "name": "Delineation-WorkOver"
+  },
+  {
+    "code": "10",
+    "name": "ReEntry"
+  },
+  {
+    "code": "11",
+    "name": "Development Gas Well"
+  },
+  {
+    "code": "12",
+    "name": "ReLief"
+  },
+  {
+    "code": "13",
+    "name": "WorkOver"
+  },
+  {
+    "code": "14",
+    "name": "Development Oil Well"
+  },
+  {
+    "code": "15",
+    "name": "Disposal Well"
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "code": "001",
+    "abbreviation": "SJ",
+    "name": "sarajeh"
+  },
+  {
+    "code": "002",
+    "abbreviation": "AGH",
+    "name": "AGHAR"
+  },
+  {
+    "code": "003",
+    "abbreviation": "DP",
+    "name": "Dalpari"
+  },
+  {
+    "code": "008",
+    "abbreviation": "HMA",
+    "name": "Homa"
+  },
+  {
+    "code": "011",
+    "abbreviation": "DA",
+    "name": "DANAN"
+  },
+  {
+    "code": "013",
+    "abbreviation": "DH",
+    "name": "DEHLORAN"
+  },
+  {
+    "code": "015",
+    "abbreviation": "VAR",
+    "name": "VARAVI"
+  },
+  {
+    "code": "018",
+    "abbreviation": "GAS",
+    "name": "SOUTHGASHO"
+  },
+  {
+    "code": "020",
+    "abbreviation": "KGN",
+    "name": "Kangan"
+  },
+  {
+    "code": "021",
+    "abbreviation": "SNL",
+    "name": "Shanul"
+  },
+  {
+    "code": "027",
+    "abbreviation": "KG",
+    "name": "KHANGIRAN"
+  },
+  {
+    "code": "030",
+    "abbreviation": "CK",
+    "name": "CHeshmehKhoush"
+  },
+  {
+    "code": "031",
+    "abbreviation": "MK",
+    "name": "MALEHKUH"
+  },
+  {
+    "code": "032",
+    "abbreviation": "NSH",
+    "name": "NAFTSHAHR"
+  },
+  {
+    "code": "033",
+    "abbreviation": "SA",
+    "name": "SARKHUN"
+  },
+  {
+    "code": "035",
+    "abbreviation": "NAR",
+    "name": "NAR"
+  },
+  {
+    "code": "038",
+    "abbreviation": "SV",
+    "name": "Sarvestan"
+  },
+  {
+    "code": "042",
+    "abbreviation": "PY",
+    "name": "PAYDAR"
+  },
+  {
+    "code": "043",
+    "abbreviation": "PYW",
+    "name": "PAYDAR WEST"
+  },
+  {
+    "code": "046",
+    "abbreviation": "SAA",
+    "name": "SAADATABAD"
+  },
+  {
+    "code": "053",
+    "abbreviation": "SV",
+    "name": "SARVESTAN"
+  },
+  {
+    "code": "055",
+    "abbreviation": "TBK",
+    "name": "TABNAK"
+  },
+  {
+    "code": "056",
+    "abbreviation": "TB",
+    "name": "TANGE BIJAR"
+  },
+  {
+    "code": "057",
+    "abbreviation": "KHT",
+    "name": "KHESHT"
+  },
+  {
+    "code": "058",
+    "abbreviation": "SMR",
+    "name": "Somar"
+  },
+  {
+    "code": "059",
+    "abbreviation": "GZ",
+    "name": "Gavarzin"
+  },
+  {
+    "code": "065",
+    "abbreviation": "GLY",
+    "name": "Gonbadly"
+  },
+  {
+    "code": "121",
+    "abbreviation": "SZR",
+    "name": "Safid Zakhur"
+  },
+  {
+    "code": "315",
+    "abbreviation": "DL",
+    "name": "Dalan"
+  },
+  {
+    "code": "316",
+    "abbreviation": "PYW",
+    "name": "PAYDAR EAST"
+  },
+  {
+    "code": "382",
+    "abbreviation": "SK",
+    "name": "Sarkan"
+  },
+  {
+    "code": "om9",
+    "abbreviation": "DAY",
+    "name": "Day"
+  },
+  {
+    "code": "QZa",
+    "abbreviation": "AB",
+    "name": "Aban"
+  }
+]

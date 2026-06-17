@@ -1,0 +1,690 @@
+// DrillIQ database schema — PostgreSQL. WITSML-aligned. See docs/data-model.md.
+//
+// Conventions (docs/data-model.md §Conventions):
+//   - UUID primary keys (@db.Uuid), column `id`.
+//   - created_at/updated_at timestamptz on mutable entities.
+//   - Depths/lengths stored in METERS (numeric(10,2)); convert to ft at UI only.
+//   - Engineering scalars numeric(12,4); money numeric(14,2) USD.
+//   - Client-scoped tables carry client_id and use it as the LEADING column of
+//     every composite index/unique. RLS is enabled per-table in a raw migration
+//     (see prisma/migrations/*/rls.sql, applied after `prisma migrate`).
+//   - Tables snake_case plural (@@map); Prisma models PascalCase singular.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ───────────────────────────── Enums ─────────────────────────────
+
+enum Role {
+  MANAGEMENT
+  OFFICE_ENGINEER
+  OPERATION_ENGINEER
+  CONTRACTOR
+}
+
+enum WellStatus {
+  PLANNED
+  DRILLING
+  SUSPENDED
+  COMPLETED
+  ABANDONED
+}
+
+enum BitFamily {
+  TCI
+  MILLED_TOOTH
+  PDC
+  DIAMOND
+  OTHER
+}
+
+enum BitClass {
+  N // new
+  U // used
+}
+
+enum ActivityClass {
+  PLANNED
+  UNPLANNED
+  DOWNTIME
+}
+
+enum PlanKind {
+  BIT_PROGRAM
+  PARAMETER_OPT
+  OFFSET_BENCHMARK
+}
+
+enum PlanStatus {
+  DRAFT
+  PROPOSED
+  APPROVED
+  REJECTED
+}
+
+enum ApprovalStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum AuditAction {
+  CREATE
+  UPDATE
+  DELETE
+  APPROVE
+  REJECT
+  LOGIN
+}
+
+// ─────────────────────── Tenant & identity ───────────────────────
+
+/// The tenant. Root of the RLS isolation boundary; its id is bound to
+/// app.current_client_id. Global registry — NOT itself RLS-restricted.
+model Client {
+  id         String   @id @default(uuid()) @db.Uuid
+  name       String
+  legacyCode String?  @unique @map("legacy_code")
+  isActive   Boolean  @default(true) @map("is_active")
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt  DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  wells     Well[]
+  users     User[]
+  rigs      Rig[]
+  auditLogs AuditLog[]
+
+  @@map("client")
+}
+
+model User {
+  id               String   @id @default(uuid()) @db.Uuid
+  clientId         String   @map("client_id") @db.Uuid
+  email            String   @unique
+  passwordHash     String   @map("password_hash")
+  role             Role
+  displayName      String?  @map("display_name")
+  isActive         Boolean  @default(true) @map("is_active")
+  refreshTokenHash String?  @map("refresh_token_hash")
+  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  client             Client     @relation(fields: [clientId], references: [id])
+  auditLogs          AuditLog[]
+  plans              Plan[]
+  approvalsRequested Approval[] @relation("ApprovalRequester")
+  approvalsDecided   Approval[] @relation("ApprovalDecider")
+
+  @@unique([clientId, email])
+  @@index([clientId, email])
+  @@map("app_user")
+}
+
+// ───────────────────────── Drilling spine ────────────────────────
+
+model Rig {
+  id           String   @id @default(uuid()) @db.Uuid
+  clientId     String   @map("client_id") @db.Uuid
+  name         String
+  contractorId String?  @map("contractor_id") @db.Uuid
+  rigType      String?  @map("rig_type")
+  ratingHp     Int?     @map("rating_hp")
+  dayRate      Decimal? @map("day_rate") @db.Decimal(14, 2)
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  client     Client      @relation(fields: [clientId], references: [id])
+  contractor Contractor? @relation(fields: [contractorId], references: [id])
+  wells      Well[]
+
+  @@unique([clientId, name])
+  @@index([clientId, contractorId])
+  @@map("rig")
+}
+
+model Well {
+  id            String     @id @default(uuid()) @db.Uuid
+  clientId      String     @map("client_id") @db.Uuid
+  name          String
+  field         String?
+  fieldCode     String?    @map("field_code")
+  spudDate      DateTime?  @map("spud_date") @db.Date
+  rigId         String?    @map("rig_id") @db.Uuid
+  contractorId  String?    @map("contractor_id") @db.Uuid
+  wellTypeId    String?    @map("well_type_id") @db.Uuid
+  wellProfileId String?    @map("well_profile_id") @db.Uuid
+  surfaceLat    Decimal?   @map("surface_lat") @db.Decimal(9, 6)
+  surfaceLon    Decimal?   @map("surface_lon") @db.Decimal(9, 6)
+  status        WellStatus @default(PLANNED)
+  createdAt     DateTime   @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt     DateTime   @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  client      Client       @relation(fields: [clientId], references: [id])
+  rig         Rig?         @relation(fields: [rigId], references: [id])
+  contractor  Contractor?  @relation(fields: [contractorId], references: [id])
+  wellType    WellType?    @relation(fields: [wellTypeId], references: [id])
+  wellProfile WellProfile? @relation(fields: [wellProfileId], references: [id])
+  wellbores   Wellbore[]
+  plans       Plan[]
+
+  @@unique([clientId, name])
+  @@index([clientId, field])
+  @@index([clientId, spudDate])
+  @@map("well")
+}
+
+model Wellbore {
+  id               String   @id @default(uuid()) @db.Uuid
+  clientId         String   @map("client_id") @db.Uuid
+  wellId           String   @map("well_id") @db.Uuid
+  name             String
+  parentWellboreId String?  @map("parent_wellbore_id") @db.Uuid
+  kickoffMd        Decimal? @map("kickoff_md") @db.Decimal(10, 2)
+  totalMd          Decimal? @map("total_md") @db.Decimal(10, 2)
+  totalTvd         Decimal? @map("total_tvd") @db.Decimal(10, 2)
+  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  well           Well          @relation(fields: [wellId], references: [id])
+  parentWellbore Wellbore?     @relation("WellboreSidetrack", fields: [parentWellboreId], references: [id])
+  sidetracks     Wellbore[]    @relation("WellboreSidetrack")
+  sections       WellSection[]
+  trajectories   Trajectory[]
+  dailyReports   DailyReport[]
+  bitRuns        BitRun[]
+
+  @@unique([clientId, wellId, name])
+  @@index([clientId, wellId])
+  @@map("wellbore")
+}
+
+model WellSection {
+  id          String   @id @default(uuid()) @db.Uuid
+  clientId    String   @map("client_id") @db.Uuid
+  wellboreId  String   @map("wellbore_id") @db.Uuid
+  holeSizeId  String   @map("hole_size_id") @db.Uuid
+  seq         Int
+  topMd       Decimal? @map("top_md") @db.Decimal(10, 2)
+  baseMd      Decimal? @map("base_md") @db.Decimal(10, 2)
+  casingSize  String?  @map("casing_size")
+  cementTopMd Decimal? @map("cement_top_md") @db.Decimal(10, 2)
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  wellbore        Wellbore         @relation(fields: [wellboreId], references: [id])
+  holeSize        HoleSize         @relation(fields: [holeSizeId], references: [id])
+  formationTops   FormationTop[]
+  bitRuns         BitRun[]
+  recommendations Recommendation[]
+
+  @@unique([clientId, wellboreId, seq])
+  @@index([clientId, wellboreId, seq])
+  @@map("well_section")
+}
+
+// ───────────────────────── Geology ───────────────────────────────
+
+/// Global stratigraphic dictionary (not client-scoped).
+model Formation {
+  id           String  @id @default(uuid()) @db.Uuid
+  legacyCode   String  @unique @map("legacy_code")
+  abbreviation String?
+  nameEn       String  @map("name_en")
+  nameFa       String? @map("name_fa")
+  period       String?
+
+  formationTops FormationTop[]
+
+  @@map("formation")
+}
+
+model FormationTop {
+  id            String   @id @default(uuid()) @db.Uuid
+  clientId      String   @map("client_id") @db.Uuid
+  wellSectionId String   @map("well_section_id") @db.Uuid
+  formationId   String   @map("formation_id") @db.Uuid
+  topMd         Decimal? @map("top_md") @db.Decimal(10, 2)
+  topTvd        Decimal? @map("top_tvd") @db.Decimal(10, 2)
+  prognosedMd   Decimal? @map("prognosed_md") @db.Decimal(10, 2)
+
+  wellSection        WellSection         @relation(fields: [wellSectionId], references: [id])
+  formation          Formation           @relation(fields: [formationId], references: [id])
+  lithologyIntervals LithologyInterval[]
+
+  @@index([clientId, wellSectionId, topMd])
+  @@map("formation_top")
+}
+
+/// Global rock-type dictionary (not client-scoped).
+model Lithology {
+  id            String  @id @default(uuid()) @db.Uuid
+  legacyCode    String  @unique @map("legacy_code")
+  name          String
+  description   String?
+  hardnessClass String? @map("hardness_class")
+
+  intervals LithologyInterval[]
+
+  @@map("lithology")
+}
+
+model LithologyInterval {
+  id             String   @id @default(uuid()) @db.Uuid
+  clientId       String   @map("client_id") @db.Uuid
+  formationTopId String   @map("formation_top_id") @db.Uuid
+  lithologyId    String   @map("lithology_id") @db.Uuid
+  topMd          Decimal? @map("top_md") @db.Decimal(10, 2)
+  baseMd         Decimal? @map("base_md") @db.Decimal(10, 2)
+  pct            Decimal? @db.Decimal(5, 2)
+
+  formationTop FormationTop @relation(fields: [formationTopId], references: [id])
+  lithology    Lithology    @relation(fields: [lithologyId], references: [id])
+
+  @@index([clientId, formationTopId, topMd])
+  @@map("lithology_interval")
+}
+
+// ─────────────────────── Trajectory / survey ─────────────────────
+
+model Trajectory {
+  id         String    @id @default(uuid()) @db.Uuid
+  clientId   String    @map("client_id") @db.Uuid
+  wellboreId String    @map("wellbore_id") @db.Uuid
+  name       String
+  surveyTool String?   @map("survey_tool")
+  runDate    DateTime? @map("run_date") @db.Date
+  createdAt  DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  wellbore Wellbore        @relation(fields: [wellboreId], references: [id])
+  stations SurveyStation[]
+
+  @@index([clientId, wellboreId])
+  @@map("trajectory")
+}
+
+model SurveyStation {
+  id           String   @id @default(uuid()) @db.Uuid
+  clientId     String   @map("client_id") @db.Uuid
+  trajectoryId String   @map("trajectory_id") @db.Uuid
+  md           Decimal  @db.Decimal(10, 2)
+  inc          Decimal  @db.Decimal(7, 3)
+  azm          Decimal  @db.Decimal(7, 3)
+  tvd          Decimal  @db.Decimal(10, 2)
+  ns           Decimal  @db.Decimal(12, 3)
+  ew           Decimal  @db.Decimal(12, 3)
+  dls          Decimal? @db.Decimal(7, 3)
+
+  trajectory Trajectory @relation(fields: [trajectoryId], references: [id])
+
+  @@index([clientId, trajectoryId, md])
+  @@map("survey_station")
+}
+
+// ───────────────────────── Bits ──────────────────────────────────
+
+model BitMaster {
+  id           String    @id @default(uuid()) @db.Uuid
+  clientId     String    @map("client_id") @db.Uuid
+  serialNo     String?   @map("serial_no")
+  manufacturer String
+  typeBit      String    @map("type_bit")
+  bitFamily    BitFamily @map("bit_family")
+  diaBit       Decimal   @map("dia_bit") @db.Decimal(7, 3)
+  holeSizeId   String?   @map("hole_size_id") @db.Uuid
+  codeIadc     String?   @map("code_iadc")
+  tfa          Decimal?  @db.Decimal(8, 4)
+  bitCost      Decimal?  @map("bit_cost") @db.Decimal(14, 2)
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  holeSize        HoleSize?        @relation(fields: [holeSizeId], references: [id])
+  bitRuns         BitRun[]
+  recommendations Recommendation[]
+
+  @@index([clientId, manufacturer, typeBit])
+  @@map("bit_master")
+}
+
+model BitRun {
+  id             String   @id @default(uuid()) @db.Uuid
+  clientId       String   @map("client_id") @db.Uuid
+  wellboreId     String   @map("wellbore_id") @db.Uuid
+  wellSectionId  String?  @map("well_section_id") @db.Uuid
+  bitMasterId    String   @map("bit_master_id") @db.Uuid
+  numBit         Int?     @map("num_bit")
+  depthIn        Decimal? @map("depth_in") @db.Decimal(10, 2)
+  depthOut       Decimal? @map("depth_out") @db.Decimal(10, 2)
+  footage        Decimal? @db.Decimal(10, 2)
+  rotatingHours  Decimal? @map("rotating_hours") @db.Decimal(8, 2)
+  tripHours      Decimal? @map("trip_hours") @db.Decimal(8, 2)
+  wob            Decimal? @db.Decimal(12, 4)
+  rpm            Decimal? @db.Decimal(8, 2)
+  torque         Decimal? @db.Decimal(12, 4)
+  rop            Decimal? @db.Decimal(12, 4)
+  flowRate       Decimal? @map("flow_rate") @db.Decimal(10, 2)
+  mudWeight      Decimal? @map("mud_weight") @db.Decimal(7, 3)
+  pBit           Decimal? @map("p_bit") @db.Decimal(12, 4)
+  dhMotorTypeId  String?  @map("dh_motor_type_id") @db.Uuid
+  reasonPulledId String?  @map("reason_pulled_id") @db.Uuid
+
+  // Dull grade — condFinal (graded out, 8 IADC positions)
+  condFinalInner    Int?    @map("cond_final_inner")
+  condFinalOuter    Int?    @map("cond_final_outer")
+  condFinalDullChar String? @map("cond_final_dull_char") @db.Char(2)
+  condFinalLocation String? @map("cond_final_location")
+  condFinalBearing  String? @map("cond_final_bearing")
+  condFinalGauge    String? @map("cond_final_gauge")
+  condFinalOther    String? @map("cond_final_other") @db.Char(2)
+  condFinalReason   String? @map("cond_final_reason")
+
+  // Dull grade — condInit (as received / re-run condition)
+  condInitInner    Int?    @map("cond_init_inner")
+  condInitOuter    Int?    @map("cond_init_outer")
+  condInitDullChar String? @map("cond_init_dull_char") @db.Char(2)
+  condInitLocation String? @map("cond_init_location")
+  condInitBearing  String? @map("cond_init_bearing")
+  condInitGauge    String? @map("cond_init_gauge")
+  condInitOther    String? @map("cond_init_other") @db.Char(2)
+  condInitReason   String? @map("cond_init_reason")
+
+  bitClass BitClass? @map("bit_class")
+
+  // Computed performance (nullable; recomputed by the analytics engine)
+  mse           Decimal? @db.Decimal(14, 4)
+  mseEfficiency Decimal? @map("mse_efficiency") @db.Decimal(6, 4)
+  frictionMu    Decimal? @map("friction_mu") @db.Decimal(8, 5)
+  hhpBit        Decimal? @map("hhp_bit") @db.Decimal(12, 4)
+  hsi           Decimal? @db.Decimal(8, 4)
+  costPerFoot   Decimal? @map("cost_per_foot") @db.Decimal(14, 4)
+  founderFlag   Boolean? @map("founder_flag")
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  wellbore     Wellbore      @relation(fields: [wellboreId], references: [id])
+  wellSection  WellSection?  @relation(fields: [wellSectionId], references: [id])
+  bitMaster    BitMaster     @relation(fields: [bitMasterId], references: [id])
+  dhMotorType  DHMotorType?  @relation(fields: [dhMotorTypeId], references: [id])
+  reasonPulled ReasonPulled? @relation(fields: [reasonPulledId], references: [id])
+  nozzles      BitNozzle[]
+
+  @@index([clientId, wellboreId, depthIn])
+  @@index([clientId, bitMasterId])
+  @@map("bit_run")
+}
+
+model BitNozzle {
+  id           String @id @default(uuid()) @db.Uuid
+  clientId     String @map("client_id") @db.Uuid
+  bitRunId     String @map("bit_run_id") @db.Uuid
+  nozzleSizeId String @map("nozzle_size_id") @db.Uuid
+  count        Int    @default(1)
+  position     Int?
+
+  bitRun     BitRun     @relation(fields: [bitRunId], references: [id], onDelete: Cascade)
+  nozzleSize NozzleSize @relation(fields: [nozzleSizeId], references: [id])
+
+  @@index([clientId, bitRunId])
+  @@map("bit_nozzle")
+}
+
+// ─────────────────────── Daily reports (DDR) ─────────────────────
+
+model DailyReport {
+  id               String   @id @default(uuid()) @db.Uuid
+  clientId         String   @map("client_id") @db.Uuid
+  wellboreId       String   @map("wellbore_id") @db.Uuid
+  reportDate       DateTime @map("report_date") @db.Date
+  reportNo         Int?     @map("report_no")
+  depthStartMd     Decimal? @map("depth_start_md") @db.Decimal(10, 2)
+  depthEndMd       Decimal? @map("depth_end_md") @db.Decimal(10, 2)
+  statusInfo       String?  @map("status_info")
+  presentOperation String?  @map("present_operation")
+  dayCost          Decimal? @map("day_cost") @db.Decimal(14, 2)
+  cumCost          Decimal? @map("cum_cost") @db.Decimal(14, 2)
+  personnelCount   Int?     @map("personnel_count")
+  incidents        String?
+  approvalId       String?  @map("approval_id") @db.Uuid
+  createdAt        DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  wellbore   Wellbore   @relation(fields: [wellboreId], references: [id])
+  activities Activity[]
+  fluids     Fluid[]
+
+  @@unique([clientId, wellboreId, reportDate])
+  @@index([clientId, wellboreId, reportDate])
+  @@map("daily_report")
+}
+
+model Activity {
+  id             String        @id @default(uuid()) @db.Uuid
+  clientId       String        @map("client_id") @db.Uuid
+  dailyReportId  String        @map("daily_report_id") @db.Uuid
+  activityTypeId String?       @map("activity_type_id") @db.Uuid
+  iadcOpCode     String?       @map("iadc_op_code")
+  startTime      DateTime?     @map("start_time") @db.Timestamptz(6)
+  endTime        DateTime?     @map("end_time") @db.Timestamptz(6)
+  durationHr     Decimal?      @map("duration_hr") @db.Decimal(7, 2)
+  depthMd        Decimal?      @map("depth_md") @db.Decimal(10, 2)
+  classification ActivityClass
+  isProductive   Boolean       @map("is_productive")
+  nptCategory    String?       @map("npt_category")
+  description    String?
+
+  dailyReport  DailyReport   @relation(fields: [dailyReportId], references: [id], onDelete: Cascade)
+  activityType ActivityType? @relation(fields: [activityTypeId], references: [id])
+
+  @@index([clientId, dailyReportId, startTime])
+  @@map("activity")
+}
+
+model Fluid {
+  id            String   @id @default(uuid()) @db.Uuid
+  clientId      String   @map("client_id") @db.Uuid
+  dailyReportId String   @map("daily_report_id") @db.Uuid
+  mudTypeId     String?  @map("mud_type_id") @db.Uuid
+  checkDepthMd  Decimal? @map("check_depth_md") @db.Decimal(10, 2)
+  mw            Decimal? @db.Decimal(7, 3)
+  pv            Decimal? @db.Decimal(8, 3)
+  yp            Decimal? @db.Decimal(8, 3)
+  gel10s        Decimal? @map("gel_10s") @db.Decimal(8, 3)
+  gel10m        Decimal? @map("gel_10m") @db.Decimal(8, 3)
+  ph            Decimal? @db.Decimal(4, 2)
+  ecd           Decimal? @db.Decimal(7, 3)
+  funnelVisc    Decimal? @map("funnel_visc") @db.Decimal(8, 2)
+  solidsPct     Decimal? @map("solids_pct") @db.Decimal(5, 2)
+
+  dailyReport DailyReport @relation(fields: [dailyReportId], references: [id], onDelete: Cascade)
+  mudType     MudType?    @relation(fields: [mudTypeId], references: [id])
+
+  @@index([clientId, dailyReportId])
+  @@map("fluid")
+}
+
+// ───────────────────── Plans & governance ────────────────────────
+
+model Plan {
+  id          String     @id @default(uuid()) @db.Uuid
+  clientId    String     @map("client_id") @db.Uuid
+  wellId      String     @map("well_id") @db.Uuid
+  title       String
+  kind        PlanKind
+  status      PlanStatus @default(DRAFT)
+  createdById String?    @map("created_by") @db.Uuid
+  createdAt   DateTime   @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime   @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  well            Well             @relation(fields: [wellId], references: [id])
+  createdBy       User?            @relation(fields: [createdById], references: [id])
+  recommendations Recommendation[]
+
+  @@index([clientId, wellId])
+  @@map("plan")
+}
+
+model Recommendation {
+  id            String   @id @default(uuid()) @db.Uuid
+  clientId      String   @map("client_id") @db.Uuid
+  planId        String   @map("plan_id") @db.Uuid
+  wellSectionId String?  @map("well_section_id") @db.Uuid
+  bitMasterId   String?  @map("bit_master_id") @db.Uuid
+  targetWob     Decimal? @map("target_wob") @db.Decimal(12, 4)
+  targetRpm     Decimal? @map("target_rpm") @db.Decimal(8, 2)
+  targetFlow    Decimal? @map("target_flow") @db.Decimal(10, 2)
+  predictedRop  Decimal? @map("predicted_rop") @db.Decimal(12, 4)
+  predictedMse  Decimal? @map("predicted_mse") @db.Decimal(14, 4)
+  rationale     String?
+
+  plan        Plan         @relation(fields: [planId], references: [id], onDelete: Cascade)
+  wellSection WellSection? @relation(fields: [wellSectionId], references: [id])
+  bitMaster   BitMaster?   @relation(fields: [bitMasterId], references: [id])
+
+  @@index([clientId, planId])
+  @@map("recommendation")
+}
+
+model Approval {
+  id            String         @id @default(uuid()) @db.Uuid
+  clientId      String         @map("client_id") @db.Uuid
+  subjectType   String         @map("subject_type")
+  subjectId     String         @map("subject_id") @db.Uuid
+  requestedById String         @map("requested_by") @db.Uuid
+  decidedById   String?        @map("decided_by") @db.Uuid
+  status        ApprovalStatus @default(PENDING)
+  comment       String?
+  decidedAt     DateTime?      @map("decided_at") @db.Timestamptz(6)
+  createdAt     DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  requestedBy User  @relation("ApprovalRequester", fields: [requestedById], references: [id])
+  decidedBy   User? @relation("ApprovalDecider", fields: [decidedById], references: [id])
+
+  @@index([clientId, status])
+  @@index([clientId, subjectType, subjectId])
+  @@map("approval")
+}
+
+model AuditLog {
+  id          String      @id @default(uuid()) @db.Uuid
+  clientId    String      @map("client_id") @db.Uuid
+  actorUserId String?     @map("actor_user_id") @db.Uuid
+  action      AuditAction
+  entityType  String      @map("entity_type")
+  entityId    String?     @map("entity_id") @db.Uuid
+  diff        Json?
+  ip          String?     @db.Inet
+  createdAt   DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  client Client @relation(fields: [clientId], references: [id])
+  actor  User?  @relation(fields: [actorUserId], references: [id])
+
+  @@index([clientId, createdAt])
+  @@index([clientId, entityType, entityId])
+  @@map("audit_log")
+}
+
+// ─────────────────────── Lookup / vocabulary ─────────────────────
+// Global (not RLS-restricted). legacy_code preserves the original code.
+
+model Contractor {
+  id         String @id @default(uuid()) @db.Uuid
+  legacyCode String @unique @map("legacy_code")
+  name       String
+
+  rigs  Rig[]
+  wells Well[]
+
+  @@map("contractor")
+}
+
+model HoleSize {
+  id         String   @id @default(uuid()) @db.Uuid
+  legacyCode String   @unique @map("legacy_code")
+  label      String
+  diameterIn Decimal? @map("diameter_in") @db.Decimal(7, 3)
+
+  wellSections WellSection[]
+  bitMasters   BitMaster[]
+
+  @@map("hole_size")
+}
+
+model NozzleSize {
+  id         String @id @default(uuid()) @db.Uuid
+  legacyCode String @unique @map("legacy_code")
+  label      String
+  size32nds  Int?   @map("size_32nds")
+
+  bitNozzles BitNozzle[]
+
+  @@map("nozzle_size")
+}
+
+model MudType {
+  id           String  @id @default(uuid()) @db.Uuid
+  legacyCode   String  @unique @map("legacy_code")
+  name         String
+  abbreviation String?
+
+  fluids Fluid[]
+
+  @@map("mud_type")
+}
+
+model ReasonPulled {
+  id          String @id @default(uuid()) @db.Uuid
+  code        String @unique
+  description String
+
+  bitRuns BitRun[]
+
+  @@map("reason_pulled")
+}
+
+model WellType {
+  id         String @id @default(uuid()) @db.Uuid
+  legacyCode String @unique @map("legacy_code")
+  name       String
+
+  wells Well[]
+
+  @@map("well_type")
+}
+
+model WellProfile {
+  id           String  @id @default(uuid()) @db.Uuid
+  legacyCode   String  @unique @map("legacy_code")
+  name         String
+  abbreviation String?
+
+  wells Well[]
+
+  @@map("well_profile")
+}
+
+model DHMotorType {
+  id         String @id @default(uuid()) @db.Uuid
+  legacyCode String @unique @map("legacy_code")
+  name       String
+
+  bitRuns BitRun[]
+
+  @@map("dh_motor_type")
+}
+
+model ActivityType {
+  id        String  @id @default(uuid()) @db.Uuid
+  groupCode String? @map("group_code")
+  code      String  @unique
+  name      String
+
+  activities Activity[]
+
+  @@map("activity_type")
+}

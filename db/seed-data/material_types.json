@@ -1,0 +1,58 @@
+[
+  {
+    "code": "01",
+    "name": "Weight Agent"
+  },
+  {
+    "code": "02",
+    "name": "Viscosifiers"
+  },
+  {
+    "code": "03",
+    "name": "Fluid Loss Control Agent"
+  },
+  {
+    "code": "04",
+    "name": "Salt & Weight Agent"
+  },
+  {
+    "code": "05",
+    "name": "Alkalinity Agent"
+  },
+  {
+    "code": "06",
+    "name": "Ca++ Reducer Agent"
+  },
+  {
+    "code": "07",
+    "name": "LCM"
+  },
+  {
+    "code": "08",
+    "name": "OBM Add"
+  },
+  {
+    "code": "09",
+    "name": "Barite"
+  },
+  {
+    "code": "10",
+    "name": "Bentonite"
+  },
+  {
+    "code": "11",
+    "name": "MG-O"
+  },
+  {
+    "code": "12",
+    "name": "Soda Ash"
+  },
+  {
+    "code": "13",
+    "name": "Mica Coarse"
+  },
+  {
+    "code": "99",
+    "name": "Others"
+  }
+]

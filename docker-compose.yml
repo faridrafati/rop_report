@@ -1,0 +1,62 @@
+# DrillIQ local/on-prem stack. 12-factor config via env (.env).
+# Deployable cloud or on-prem: no hard cloud dependencies; Postgres + object storage abstracted.
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: drilliq-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-drilliq}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me-in-prod}
+      POSTGRES_DB: ${POSTGRES_DB:-drilliq}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - drilliq-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-drilliq} -d ${POSTGRES_DB:-drilliq}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    container_name: drilliq-api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      DATABASE_URL: ${DATABASE_URL}
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET}
+      ML_BASE_URL: http://ml:8000
+    ports:
+      - "${API_PORT:-3000}:3000"
+
+  web:
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    container_name: drilliq-web
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "${WEB_PORT:-5173}:80"
+
+  ml:
+    build:
+      context: ./ml
+      dockerfile: Dockerfile
+    container_name: drilliq-ml
+    restart: unless-stopped
+    ports:
+      - "${ML_PORT:-8000}:8000"
+
+volumes:
+  drilliq-pgdata:

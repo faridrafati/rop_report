@@ -1,0 +1,92 @@
+[
+  {
+    "groupCode": "01",
+    "code": "01",
+    "name": "Rigging & Moving",
+    "abbreviation": null
+  },
+  {
+    "groupCode": "01",
+    "code": "02",
+    "name": "Drilling Operation",
+    "abbreviation": null
+  },
+  {
+    "groupCode": "01",
+    "code": "03",
+    "name": "Casing & Cementing",
+    "abbreviation": null
+  },
+  {
+    "groupCode": "01",
+    "code": "04",
+    "name": "Formation Evaluation",
+    "abbreviation": null
+  },
+  {
+    "groupCode": "01",
+    "code": "05",
+    "name": "Conting Agency",
+    "abbreviation": null
+  },
+  {
+    "groupCode": "01",
+    "code": "07",
+    "name": "Non Obvious Waiting",
+    "abbreviation": null
+  },
+  {
+    "groupCode": "01",
+    "code": "08",
+    "name": "Completion & Abandonment",
+    "abbreviation": null
+  },
+  {
+    "groupCode": "01",
+    "code": "09",
+    "name": "Fishing",
+    "abbreviation": null
+  },
+  {
+    "groupCode": "01",
+    "code": "10",
+    "name": "Others",
+    "abbreviation": null
+  },
+  {
+    "groupCode": "01",
+    "code": "11",
+    "name": "Hole Condition/Circulation",
+    "abbreviation": null
+  },
+  {
+    "groupCode": "02",
+    "code": "01",
+    "name": "Nioc Waiting",
+    "abbreviation": null
+  },
+  {
+    "groupCode": "02",
+    "code": "02",
+    "name": "Contractor Waiting",
+    "abbreviation": null
+  },
+  {
+    "groupCode": "02",
+    "code": "03",
+    "name": "Service Company Waiting",
+    "abbreviation": null
+  },
+  {
+    "groupCode": "02",
+    "code": "06",
+    "name": "Other",
+    "abbreviation": null
+  },
+  {
+    "groupCode": "02",
+    "code": "12",
+    "name": "Repair",
+    "abbreviation": null
+  }
+]

@@ -1,0 +1,722 @@
+[
+  {
+    "code": "044",
+    "abbreviation": "rSh",
+    "nameFa": "???",
+    "nameEn": "Red Shale"
+  },
+  {
+    "code": "057",
+    "abbreviation": "Mcgl",
+    "nameFa": "0",
+    "nameEn": "Microconglomerate"
+  },
+  {
+    "code": "058",
+    "abbreviation": "Lst",
+    "nameFa": null,
+    "nameEn": "LimeStone"
+  },
+  {
+    "code": "059",
+    "abbreviation": "arg Lst",
+    "nameFa": null,
+    "nameEn": "ArgillaceousLimestone"
+  },
+  {
+    "code": "060",
+    "abbreviation": "Mrl Lst",
+    "nameFa": null,
+    "nameEn": "MarlyLimestone"
+  },
+  {
+    "code": "061",
+    "abbreviation": "Sh Lst",
+    "nameFa": null,
+    "nameEn": "shaly Limestone"
+  },
+  {
+    "code": "062",
+    "abbreviation": "Slt Lst",
+    "nameFa": null,
+    "nameEn": "silty Limestone"
+  },
+  {
+    "code": "063",
+    "abbreviation": "sdy Lst",
+    "nameFa": null,
+    "nameEn": "SandyLimestone"
+  },
+  {
+    "code": "064",
+    "abbreviation": "anhd Lst",
+    "nameFa": null,
+    "nameEn": "AnhydraticLimestone"
+  },
+  {
+    "code": "065",
+    "abbreviation": "Chk Lst",
+    "nameFa": null,
+    "nameEn": "ChalkyLimestone"
+  },
+  {
+    "code": "066",
+    "abbreviation": "ool Lst",
+    "nameFa": null,
+    "nameEn": "OoliticLimestone"
+  },
+  {
+    "code": "067",
+    "abbreviation": "Pel Lst",
+    "nameFa": null,
+    "nameEn": "Pelletic Limestone"
+  },
+  {
+    "code": "068",
+    "abbreviation": "peld Lst",
+    "nameFa": null,
+    "nameEn": "Pelletoidal Limestone"
+  },
+  {
+    "code": "069",
+    "abbreviation": "Arg Dol Lst",
+    "nameFa": null,
+    "nameEn": "ArgillaceousDolomiticLimestone"
+  },
+  {
+    "code": "070",
+    "abbreviation": "Anhd dol Lst",
+    "nameFa": null,
+    "nameEn": "Anhydratic Dolomitic Limestone"
+  },
+  {
+    "code": "071",
+    "abbreviation": "cht arg lst",
+    "nameFa": null,
+    "nameEn": "Cherty Argillaceous limeStone"
+  },
+  {
+    "code": "072",
+    "abbreviation": "Cht Lst",
+    "nameFa": null,
+    "nameEn": "ChertyLimestone"
+  },
+  {
+    "code": "073",
+    "abbreviation": "Dol-Lst",
+    "nameFa": null,
+    "nameEn": "Dolomite-Limestone"
+  },
+  {
+    "code": "074",
+    "abbreviation": "ConglLst",
+    "nameFa": null,
+    "nameEn": "ConglLimeStone"
+  },
+  {
+    "code": "075",
+    "abbreviation": "Dol Lst",
+    "nameFa": null,
+    "nameEn": "DolomiticLimestone"
+  },
+  {
+    "code": "077",
+    "abbreviation": "glc arg Lst",
+    "nameFa": null,
+    "nameEn": "GlauconticArgillaceousLimeStone"
+  },
+  {
+    "code": "078",
+    "abbreviation": "glc Lst",
+    "nameFa": null,
+    "nameEn": "Glaucontic LimeStone"
+  },
+  {
+    "code": "079",
+    "abbreviation": "Cht arg Lst",
+    "nameFa": null,
+    "nameEn": "Cherty Argillaceous Limstone"
+  },
+  {
+    "code": "080",
+    "abbreviation": "Calcarn",
+    "nameFa": null,
+    "nameEn": "Calcarenite"
+  },
+  {
+    "code": "081",
+    "abbreviation": "Calcilt",
+    "nameFa": null,
+    "nameEn": "Calcilutite"
+  },
+  {
+    "code": "082",
+    "abbreviation": "Calcird",
+    "nameFa": null,
+    "nameEn": "Calcirudite"
+  },
+  {
+    "code": "083",
+    "abbreviation": "Calcilt",
+    "nameFa": null,
+    "nameEn": "CAlcisiltite"
+  },
+  {
+    "code": "084",
+    "abbreviation": "Piso",
+    "nameFa": null,
+    "nameEn": "Pisolite"
+  },
+  {
+    "code": "085",
+    "abbreviation": "Calc Dol",
+    "nameFa": null,
+    "nameEn": "Calcareous Dolomite"
+  },
+  {
+    "code": "086",
+    "abbreviation": "Chk",
+    "nameFa": null,
+    "nameEn": "Chalk"
+  },
+  {
+    "code": "087",
+    "abbreviation": "anhdDol",
+    "nameFa": null,
+    "nameEn": "AnhydraticDolomite"
+  },
+  {
+    "code": "088",
+    "abbreviation": "Anhd CalcDol",
+    "nameFa": null,
+    "nameEn": "Anhydratic Calcareous dolomit"
+  },
+  {
+    "code": "089",
+    "abbreviation": "Dol",
+    "nameFa": null,
+    "nameEn": "Dolomite"
+  },
+  {
+    "code": "090",
+    "abbreviation": "oolDol",
+    "nameFa": null,
+    "nameEn": "OoliticDolomite"
+  },
+  {
+    "code": "092",
+    "abbreviation": "arg Dol",
+    "nameFa": null,
+    "nameEn": "Argillaceous dolomite"
+  },
+  {
+    "code": "093",
+    "abbreviation": "cht Dol",
+    "nameFa": null,
+    "nameEn": "Cherty dolomit"
+  },
+  {
+    "code": "094",
+    "abbreviation": "Cgl Dol",
+    "nameFa": null,
+    "nameEn": "Conglomeratic Dolomite"
+  },
+  {
+    "code": "095",
+    "abbreviation": "peld Dol",
+    "nameFa": null,
+    "nameEn": "Pelletoidal Dolomite"
+  },
+  {
+    "code": "096",
+    "abbreviation": "pel Dol",
+    "nameFa": null,
+    "nameEn": "Peletic Dolomite"
+  },
+  {
+    "code": "097",
+    "abbreviation": "Py Dol",
+    "nameFa": null,
+    "nameEn": "Pyritic Dolomite"
+  },
+  {
+    "code": "098",
+    "abbreviation": "sdy Dol",
+    "nameFa": null,
+    "nameEn": "Sandy Dolomit"
+  },
+  {
+    "code": "102",
+    "abbreviation": "Phos",
+    "nameFa": null,
+    "nameEn": "Phosphate"
+  },
+  {
+    "code": "103",
+    "abbreviation": "Sct",
+    "nameFa": null,
+    "nameEn": "Silicilyte"
+  },
+  {
+    "code": "104",
+    "abbreviation": "Ra",
+    "nameFa": null,
+    "nameEn": "Radiolarite"
+  },
+  {
+    "code": "105",
+    "abbreviation": "Fld",
+    "nameFa": null,
+    "nameEn": "Feldspar"
+  },
+  {
+    "code": "106",
+    "abbreviation": "An",
+    "nameFa": null,
+    "nameEn": "Andesite"
+  },
+  {
+    "code": "107",
+    "abbreviation": "Db",
+    "nameFa": null,
+    "nameEn": "Diabase"
+  },
+  {
+    "code": "108",
+    "abbreviation": "Dr",
+    "nameFa": null,
+    "nameEn": "Diorite"
+  },
+  {
+    "code": "109",
+    "abbreviation": "Do",
+    "nameFa": null,
+    "nameEn": "Dolerite"
+  },
+  {
+    "code": "110",
+    "abbreviation": "Ex",
+    "nameFa": null,
+    "nameEn": "Extrusive Rock (Volcanic)"
+  },
+  {
+    "code": "111",
+    "abbreviation": "Gb",
+    "nameFa": null,
+    "nameEn": "Gabbro"
+  },
+  {
+    "code": "112",
+    "abbreviation": "Gns",
+    "nameFa": null,
+    "nameEn": "Gneiss"
+  },
+  {
+    "code": "113",
+    "abbreviation": "Gr",
+    "nameFa": null,
+    "nameEn": "Granite"
+  },
+  {
+    "code": "114",
+    "abbreviation": "lg",
+    "nameFa": null,
+    "nameEn": "lgneous"
+  },
+  {
+    "code": "115",
+    "abbreviation": "Plut",
+    "nameFa": null,
+    "nameEn": "Intrusive Rock(Plutonic)"
+  },
+  {
+    "code": "116",
+    "abbreviation": "Marb",
+    "nameFa": null,
+    "nameEn": "Marble"
+  },
+  {
+    "code": "117",
+    "abbreviation": "Metam",
+    "nameFa": null,
+    "nameEn": "Metamorphic rocks"
+  },
+  {
+    "code": "118",
+    "abbreviation": "gnst",
+    "nameFa": null,
+    "nameEn": "Greenstones"
+  },
+  {
+    "code": "119",
+    "abbreviation": "Oph",
+    "nameFa": null,
+    "nameEn": "Ophiolites"
+  },
+  {
+    "code": "120",
+    "abbreviation": "Spnt",
+    "nameFa": null,
+    "nameEn": "Serpentine"
+  },
+  {
+    "code": "121",
+    "abbreviation": "Pyrcl",
+    "nameFa": null,
+    "nameEn": "Pyroclastic"
+  },
+  {
+    "code": "122",
+    "abbreviation": "Rl",
+    "nameFa": null,
+    "nameEn": "Rhyolite"
+  },
+  {
+    "code": "123",
+    "abbreviation": "Sch",
+    "nameFa": null,
+    "nameEn": "Schist"
+  },
+  {
+    "code": "124",
+    "abbreviation": "Sl",
+    "nameFa": null,
+    "nameEn": "Slate"
+  },
+  {
+    "code": "125",
+    "abbreviation": "Sy",
+    "nameFa": null,
+    "nameEn": "Syenite"
+  },
+  {
+    "code": "126",
+    "abbreviation": "Tk",
+    "nameFa": null,
+    "nameEn": "Trachyte"
+  },
+  {
+    "code": "127",
+    "abbreviation": "Tf",
+    "nameFa": null,
+    "nameEn": "Tuff"
+  },
+  {
+    "code": "128",
+    "abbreviation": "Ub",
+    "nameFa": null,
+    "nameEn": "Ultrabasic"
+  },
+  {
+    "code": "129",
+    "abbreviation": "Asph",
+    "nameFa": null,
+    "nameEn": "Asphalt"
+  },
+  {
+    "code": "130",
+    "abbreviation": "P.S",
+    "nameFa": null,
+    "nameEn": "Poor Sample"
+  },
+  {
+    "code": "131",
+    "abbreviation": "Cem",
+    "nameFa": null,
+    "nameEn": "Cement"
+  },
+  {
+    "code": "132",
+    "abbreviation": "n.d.",
+    "nameFa": null,
+    "nameEn": "No Description"
+  },
+  {
+    "code": "133",
+    "abbreviation": "N.S",
+    "nameFa": null,
+    "nameEn": "NoSample"
+  },
+  {
+    "code": "134",
+    "abbreviation": "sdyMrl",
+    "nameFa": null,
+    "nameEn": "SandyMarl"
+  },
+  {
+    "code": "135",
+    "abbreviation": "anMl",
+    "nameFa": null,
+    "nameEn": "AnhydraticMarl"
+  },
+  {
+    "code": "C00",
+    "abbreviation": "Cht",
+    "nameFa": null,
+    "nameEn": "Chert"
+  },
+  {
+    "code": "C01",
+    "abbreviation": "Grv",
+    "nameFa": null,
+    "nameEn": "Gravel"
+  },
+  {
+    "code": "C02",
+    "abbreviation": "Sd",
+    "nameFa": null,
+    "nameEn": "Sand"
+  },
+  {
+    "code": "C03",
+    "abbreviation": "Slt",
+    "nameFa": null,
+    "nameEn": "Silt"
+  },
+  {
+    "code": "C04",
+    "abbreviation": "Cl",
+    "nameFa": null,
+    "nameEn": "Clay"
+  },
+  {
+    "code": "C05",
+    "abbreviation": "Gmb",
+    "nameFa": null,
+    "nameEn": "Gumbo"
+  },
+  {
+    "code": "C06",
+    "abbreviation": "Pt",
+    "nameFa": null,
+    "nameEn": "Peat"
+  },
+  {
+    "code": "C07",
+    "abbreviation": "Lig",
+    "nameFa": null,
+    "nameEn": "zLignite"
+  },
+  {
+    "code": "C08",
+    "abbreviation": "Coal",
+    "nameFa": null,
+    "nameEn": "Coal"
+  },
+  {
+    "code": "C09",
+    "abbreviation": "Salt",
+    "nameFa": null,
+    "nameEn": "Salt"
+  },
+  {
+    "code": "C0a",
+    "abbreviation": "Mic",
+    "nameFa": null,
+    "nameEn": "Mica"
+  },
+  {
+    "code": "C10",
+    "abbreviation": "P.M.Salt",
+    "nameFa": null,
+    "nameEn": "PotassiumMagnesSalts"
+  },
+  {
+    "code": "C11",
+    "abbreviation": "Hal",
+    "nameFa": null,
+    "nameEn": "Halite"
+  },
+  {
+    "code": "C12",
+    "abbreviation": "Anhd",
+    "nameFa": null,
+    "nameEn": "Anhydrite"
+  },
+  {
+    "code": "C13",
+    "abbreviation": "Gyp",
+    "nameFa": null,
+    "nameEn": "Gypsum"
+  },
+  {
+    "code": "C14",
+    "abbreviation": "arg Anhd",
+    "nameFa": null,
+    "nameEn": "Argillaceous Anhydrite"
+  },
+  {
+    "code": "C15",
+    "abbreviation": "Mdst",
+    "nameFa": null,
+    "nameEn": "Mudstone"
+  },
+  {
+    "code": "C16",
+    "abbreviation": "Sh",
+    "nameFa": null,
+    "nameEn": "Shale"
+  },
+  {
+    "code": "C18",
+    "abbreviation": "brnSh",
+    "nameFa": null,
+    "nameEn": "Brown Shale"
+  },
+  {
+    "code": "C19",
+    "abbreviation": "slt Sh",
+    "nameFa": "SiltyShale",
+    "nameEn": "Silty Shale"
+  },
+  {
+    "code": "C20",
+    "abbreviation": "sdy sh",
+    "nameFa": null,
+    "nameEn": "SandyShale"
+  },
+  {
+    "code": "C21",
+    "abbreviation": "calc Sh",
+    "nameFa": "0",
+    "nameEn": "CalcareousShale"
+  },
+  {
+    "code": "C22",
+    "abbreviation": "Red calc Sh",
+    "nameFa": "0",
+    "nameEn": "Red CalcareousShale"
+  },
+  {
+    "code": "C23",
+    "abbreviation": "Py Sh",
+    "nameFa": null,
+    "nameEn": "Pyritic shale"
+  },
+  {
+    "code": "C24",
+    "abbreviation": "MrL",
+    "nameFa": null,
+    "nameEn": "Marl"
+  },
+  {
+    "code": "C25",
+    "abbreviation": "red Mrl",
+    "nameFa": null,
+    "nameEn": "RedMarl"
+  },
+  {
+    "code": "C26",
+    "abbreviation": "gy Mrl",
+    "nameFa": null,
+    "nameEn": "Gray Marl"
+  },
+  {
+    "code": "C27",
+    "abbreviation": "Slt Mrl",
+    "nameFa": null,
+    "nameEn": "SiltyMarl"
+  },
+  {
+    "code": "C28",
+    "abbreviation": "Red silty Mrl",
+    "nameFa": null,
+    "nameEn": "RedSiltyMarl"
+  },
+  {
+    "code": "C29",
+    "abbreviation": "red sdy mrl",
+    "nameFa": null,
+    "nameEn": "Red Sandy Marl"
+  },
+  {
+    "code": "C30",
+    "abbreviation": "calc Mrl",
+    "nameFa": "0",
+    "nameEn": "Calcareous marl"
+  },
+  {
+    "code": "C31",
+    "abbreviation": "red Calc Mrl",
+    "nameFa": "0",
+    "nameEn": "RedCalcareous marl"
+  },
+  {
+    "code": "C32",
+    "abbreviation": "Red anhd Mrl",
+    "nameFa": null,
+    "nameEn": "RedAnhydraticMarl"
+  },
+  {
+    "code": "C33",
+    "abbreviation": "Clst",
+    "nameFa": null,
+    "nameEn": "Claystone"
+  },
+  {
+    "code": "C34",
+    "abbreviation": "slty Clst",
+    "nameFa": null,
+    "nameEn": "SiltyClaystone"
+  },
+  {
+    "code": "C35",
+    "abbreviation": "sdy clst",
+    "nameFa": null,
+    "nameEn": "SandyClaystone"
+  },
+  {
+    "code": "C36",
+    "abbreviation": "Red Clst",
+    "nameFa": null,
+    "nameEn": "Red Claystone"
+  },
+  {
+    "code": "C37",
+    "abbreviation": "rsdClst",
+    "nameFa": null,
+    "nameEn": "Red Sandy Claystone"
+  },
+  {
+    "code": "C38",
+    "abbreviation": "anhd Clst",
+    "nameFa": null,
+    "nameEn": "AnhydraticClaystone"
+  },
+  {
+    "code": "C39",
+    "abbreviation": "Red anhd clst",
+    "nameFa": null,
+    "nameEn": "Red Anhydratic Claystone"
+  },
+  {
+    "code": "C40",
+    "abbreviation": "CalcClst",
+    "nameFa": null,
+    "nameEn": "Calcaleous Claystone"
+  },
+  {
+    "code": "C41",
+    "abbreviation": "Red Calc Clst",
+    "nameFa": null,
+    "nameEn": "RedCalcaleousClaystone"
+  },
+  {
+    "code": "C42",
+    "abbreviation": "Sltst",
+    "nameFa": null,
+    "nameEn": "Siltstone"
+  },
+  {
+    "code": "C43",
+    "abbreviation": "argiAn",
+    "nameFa": "???",
+    "nameEn": "Argil Anhydrite"
+  },
+  {
+    "code": "C44",
+    "abbreviation": "sdy Sltst",
+    "nameFa": null,
+    "nameEn": "Sandy Siltstone"
+  }
+]

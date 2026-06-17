@@ -1,0 +1,94 @@
+[
+  {
+    "code": "00I",
+    "description": "G"
+  },
+  {
+    "code": "BHA",
+    "description": "Change Bottom Hole Assembly"
+  },
+  {
+    "code": "CM",
+    "description": "Condition Mud"
+  },
+  {
+    "code": "CP",
+    "description": "Core Point"
+  },
+  {
+    "code": "DMF",
+    "description": "Downhole Motor Failure"
+  },
+  {
+    "code": "DP",
+    "description": "Drill Plug"
+  },
+  {
+    "code": "DSF",
+    "description": "Drill String Failure"
+  },
+  {
+    "code": "DST",
+    "description": "Drill Stem Test"
+  },
+  {
+    "code": "DTF",
+    "description": "Downhole Tool Failure"
+  },
+  {
+    "code": "FM",
+    "description": "Formation Change"
+  },
+  {
+    "code": "HP",
+    "description": "Hole Problem"
+  },
+  {
+    "code": "HR",
+    "description": "Hours On Bit"
+  },
+  {
+    "code": "LIH",
+    "description": "Left In Hole"
+  },
+  {
+    "code": "LOG",
+    "description": "Run Logs"
+  },
+  {
+    "code": "PP",
+    "description": "Penetration Rates"
+  },
+  {
+    "code": "PR",
+    "description": "Penetration Rate"
+  },
+  {
+    "code": "R/G",
+    "description": "Rig Repair"
+  },
+  {
+    "code": "RIG",
+    "description": "Rig Repair"
+  },
+  {
+    "code": "TD",
+    "description": "Total Depth/Casing Depth"
+  },
+  {
+    "code": "TQ",
+    "description": "Torque"
+  },
+  {
+    "code": "TW",
+    "description": "Twist Off"
+  },
+  {
+    "code": "WC",
+    "description": "Weather Conditions"
+  },
+  {
+    "code": "WO",
+    "description": "Washout Drill String"
+  }
+]

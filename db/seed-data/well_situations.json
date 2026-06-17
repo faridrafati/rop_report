@@ -1,0 +1,138 @@
+[
+  {
+    "code": "00",
+    "name": "Drilling well"
+  },
+  {
+    "code": "01",
+    "name": "Suspended well"
+  },
+  {
+    "code": "02",
+    "name": "Abandoned"
+  },
+  {
+    "code": "03",
+    "name": "Abandoned Dry well"
+  },
+  {
+    "code": "04",
+    "name": "Abandoned oil well"
+  },
+  {
+    "code": "05",
+    "name": "Abandined gas well"
+  },
+  {
+    "code": "06",
+    "name": "Abandoned Oil & Gas well"
+  },
+  {
+    "code": "07",
+    "name": "Abandoned oil & gas show"
+  },
+  {
+    "code": "08",
+    "name": "Abandoned gas & oil show"
+  },
+  {
+    "code": "09",
+    "name": "Oil well"
+  },
+  {
+    "code": "10",
+    "name": "Oil well & gas show"
+  },
+  {
+    "code": "11",
+    "name": "Gas well"
+  },
+  {
+    "code": "12",
+    "name": "Gas well & oil show"
+  },
+  {
+    "code": "13",
+    "name": "Condensate well"
+  },
+  {
+    "code": "14",
+    "name": "Condensate & gas well"
+  },
+  {
+    "code": "15",
+    "name": "Condensate & oil well"
+  },
+  {
+    "code": "16",
+    "name": "Oil & gas well"
+  },
+  {
+    "code": "17",
+    "name": "Dry hole/Oil show"
+  },
+  {
+    "code": "18",
+    "name": "Dry hole/Gas show"
+  },
+  {
+    "code": "19",
+    "name": "Dry/Oil and gas show"
+  },
+  {
+    "code": "20",
+    "name": "Supply well"
+  },
+  {
+    "code": "21",
+    "name": "Storage well"
+  },
+  {
+    "code": "22",
+    "name": "Injection well"
+  },
+  {
+    "code": "23",
+    "name": "Shut in well"
+  },
+  {
+    "code": "24",
+    "name": "Shut in Gas well"
+  },
+  {
+    "code": "25",
+    "name": "Shut in Oil well"
+  },
+  {
+    "code": "26",
+    "name": "Shut in Oil & Gas well"
+  },
+  {
+    "code": "27",
+    "name": "Shut in Gas & Condensate well"
+  },
+  {
+    "code": "28",
+    "name": "Temporary abandoned"
+  },
+  {
+    "code": "29",
+    "name": "Water Observing well"
+  },
+  {
+    "code": "30",
+    "name": "Dry hole"
+  },
+  {
+    "code": "31",
+    "name": "Prospect Location"
+  },
+  {
+    "code": "32",
+    "name": "Orginal hole"
+  },
+  {
+    "code": "33",
+    "name": "Sarvestan(W018S)"
+  }
+]

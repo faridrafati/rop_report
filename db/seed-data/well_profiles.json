@@ -1,0 +1,37 @@
+[
+  {
+    "code": "01",
+    "name": "Vertical",
+    "abbreviation": null
+  },
+  {
+    "code": "02",
+    "name": "Directional",
+    "abbreviation": "Direc."
+  },
+  {
+    "code": "03",
+    "name": "Horizantal",
+    "abbreviation": "Horiz."
+  },
+  {
+    "code": "04",
+    "name": "Side Tracking",
+    "abbreviation": null
+  },
+  {
+    "code": "05",
+    "name": "Multi Lateral",
+    "abbreviation": "Mltl"
+  },
+  {
+    "code": "06",
+    "name": "ReEntry",
+    "abbreviation": null
+  },
+  {
+    "code": "07",
+    "name": "Deviated",
+    "abbreviation": null
+  }
+]

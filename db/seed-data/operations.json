@@ -1,0 +1,294 @@
+[
+  {
+    "code": "ACD",
+    "description": "Time for any accident."
+  },
+  {
+    "code": "BHAF",
+    "description": "Lost time due to BHA failure (DHM, jar stabilizer, basically any BHA component other than surveying or logging tools)"
+  },
+  {
+    "code": "BHB",
+    "description": "Lost time due to bit/BHA Balling."
+  },
+  {
+    "code": "BHS",
+    "description": "Lost time due to well bore instability."
+  },
+  {
+    "code": "BOP",
+    "description": "Lost time due to problems within BOP/well head operation."
+  },
+  {
+    "code": "BOPW",
+    "description": "All operation necessary for the preparation, dissemble, recovery and handling of well head and BOP and relevant test."
+  },
+  {
+    "code": "CAT",
+    "description": "Time actually spent for all the operations necessary to enable any test include pressure test. DST ,... preformed inside casing from the rig up equipment for well test to rig down.This includes tripping for perforations,setting packers and etc."
+  },
+  {
+    "code": "CIC",
+    "description": "Time actually spent for circulating while running casing."
+  },
+  {
+    "code": "CIR",
+    "description": "Time actually spent for circulating and pumping mud while not drilling."
+  },
+  {
+    "code": "CMC",
+    "description": "Time actually spent for all the operations necessary for cementing re-cementing of casing, Liner tieback from rig up to rig down cement head including all line tests."
+  },
+  {
+    "code": "CMT",
+    "description": "Lost time due to cementing (bad cement job)"
+  },
+  {
+    "code": "COMP",
+    "description": "All operation necessary to run the completion : from the end of operation on production casing with bit / scraper on bottom, to starting of the well testing or rig down."
+  },
+  {
+    "code": "COR",
+    "description": "All the operation necessary to recover a core : from make up coring assembly till recover last core."
+  },
+  {
+    "code": "CSG",
+    "description": "All the operation necessary for setting and cementing of casing, liner, tieblack from rig up to run casing till rig down casing and cementing equipment and WOC end."
+  },
+  {
+    "code": "CTP",
+    "description": "All the operation necessary for cleaning and conditioning the well for a particular operation ( logging, testing, run casing , etc.). Starting from making till lay down BHA to clean or conditition hole prior or between operations. For running scraper it i"
+  },
+  {
+    "code": "DCT",
+    "description": "Time actually spent for drilling cement plugs."
+  },
+  {
+    "code": "DD",
+    "description": "Lost time due to Directional Drilling problem. (Directional control & Trajectory)"
+  },
+  {
+    "code": "DFS",
+    "description": "Time actually spent for drilling float collar and shoe."
+  },
+  {
+    "code": "DHO",
+    "description": "Time actually spent for Opening or under reaming an existing pilot hole(rotating time of the bit at the bottom)."
+  },
+  {
+    "code": "DMR",
+    "description": "Time actually spent for drilling (rotating time of the bit at bottom) using a down-hole motor or turbine to drive the bit besides the rotary table or the top drive. The whole drill string is rotating."
+  },
+  {
+    "code": "DMS",
+    "description": "Time actually spent for drilling(rotating time of the bit at bottom) using a down-hole motor or turbine to drive the bit without engaging the rotary table or the top drive."
+  },
+  {
+    "code": "DOT",
+    "description": "Time actually spent for drilling other than formation (rotating time of the bit at bottom)"
+  },
+  {
+    "code": "DRG",
+    "description": "Lost time due to drag. This might not be a lost time code rather than a problem, which has been experienced. if drag were experienced, however it does not have to cause a lost time. It can be recorded as an experience practices only."
+  },
+  {
+    "code": "DRL",
+    "description": "Time actually spent for drilling (rotating time of the bit at bottom) using rotary bottom hole assembly driven by top drive or rotary table."
+  },
+  {
+    "code": "DRLG",
+    "description": "All operations necessary for the hole drilling : rotating the bit for making hole, circulating, tripping, surveying, reaming up BHA, LOT, etc."
+  },
+  {
+    "code": "DSG",
+    "description": "Lost time due to Drill-String filure (pipe wash, thread failed, etc.)"
+  },
+  {
+    "code": "FISH",
+    "description": "Lost time due to fish in hole."
+  },
+  {
+    "code": "FSH",
+    "description": "Time actually spent for working on fish in hole."
+  },
+  {
+    "code": "HC",
+    "description": "Lost time due to Hole Cleaning problem (hole cuttings problem, mud rings, fill in hole pack off)"
+  },
+  {
+    "code": "HTL",
+    "description": "Time actually spent for picking up making, testing, Servicing and lay down of all kinds of drilling. milling or coring BHA."
+  },
+  {
+    "code": "JF",
+    "description": "Lost time due to job failure. If a job (test, completion, whipstock, etc.) was run unsuccessfuly NOT due to tools malfunction or damage or a hole problem."
+  },
+  {
+    "code": "LDP",
+    "description": "Lay down pipe"
+  },
+  {
+    "code": "LOC",
+    "description": "Lost time due to loss of circulation"
+  },
+  {
+    "code": "LOG",
+    "description": "All the operations necessary for logging : from rigging up logging unit to rigging down after the last logging run at the same depth."
+  },
+  {
+    "code": "LOT",
+    "description": "Time actually spent for conducting leak off or formation integrity test."
+  },
+  {
+    "code": "MILL",
+    "description": "All the operations necessary for milling material in well, casing mill-out. From making up till lay down milling assembly include accompanied trip in/out. circulating besides the milling operation."
+  },
+  {
+    "code": "MLG",
+    "description": "Time actually spent for milling operations(Windows junk casing). Rotating time of the mill bit."
+  },
+  {
+    "code": "MUD",
+    "description": "Lost time due to loss of circulation"
+  },
+  {
+    "code": "NT",
+    "description": "No Trouble, This is compulsory to be filled in the case of no problem or trouble."
+  },
+  {
+    "code": "OHT",
+    "description": "Time actually spent for all the operations necessary to enable any open hole tests starts from make up and trip in with test assembly till It pulled out after finishing test."
+  },
+  {
+    "code": "OTH",
+    "description": "Lost time due to unlisted problems"
+  },
+  {
+    "code": "PAG",
+    "description": "All the operation necessary to perform the permanent abandoning of the well from starting of run in hole of the string (DP, wire ling & coiled tubing) for the positioning of the first plug (cement, bridge,etc), to end of operation on the well."
+  },
+  {
+    "code": "POR",
+    "description": "Time actually spent to retrieve all riser pipe."
+  },
+  {
+    "code": "POV",
+    "description": "Time actually spent for positioning the rig over the drilling slot."
+  },
+  {
+    "code": "RCS",
+    "description": "Time actually spent for running casing, liner and tieback. Time includes rig up, run casing tubing and rig down casing tubing equipment."
+  },
+  {
+    "code": "RD",
+    "description": "All the operations for rig down including all the operations for rig site, anchoring, jacking up/down. ballast and various testing till the rig released."
+  },
+  {
+    "code": "RDN",
+    "description": "Time actually spent for rigging down the drilling rig."
+  },
+  {
+    "code": "RDR",
+    "description": "Time actually spent to lowering down the riser to the sea bed."
+  },
+  {
+    "code": "RM",
+    "description": "All the operation for rig moving from one location to another. Mob/Demobilization."
+  },
+  {
+    "code": "RO",
+    "description": "Lost time due to Repairing service company`s equipment (for service inspection or repair equipment other than rig`s equipment (service company))"
+  },
+  {
+    "code": "ROE",
+    "description": "All repair and routine service for other than rigs equipment."
+  },
+  {
+    "code": "ROP",
+    "description": "Lost time due to low ROP (due to choosing wrong bit type for formation, normally changing bit after few hours of drilling with new bit)"
+  },
+  {
+    "code": "RR",
+    "description": "Time actually spent for all repair and routine service for rigs equipment include slip and out drilling ane. service top drive and etc."
+  },
+  {
+    "code": "RU",
+    "description": "All the operation for rig up including all the operations for rig site, anchoring, jacking up/down, ballast and various testing."
+  },
+  {
+    "code": "RW",
+    "description": "Time actually spent for wiper trips and reaming including short trips, reaming, wiper trip.etc."
+  },
+  {
+    "code": "S",
+    "description": "Lost time due to surveying (mis-runs)"
+  },
+  {
+    "code": "SAC",
+    "description": "Unrelated to casing and making hole."
+  },
+  {
+    "code": "SRV",
+    "description": "Time actually spent for syrveying a well while not drilling."
+  },
+  {
+    "code": "STK",
+    "description": "Lost time due to pipe stuck"
+  },
+  {
+    "code": "STRK",
+    "description": "All the operation necessary for preparation and side tracking from an existing well. Starts from setting cement plug till drill a new hole formation."
+  },
+  {
+    "code": "SUS",
+    "description": "All operations necessary to perfrom the temporary abandoning of the well : from starting of run in hole of the string(DP, wire line & coiled tubing) for the positioning of the first plug (cement, bridge. etc). or running a casing, to end of operation on t"
+  },
+  {
+    "code": "TEST",
+    "description": "All operation necessary to enable the well to discharge : from the rig up of the equipment for well test to rig down."
+  },
+  {
+    "code": "TF",
+    "description": "Lost time due to tools Failture (down hole or surface). mainly service Company`s tools."
+  },
+  {
+    "code": "TH",
+    "description": "Lost time due to tight Hole."
+  },
+  {
+    "code": "TIN",
+    "description": "Time actually spent for tripping BHA in hole from surface to TD."
+  },
+  {
+    "code": "TOV",
+    "description": "Time actually spent for tripping BHA out of hole from TD to surface."
+  },
+  {
+    "code": "TRQ",
+    "description": "Lost time due to excessive Torque. This might not be a Lost time code rather than a problem, which has been experienced. If torque were experienced, however it does not have to cause a lost time. It can be recorded as an experience practices only."
+  },
+  {
+    "code": "WC",
+    "description": "Lost time due to well control problems."
+  },
+  {
+    "code": "WCT",
+    "description": "Time actually spent for all operations involved to control pressures inside the well."
+  },
+  {
+    "code": "WO",
+    "description": "Lost time due to waiting on materials, personal, services."
+  },
+  {
+    "code": "WOC",
+    "description": "Time actually spent for waiting on cement to be hard enough to resume next activity."
+  },
+  {
+    "code": "WOW",
+    "description": "Lost time due to Waiting on Weather."
+  },
+  {
+    "code": "WTO",
+    "description": "Time actually spent for general waiting on weather materials. services, personnel including time taken to put the well in safe conditions and restore the same."
+  }
+]

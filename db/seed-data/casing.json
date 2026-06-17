@@ -1,0 +1,1572 @@
+[
+  {
+    "code": "001",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "29",
+    "grade": "C75",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "010",
+    "name": "13 3/8",
+    "od": 13.375,
+    "id": null,
+    "ppf": "72",
+    "grade": "N-80",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "011",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "47",
+    "grade": "N-80",
+    "thread": "VAM",
+    "make": null
+  },
+  {
+    "code": "012",
+    "name": "11 3/8\"",
+    "od": 11.375,
+    "id": null,
+    "ppf": null,
+    "grade": null,
+    "thread": null,
+    "make": null
+  },
+  {
+    "code": "020",
+    "name": "13 3/8",
+    "od": 13.375,
+    "id": null,
+    "ppf": "68",
+    "grade": "J-55",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "021",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "47",
+    "grade": "N-80",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "100",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "47",
+    "grade": "N-80",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "200",
+    "name": "5",
+    "od": 5.0,
+    "id": null,
+    "ppf": "18",
+    "grade": "N-80",
+    "thread": "VAM",
+    "make": null
+  },
+  {
+    "code": "201",
+    "name": "20",
+    "od": 20.0,
+    "id": null,
+    "ppf": "133",
+    "grade": "k55",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "202",
+    "name": "20",
+    "od": 20.0,
+    "id": null,
+    "ppf": "106.5",
+    "grade": "k55",
+    "thread": null,
+    "make": null
+  },
+  {
+    "code": "203",
+    "name": "20",
+    "od": 20.0,
+    "id": null,
+    "ppf": "94",
+    "grade": "k55",
+    "thread": null,
+    "make": null
+  },
+  {
+    "code": "204",
+    "name": "18 5/8",
+    "od": 18.625,
+    "id": null,
+    "ppf": "87.5",
+    "grade": "J55",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "205",
+    "name": "3 1/2",
+    "od": 3.5,
+    "id": null,
+    "ppf": "9.2",
+    "grade": "N-80",
+    "thread": "VAM",
+    "make": null
+  },
+  {
+    "code": "206",
+    "name": "5",
+    "od": 5.0,
+    "id": null,
+    "ppf": "18",
+    "grade": "TRC-95",
+    "thread": "SEC",
+    "make": "<NULLl>"
+  },
+  {
+    "code": "207",
+    "name": "30",
+    "od": 30.0,
+    "id": null,
+    "ppf": "234",
+    "grade": "RL4",
+    "thread": "RS4",
+    "make": "<NULLl>"
+  },
+  {
+    "code": "208",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "58.4",
+    "grade": "V150",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "209",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "V150",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "210",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "p110",
+    "thread": "SEC",
+    "make": null
+  },
+  {
+    "code": "211",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "L80",
+    "thread": "SEC",
+    "make": null
+  },
+  {
+    "code": "212",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "47",
+    "grade": "L80",
+    "thread": "PTB",
+    "make": null
+  },
+  {
+    "code": "213",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "43.5",
+    "grade": "L80",
+    "thread": "SEC",
+    "make": null
+  },
+  {
+    "code": "214",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "29",
+    "grade": "N80",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "215",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "29",
+    "grade": "N80",
+    "thread": "VAM",
+    "make": null
+  },
+  {
+    "code": "216",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "29",
+    "grade": "L80",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "217",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "29",
+    "grade": "N80",
+    "thread": "VAM",
+    "make": null
+  },
+  {
+    "code": "218",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "32",
+    "grade": "C75",
+    "thread": "VAM",
+    "make": null
+  },
+  {
+    "code": "219",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "L80",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "220",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "43.5",
+    "grade": "L80",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "221",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "P110",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "222",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "V150",
+    "thread": "SEC",
+    "make": null
+  },
+  {
+    "code": "223",
+    "name": "13 3/8",
+    "od": 13.375,
+    "id": null,
+    "ppf": "72",
+    "grade": "S95",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "224",
+    "name": "5",
+    "od": 5.0,
+    "id": 4.276,
+    "ppf": "18",
+    "grade": "L80",
+    "thread": "VFJ",
+    "make": null
+  },
+  {
+    "code": "225",
+    "name": "20",
+    "od": 20.0,
+    "id": null,
+    "ppf": "94",
+    "grade": "H-40",
+    "thread": "8RD",
+    "make": null
+  },
+  {
+    "code": "226",
+    "name": "13 3/8",
+    "od": 13.375,
+    "id": null,
+    "ppf": "72",
+    "grade": "N-80",
+    "thread": "8RD",
+    "make": null
+  },
+  {
+    "code": "227",
+    "name": "13 3/8",
+    "od": 13.375,
+    "id": null,
+    "ppf": "68",
+    "grade": "J-55",
+    "thread": "8RD",
+    "make": null
+  },
+  {
+    "code": "228",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "47",
+    "grade": "N-80",
+    "thread": "8RD",
+    "make": null
+  },
+  {
+    "code": "229",
+    "name": "7",
+    "od": 7.0,
+    "id": 6.184,
+    "ppf": "29",
+    "grade": "N-80",
+    "thread": "X-LINE",
+    "make": null
+  },
+  {
+    "code": "230",
+    "name": "7",
+    "od": 7.0,
+    "id": 6.184,
+    "ppf": "29",
+    "grade": "N-80",
+    "thread": "8RD",
+    "make": null
+  },
+  {
+    "code": "231",
+    "name": "13 3/8",
+    "od": 13.375,
+    "id": null,
+    "ppf": "72",
+    "grade": "N-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "232",
+    "name": "4 1/2",
+    "od": 4.5,
+    "id": 3.92,
+    "ppf": "13.5",
+    "grade": "C75",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "250",
+    "name": "30",
+    "od": 30.0,
+    "id": null,
+    "ppf": "310",
+    "grade": "52-X",
+    "thread": "RL-4",
+    "make": null
+  },
+  {
+    "code": "251",
+    "name": "20",
+    "od": 20.0,
+    "id": null,
+    "ppf": "106.5",
+    "grade": "K-55",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "252",
+    "name": "20",
+    "od": 20.0,
+    "id": null,
+    "ppf": "133",
+    "grade": "J-55",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "253",
+    "name": "18 5/8",
+    "od": 18.625,
+    "id": null,
+    "ppf": "87.5",
+    "grade": "J-55",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "254",
+    "name": "18 5/8",
+    "od": 18.625,
+    "id": null,
+    "ppf": "87.5",
+    "grade": "J-E",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "255",
+    "name": "13 3/8",
+    "od": 13.625,
+    "id": null,
+    "ppf": "68",
+    "grade": "J-55",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "256",
+    "name": "13 3/8",
+    "od": 13.625,
+    "id": null,
+    "ppf": "68",
+    "grade": "L-80",
+    "thread": "SEC",
+    "make": null
+  },
+  {
+    "code": "257",
+    "name": "13 3/8",
+    "od": 13.625,
+    "id": null,
+    "ppf": "72",
+    "grade": "VTS-95",
+    "thread": "VAM",
+    "make": null
+  },
+  {
+    "code": "258",
+    "name": "13 3/8",
+    "od": 13.625,
+    "id": null,
+    "ppf": "72",
+    "grade": "N-80",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "259",
+    "name": "13 3/8",
+    "od": 13.625,
+    "id": null,
+    "ppf": "72",
+    "grade": "J-55",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "260",
+    "name": "13 3/8",
+    "od": 13.625,
+    "id": null,
+    "ppf": "72",
+    "grade": "N-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "261",
+    "name": "13 3/8",
+    "od": 13.625,
+    "id": null,
+    "ppf": "72",
+    "grade": "TAC-95",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "262",
+    "name": "13 5/8",
+    "od": 13.625,
+    "id": null,
+    "ppf": "88.2",
+    "grade": "C-95",
+    "thread": "SEC",
+    "make": null
+  },
+  {
+    "code": "263",
+    "name": "13 5/8",
+    "od": 13.625,
+    "id": null,
+    "ppf": "88.2",
+    "grade": "N-80",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "264",
+    "name": "13 5/8",
+    "od": 13.625,
+    "id": null,
+    "ppf": "88.2",
+    "grade": "C-95",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "265",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "43.5",
+    "grade": "L-80",
+    "thread": "8-RD",
+    "make": null
+  },
+  {
+    "code": "266",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "43.5",
+    "grade": "L-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "267",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "43.5",
+    "grade": "N-80",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "268",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "43.5",
+    "grade": "N-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "269",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "47",
+    "grade": "L-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "270",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "47",
+    "grade": "L-80",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "271",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "47",
+    "grade": "N-80",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "272",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "47",
+    "grade": "N-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "273",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "47",
+    "grade": "P-110",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "274",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "DST-150",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "275",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "L-80",
+    "thread": "BDS",
+    "make": null
+  },
+  {
+    "code": "276",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "L-80",
+    "thread": "SEC",
+    "make": null
+  },
+  {
+    "code": "277",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "N-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "278",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "NT-80",
+    "thread": "BDS",
+    "make": null
+  },
+  {
+    "code": "279",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "P-110",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "280",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "58.4",
+    "grade": "C-150",
+    "thread": "NS-CC",
+    "make": null
+  },
+  {
+    "code": "281",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "58.4",
+    "grade": "DWS-150",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "282",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "29",
+    "grade": "L-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "283",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "29",
+    "grade": "N-80",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "284",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "29",
+    "grade": "N-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "285",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "29",
+    "grade": "P-110",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "286",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "32",
+    "grade": "L-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "287",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "32",
+    "grade": "P-110",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "288",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "35",
+    "grade": "L-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "289",
+    "name": "5 1/2",
+    "od": 5.5,
+    "id": null,
+    "ppf": "17",
+    "grade": "C-75",
+    "thread": "VAM",
+    "make": null
+  },
+  {
+    "code": "290",
+    "name": "5 1/2",
+    "od": 5.5,
+    "id": null,
+    "ppf": "20",
+    "grade": "L-80",
+    "thread": "SEC",
+    "make": null
+  },
+  {
+    "code": "291",
+    "name": "5",
+    "od": 5.0,
+    "id": null,
+    "ppf": "18",
+    "grade": "L-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "292",
+    "name": "5",
+    "od": 5.0,
+    "id": null,
+    "ppf": "18",
+    "grade": "L-80",
+    "thread": "VAM FLJ",
+    "make": null
+  },
+  {
+    "code": "293",
+    "name": "5",
+    "od": 5.0,
+    "id": null,
+    "ppf": "18",
+    "grade": "N-80",
+    "thread": "H-FLG",
+    "make": null
+  },
+  {
+    "code": "294",
+    "name": "5",
+    "od": 5.0,
+    "id": null,
+    "ppf": "18",
+    "grade": "TRC-95",
+    "thread": "SEC",
+    "make": null
+  },
+  {
+    "code": "295",
+    "name": "4 1/2",
+    "od": 4.5,
+    "id": null,
+    "ppf": "13.5",
+    "grade": "C-75",
+    "thread": "VAM",
+    "make": null
+  },
+  {
+    "code": "296",
+    "name": "4 1/2",
+    "od": 4.5,
+    "id": null,
+    "ppf": "13.5",
+    "grade": "L-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "297",
+    "name": "4 1/2",
+    "od": 4.5,
+    "id": null,
+    "ppf": "13.5",
+    "grade": "N-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "298",
+    "name": "4",
+    "od": 4.0,
+    "id": null,
+    "ppf": "10.9",
+    "grade": "L-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "299",
+    "name": "4",
+    "od": 4.0,
+    "id": null,
+    "ppf": "10.9",
+    "grade": "C-75",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "300",
+    "name": "3 1/2",
+    "od": 3.5,
+    "id": null,
+    "ppf": "9.2",
+    "grade": "L-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "301",
+    "name": "3 1/2",
+    "od": 3.5,
+    "id": null,
+    "ppf": "9.2",
+    "grade": "N-80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "302",
+    "name": "2 7/8",
+    "od": 2.875,
+    "id": null,
+    "ppf": "6.5",
+    "grade": "N-80",
+    "thread": "EUE",
+    "make": null
+  },
+  {
+    "code": "303",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "47",
+    "grade": "L-80",
+    "thread": "PJE",
+    "make": null
+  },
+  {
+    "code": "304",
+    "name": "13 3/8",
+    "od": 13.375,
+    "id": null,
+    "ppf": "72",
+    "grade": "C-95TS",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "305",
+    "name": "13 3/8",
+    "od": 13.375,
+    "id": null,
+    "ppf": "80.7",
+    "grade": "C-95",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "306",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "43.5",
+    "grade": "C-75",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "307",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "47",
+    "grade": "C-75",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "308",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "C-75",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "309",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "29",
+    "grade": "L-80",
+    "thread": "VAM",
+    "make": null
+  },
+  {
+    "code": "310",
+    "name": "18 5/8",
+    "od": 18.625,
+    "id": null,
+    "ppf": "87.5",
+    "grade": "K55",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "311",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "29",
+    "grade": "L-80",
+    "thread": "SEC",
+    "make": null
+  },
+  {
+    "code": "312",
+    "name": "13 3/8",
+    "od": 13.375,
+    "id": null,
+    "ppf": "72",
+    "grade": "NK95T",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "313",
+    "name": "5",
+    "od": 5.0,
+    "id": null,
+    "ppf": "18",
+    "grade": "N-80",
+    "thread": "FL3S",
+    "make": null
+  },
+  {
+    "code": "314",
+    "name": "5",
+    "od": 5.0,
+    "id": null,
+    "ppf": "19",
+    "grade": "N-80",
+    "thread": "FL3S",
+    "make": null
+  },
+  {
+    "code": "315",
+    "name": "13 3/8",
+    "od": 13.375,
+    "id": null,
+    "ppf": "72",
+    "grade": "J-55",
+    "thread": "TPCQ",
+    "make": null
+  },
+  {
+    "code": "316",
+    "name": "30",
+    "od": 30.0,
+    "id": null,
+    "ppf": "234",
+    "grade": "X-52",
+    "thread": "RL-4",
+    "make": "<NULLl>"
+  },
+  {
+    "code": "317",
+    "name": "20",
+    "od": null,
+    "id": null,
+    "ppf": "133",
+    "grade": "K55",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "318",
+    "name": "13 3/8",
+    "od": null,
+    "id": null,
+    "ppf": "68",
+    "grade": "N80",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "319",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "L80",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "320",
+    "name": "13 3/8",
+    "od": 13.375,
+    "id": null,
+    "ppf": "68",
+    "grade": "N80",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "321",
+    "name": "7",
+    "od": null,
+    "id": null,
+    "ppf": "29",
+    "grade": "C75",
+    "thread": "VAM",
+    "make": null
+  },
+  {
+    "code": "322",
+    "name": "5",
+    "od": null,
+    "id": null,
+    "ppf": "15",
+    "grade": "C75",
+    "thread": "VAM",
+    "make": null
+  },
+  {
+    "code": "323",
+    "name": "18 5/8",
+    "od": 18.5,
+    "id": null,
+    "ppf": "87.5",
+    "grade": "G55",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "324",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "72",
+    "grade": "P110",
+    "thread": "SEC",
+    "make": null
+  },
+  {
+    "code": "325",
+    "name": "13 3/8",
+    "od": 13.375,
+    "id": null,
+    "ppf": "68",
+    "grade": "N80",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "326",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "72",
+    "grade": "L80",
+    "thread": "HSM1",
+    "make": null
+  },
+  {
+    "code": "327",
+    "name": "9 5/8",
+    "od": 9.0,
+    "id": 8.435,
+    "ppf": "58.4",
+    "grade": "SM110",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "328",
+    "name": "9 5/8",
+    "od": 9.0,
+    "id": 8.435,
+    "ppf": "58.4",
+    "grade": "SM110",
+    "thread": "HSM1",
+    "make": null
+  },
+  {
+    "code": "329",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "V150",
+    "thread": "HSM1",
+    "make": null
+  },
+  {
+    "code": "330",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "P110",
+    "thread": "HSM1",
+    "make": null
+  },
+  {
+    "code": "331",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "47",
+    "grade": "L80",
+    "thread": "HSM1",
+    "make": null
+  },
+  {
+    "code": "332",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "43.5",
+    "grade": "L80",
+    "thread": "HSM1",
+    "make": null
+  },
+  {
+    "code": "333",
+    "name": "13 3/8",
+    "od": 13.0,
+    "id": null,
+    "ppf": "72",
+    "grade": "L-80",
+    "thread": "BTS",
+    "make": null
+  },
+  {
+    "code": "334",
+    "name": "13 5/8",
+    "od": 13.625,
+    "id": null,
+    "ppf": "88.2",
+    "grade": "T-95",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "335",
+    "name": "13 3/8",
+    "od": 13.375,
+    "id": null,
+    "ppf": "72",
+    "grade": "T-95",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "336",
+    "name": "28",
+    "od": null,
+    "id": null,
+    "ppf": "218.27",
+    "grade": "5LG.B",
+    "thread": "RL-4",
+    "make": null
+  },
+  {
+    "code": "337",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "58.4",
+    "grade": "P-110",
+    "thread": "HSM1",
+    "make": null
+  },
+  {
+    "code": "338",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "L-80",
+    "thread": "HSM1",
+    "make": null
+  },
+  {
+    "code": "339",
+    "name": "13 5/8",
+    "od": null,
+    "id": null,
+    "ppf": null,
+    "grade": "T95",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "340",
+    "name": "13 5/8",
+    "od": null,
+    "id": null,
+    "ppf": null,
+    "grade": "HG95",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "341",
+    "name": "13 3/8",
+    "od": null,
+    "id": null,
+    "ppf": null,
+    "grade": "N80",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "342",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "58.4",
+    "grade": "V-150",
+    "thread": "HSM-1",
+    "make": null
+  },
+  {
+    "code": "343",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "58.4",
+    "grade": "SM-110",
+    "thread": "HSM-1",
+    "make": null
+  },
+  {
+    "code": "344",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "P-110",
+    "thread": "HSM-1",
+    "make": null
+  },
+  {
+    "code": "345",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "47",
+    "grade": "L-80",
+    "thread": "HSM-1",
+    "make": null
+  },
+  {
+    "code": "346",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "58.4",
+    "grade": "V150",
+    "thread": "HSM1",
+    "make": null
+  },
+  {
+    "code": "347",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "L-80",
+    "thread": "HSM1",
+    "make": null
+  },
+  {
+    "code": "348",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "43.5",
+    "grade": "N-80",
+    "thread": "PJE",
+    "make": null
+  },
+  {
+    "code": "349",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "N-80",
+    "thread": "PJE",
+    "make": null
+  },
+  {
+    "code": "350",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "L-80",
+    "thread": "PJE",
+    "make": null
+  },
+  {
+    "code": "351",
+    "name": "20",
+    "od": 20.0,
+    "id": null,
+    "ppf": "106.5",
+    "grade": "J-55",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "352",
+    "name": "9 5/8",
+    "od": 9.625,
+    "id": null,
+    "ppf": "43.5",
+    "grade": "L-80",
+    "thread": "HSM1",
+    "make": null
+  },
+  {
+    "code": "353",
+    "name": "9 5/8",
+    "od": 9.0,
+    "id": null,
+    "ppf": "58.4",
+    "grade": "P-110",
+    "thread": "HSM1",
+    "make": null
+  },
+  {
+    "code": "354",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "29",
+    "grade": "L-80",
+    "thread": "TPCQ",
+    "make": null
+  },
+  {
+    "code": "355",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "CT150",
+    "thread": "VAMTOP",
+    "make": null
+  },
+  {
+    "code": "356",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "29",
+    "grade": "L-80",
+    "thread": "HSM1",
+    "make": null
+  },
+  {
+    "code": "357",
+    "name": "5",
+    "od": 5.0,
+    "id": null,
+    "ppf": "18",
+    "grade": "L-80",
+    "thread": "HSM1",
+    "make": null
+  },
+  {
+    "code": "358",
+    "name": "5",
+    "od": 5.0,
+    "id": null,
+    "ppf": "18",
+    "grade": "P-110",
+    "thread": "VFJ",
+    "make": null
+  },
+  {
+    "code": "359",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "29",
+    "grade": "L-80",
+    "thread": "PJE",
+    "make": null
+  },
+  {
+    "code": "360",
+    "name": "5",
+    "od": 5.0,
+    "id": null,
+    "ppf": "18",
+    "grade": "L-80",
+    "thread": "CSTZ",
+    "make": null
+  },
+  {
+    "code": "361",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "43.5",
+    "grade": "L-80",
+    "thread": "PJE",
+    "make": null
+  },
+  {
+    "code": "362",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "P-110",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "363",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "53.5",
+    "grade": "V-150",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "364",
+    "name": "9 5/8",
+    "od": null,
+    "id": null,
+    "ppf": "58.4",
+    "grade": "V-150",
+    "thread": "BTC",
+    "make": null
+  },
+  {
+    "code": "365",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "35",
+    "grade": "P-110",
+    "thread": "N.VAM",
+    "make": null
+  },
+  {
+    "code": "366",
+    "name": "7",
+    "od": 7.0,
+    "id": null,
+    "ppf": "35",
+    "grade": "P-110",
+    "thread": "TPCQ",
+    "make": null
+  }
+]

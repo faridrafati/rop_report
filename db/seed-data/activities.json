@@ -1,0 +1,522 @@
+[
+  {
+    "groupCode": "01",
+    "typeCode": "01",
+    "code": "001",
+    "name": "Rigging & Moving",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "02",
+    "code": "001",
+    "name": "Drilling Time",
+    "abbreviation": null,
+    "operationCode": 32
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "02",
+    "code": "002",
+    "name": "Round Trip",
+    "abbreviation": null,
+    "operationCode": 8
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "02",
+    "code": "003",
+    "name": "Bop Testing",
+    "abbreviation": null,
+    "operationCode": 9
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "02",
+    "code": "005",
+    "name": "R.Dev & Rig Serv.",
+    "abbreviation": null,
+    "operationCode": 33
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "02",
+    "code": "006",
+    "name": "Directional Drilling",
+    "abbreviation": null,
+    "operationCode": 34
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "03",
+    "code": "001",
+    "name": "Casing & Tubing",
+    "abbreviation": null,
+    "operationCode": 36
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "03",
+    "code": "002",
+    "name": "Cementing",
+    "abbreviation": null,
+    "operationCode": 15
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "03",
+    "code": "003",
+    "name": "Nip.up/Drill Out",
+    "abbreviation": null,
+    "operationCode": 37
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "04",
+    "code": "001",
+    "name": "Testing",
+    "abbreviation": null,
+    "operationCode": 16
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "04",
+    "code": "002",
+    "name": "Coring",
+    "abbreviation": null,
+    "operationCode": 19
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "04",
+    "code": "003",
+    "name": "Logging",
+    "abbreviation": null,
+    "operationCode": 17
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "05",
+    "code": "002",
+    "name": "Wash out & UnPlug Bit",
+    "abbreviation": null,
+    "operationCode": 47
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "05",
+    "code": "003",
+    "name": "Side Track Fish",
+    "abbreviation": null,
+    "operationCode": 46
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "05",
+    "code": "004",
+    "name": "Loss & Flow",
+    "abbreviation": null,
+    "operationCode": 44
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "05",
+    "code": "005",
+    "name": "Force Majeure",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "07",
+    "code": "001",
+    "name": "Non Obvious Nioc Waiting",
+    "abbreviation": null,
+    "operationCode": 42
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "07",
+    "code": "002",
+    "name": "Non Obvious Contractor Waiting",
+    "abbreviation": null,
+    "operationCode": 42
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "08",
+    "code": "001",
+    "name": "POH Completion",
+    "abbreviation": null,
+    "operationCode": 39
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "08",
+    "code": "002",
+    "name": "Abandonment",
+    "abbreviation": null,
+    "operationCode": 39
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "08",
+    "code": "003",
+    "name": "Suspension",
+    "abbreviation": null,
+    "operationCode": 39
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "08",
+    "code": "004",
+    "name": "RIH Completion",
+    "abbreviation": null,
+    "operationCode": 39
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "08",
+    "code": "005",
+    "name": "Acidizing",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "08",
+    "code": "006",
+    "name": "Perforation",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "09",
+    "code": "001",
+    "name": "Fishing",
+    "abbreviation": null,
+    "operationCode": 45
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "10",
+    "code": "001",
+    "name": "Opening Window",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "10",
+    "code": "002",
+    "name": "Under Balanced Drilling",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "10",
+    "code": "003",
+    "name": "Multi Lateral Drilling",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "10",
+    "code": "004",
+    "name": "Other",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "11",
+    "code": "001",
+    "name": "Hole Condition",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "11",
+    "code": "002",
+    "name": "Circulation",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "01",
+    "typeCode": "11",
+    "code": "003",
+    "name": "Killing",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "01",
+    "code": "001",
+    "name": "E & C",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "01",
+    "code": "002",
+    "name": "Materials",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "01",
+    "code": "003",
+    "name": "Equipments",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "01",
+    "code": "004",
+    "name": "Petroleum Eng.",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "01",
+    "code": "005",
+    "name": "Geology",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "01",
+    "code": "006",
+    "name": "Drilling",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "01",
+    "code": "007",
+    "name": "Boat",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "01",
+    "code": "008",
+    "name": "HeliCopter",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "01",
+    "code": "009",
+    "name": "Well Head & WireLine",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "01",
+    "code": "010",
+    "name": "Nioc Others",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "02",
+    "code": "001",
+    "name": "Power Section",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "02",
+    "code": "002",
+    "name": "Drive Section",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "02",
+    "code": "003",
+    "name": "Hydrolic Section",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "02",
+    "code": "004",
+    "name": "Personels",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "02",
+    "code": "005",
+    "name": "Transportation",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "02",
+    "code": "006",
+    "name": "Others",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "03",
+    "code": "001",
+    "name": "Logging Services",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "03",
+    "code": "002",
+    "name": "Directional Drilling",
+    "abbreviation": null,
+    "operationCode": 34
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "03",
+    "code": "003",
+    "name": "Coiled Tubing",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "03",
+    "code": "004",
+    "name": "Mud Services",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "03",
+    "code": "005",
+    "name": "Perforating",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "03",
+    "code": "006",
+    "name": "Cementing Services",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "03",
+    "code": "007",
+    "name": "Coring",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "03",
+    "code": "008",
+    "name": "Formation Testing",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "03",
+    "code": "009",
+    "name": "Others",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "03",
+    "code": "010",
+    "name": "Mud Logging",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "03",
+    "code": "011",
+    "name": "Under Balanced Drilling",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "06",
+    "code": "002",
+    "name": "Nioc Waiting",
+    "abbreviation": null,
+    "operationCode": 50
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "06",
+    "code": "003",
+    "name": "Contractor Waiting",
+    "abbreviation": null,
+    "operationCode": 51
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "06",
+    "code": "004",
+    "name": "Service Company Waiting",
+    "abbreviation": null,
+    "operationCode": 55
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "06",
+    "code": "005",
+    "name": "Other Waiting",
+    "abbreviation": null,
+    "operationCode": 56
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "12",
+    "code": "001",
+    "name": "Repair",
+    "abbreviation": null,
+    "operationCode": null
+  },
+  {
+    "groupCode": "02",
+    "typeCode": "12",
+    "code": "002",
+    "name": "Rig Serv",
+    "abbreviation": null,
+    "operationCode": null
+  }
+]

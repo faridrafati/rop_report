@@ -1,0 +1,58 @@
+[
+  {
+    "code": "00",
+    "name": "CNPC"
+  },
+  {
+    "code": "01",
+    "name": "NIDC"
+  },
+  {
+    "code": "02",
+    "name": "CTI"
+  },
+  {
+    "code": "03",
+    "name": "SEDCO"
+  },
+  {
+    "code": "04",
+    "name": "Slb"
+  },
+  {
+    "code": "05",
+    "name": "Haliburton"
+  },
+  {
+    "code": "06",
+    "name": "Baker Hughes"
+  },
+  {
+    "code": "07",
+    "name": "Jason"
+  },
+  {
+    "code": "08",
+    "name": "Intair"
+  },
+  {
+    "code": "09",
+    "name": "Reading & Bates"
+  },
+  {
+    "code": "10",
+    "name": "Oriental Oil Kish"
+  },
+  {
+    "code": "11",
+    "name": "NDCO"
+  },
+  {
+    "code": "12",
+    "name": "PEDEX"
+  },
+  {
+    "code": "13",
+    "name": "GWDC"
+  }
+]

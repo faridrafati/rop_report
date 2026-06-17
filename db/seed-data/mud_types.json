@@ -1,0 +1,352 @@
+[
+  {
+    "code": "01",
+    "name": "Oil Base Mud",
+    "abbreviation": null
+  },
+  {
+    "code": "02",
+    "name": "Water Base Mud",
+    "abbreviation": null
+  },
+  {
+    "code": "03",
+    "name": "Polimeric mud",
+    "abbreviation": null
+  },
+  {
+    "code": "04",
+    "name": "Air Foam",
+    "abbreviation": null
+  },
+  {
+    "code": "05",
+    "name": "Aerated Mud",
+    "abbreviation": null
+  },
+  {
+    "code": "06",
+    "name": "Salt Water",
+    "abbreviation": null
+  },
+  {
+    "code": "07",
+    "name": "Salt Saturated",
+    "abbreviation": null
+  },
+  {
+    "code": "08",
+    "name": "Fresh Water Bentonite",
+    "abbreviation": null
+  },
+  {
+    "code": "09",
+    "name": "Bentonite Mud",
+    "abbreviation": null
+  },
+  {
+    "code": "10",
+    "name": "Sea Water Base Mud",
+    "abbreviation": null
+  },
+  {
+    "code": "11",
+    "name": "Salt Saturated Water Base Mud",
+    "abbreviation": null
+  },
+  {
+    "code": "12",
+    "name": "Salt Saturated Polymer Mud",
+    "abbreviation": null
+  },
+  {
+    "code": "13",
+    "name": "KCl/Polymer Mud",
+    "abbreviation": null
+  },
+  {
+    "code": "14",
+    "name": "Foam System",
+    "abbreviation": null
+  },
+  {
+    "code": "15",
+    "name": "Fresh Water",
+    "abbreviation": null
+  },
+  {
+    "code": "16",
+    "name": "NONE",
+    "abbreviation": null
+  },
+  {
+    "code": "17",
+    "name": "Salt Saturated Oil Emulsion",
+    "abbreviation": null
+  },
+  {
+    "code": "18",
+    "name": "KCL-PHPA MUD",
+    "abbreviation": null
+  },
+  {
+    "code": "19",
+    "name": "Salt / Polymer",
+    "abbreviation": null
+  },
+  {
+    "code": "20",
+    "name": "Sea Water Oil Emulsion",
+    "abbreviation": null
+  },
+  {
+    "code": "21",
+    "name": "Salt Saturated Mud",
+    "abbreviation": null
+  },
+  {
+    "code": "22",
+    "name": "Spersene xp.20(swo)",
+    "abbreviation": null
+  },
+  {
+    "code": "23",
+    "name": "A.S.O(7%Oil)",
+    "abbreviation": null
+  },
+  {
+    "code": "24",
+    "name": "Salt-Gel Spersene",
+    "abbreviation": null
+  },
+  {
+    "code": "25",
+    "name": "S.W.Mud",
+    "abbreviation": null
+  },
+  {
+    "code": "26",
+    "name": "Mud",
+    "abbreviation": null
+  },
+  {
+    "code": "27",
+    "name": "S.W Spersene xp20",
+    "abbreviation": null
+  },
+  {
+    "code": "28",
+    "name": "S.W.O",
+    "abbreviation": null
+  },
+  {
+    "code": "29",
+    "name": "Sea Mud",
+    "abbreviation": null
+  },
+  {
+    "code": "30",
+    "name": "Sea Water Mud",
+    "abbreviation": null
+  },
+  {
+    "code": "31",
+    "name": "A.S.O(10%Oil)",
+    "abbreviation": null
+  },
+  {
+    "code": "32",
+    "name": "S.W.Barite",
+    "abbreviation": null
+  },
+  {
+    "code": "33",
+    "name": "OIL EMULSION",
+    "abbreviation": null
+  },
+  {
+    "code": "34",
+    "name": "Invermul",
+    "abbreviation": null
+  },
+  {
+    "code": "35",
+    "name": "O CC BASE",
+    "abbreviation": null
+  },
+  {
+    "code": "36",
+    "name": "PROD.FLUID",
+    "abbreviation": null
+  },
+  {
+    "code": "37",
+    "name": "SALT WATER AND OIL",
+    "abbreviation": null
+  },
+  {
+    "code": "38",
+    "name": "SALT WATER AND 4% OIL",
+    "abbreviation": null
+  },
+  {
+    "code": "39",
+    "name": "DIESEL",
+    "abbreviation": null
+  },
+  {
+    "code": "40",
+    "name": "WATER & DIESEL",
+    "abbreviation": null
+  },
+  {
+    "code": "41",
+    "name": "PRODUCED FLUID",
+    "abbreviation": null
+  },
+  {
+    "code": "42",
+    "name": "GAS OIL & WATER",
+    "abbreviation": null
+  },
+  {
+    "code": "43",
+    "name": "FRESH LIGNOSULF",
+    "abbreviation": null
+  },
+  {
+    "code": "45",
+    "name": "FRESH MUD",
+    "abbreviation": null
+  },
+  {
+    "code": "46",
+    "name": "XP- 20",
+    "abbreviation": null
+  },
+  {
+    "code": "47",
+    "name": "FRESH-5% OIL & BARITE",
+    "abbreviation": null
+  },
+  {
+    "code": "48",
+    "name": "FRESH-4% OIL & BARITE",
+    "abbreviation": null
+  },
+  {
+    "code": "49",
+    "name": "FRESH,2-3% OIL",
+    "abbreviation": null
+  },
+  {
+    "code": "50",
+    "name": "FRESH & OIL 4%-BARITE",
+    "abbreviation": null
+  },
+  {
+    "code": "51",
+    "name": "BARYTE",
+    "abbreviation": null
+  },
+  {
+    "code": "52",
+    "name": "FRESH MUD & BARYTE",
+    "abbreviation": null
+  },
+  {
+    "code": "53",
+    "name": "WATER BASE BARYTE MUD",
+    "abbreviation": null
+  },
+  {
+    "code": "54",
+    "name": "CRUDE",
+    "abbreviation": null
+  },
+  {
+    "code": "55",
+    "name": "OIL & WATER",
+    "abbreviation": null
+  },
+  {
+    "code": "56",
+    "name": "SALT WATER & BARITE",
+    "abbreviation": null
+  },
+  {
+    "code": "57",
+    "name": "LIGNOSUL FONATE",
+    "abbreviation": null
+  },
+  {
+    "code": "58",
+    "name": "LIGUMATE",
+    "abbreviation": null
+  },
+  {
+    "code": "59",
+    "name": "WATER BASE MUD & 6% OIL",
+    "abbreviation": null
+  },
+  {
+    "code": "60",
+    "name": "Water",
+    "abbreviation": null
+  },
+  {
+    "code": "61",
+    "name": "NON-SOLID",
+    "abbreviation": null
+  },
+  {
+    "code": "62",
+    "name": "SCAVENGER",
+    "abbreviation": null
+  },
+  {
+    "code": "63",
+    "name": "R.STARCH",
+    "abbreviation": null
+  },
+  {
+    "code": "64",
+    "name": "G.STARCH",
+    "abbreviation": null
+  },
+  {
+    "code": "65",
+    "name": "XAN.GUM",
+    "abbreviation": null
+  },
+  {
+    "code": "66",
+    "name": "Active Tank",
+    "abbreviation": null
+  },
+  {
+    "code": "67",
+    "name": "Starch-Green",
+    "abbreviation": null
+  },
+  {
+    "code": "68",
+    "name": "Starch-White",
+    "abbreviation": null
+  },
+  {
+    "code": "69",
+    "name": "Starch-Red",
+    "abbreviation": null
+  },
+  {
+    "code": "99",
+    "name": "N/A",
+    "abbreviation": null
+  },
+  {
+    "code": "A1",
+    "name": "INVERT OIL MUD",
+    "abbreviation": null
+  }
+]

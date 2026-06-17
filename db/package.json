@@ -1,0 +1,33 @@
+{
+  "name": "@drilliq/db",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DrillIQ database \u2014 Prisma schema, migrations (PostgreSQL + RLS), and seeds",
+  "type": "module",
+  "scripts": {
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy",
+    "reset": "prisma migrate reset --force",
+    "studio": "prisma studio",
+    "seed": "tsx prisma/seed.ts",
+    "build": "prisma generate",
+    "lint": "prisma validate",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "tsx prisma/rls.test.ts",
+    "test:rls": "tsx prisma/rls.test.ts"
+  },
+  "prisma": {
+    "schema": "prisma/schema.prisma",
+    "seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0"
+  },
+  "devDependencies": {
+    "prisma": "^5.22.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.5.4",
+    "@types/node": "^22.10.2"
+  }
+}

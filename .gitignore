@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+web/dist/
+api/dist/
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+*.local
+
+# Prisma
+db/prisma/*.db
+db/prisma/*.db-journal
+
+# Python (ml service)
+ml/.venv/
+ml/__pycache__/
+ml/**/__pycache__/
+ml/*.egg-info/
+*.pyc
+
+# Logs / OS
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Claude Code local state
+.claude/
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Reports generated at runtime (PDF/XLSX exports)
+/tmp/drilliq-reports/

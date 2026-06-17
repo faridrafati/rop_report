@@ -1,0 +1,722 @@
+[
+  {
+    "code": "001",
+    "abbreviation": "Ad",
+    "nameFa": "عدايه",
+    "nameEn": "Adaiyah"
+  },
+  {
+    "code": "002",
+    "abbreviation": "Aj",
+    "nameFa": "آغاجاري",
+    "nameEn": "Aghajari"
+  },
+  {
+    "code": "003",
+    "abbreviation": "Al",
+    "nameFa": "علن",
+    "nameEn": "Alan"
+  },
+  {
+    "code": "004",
+    "abbreviation": "Am",
+    "nameFa": "اميران",
+    "nameEn": "Amiran"
+  },
+  {
+    "code": "005",
+    "abbreviation": "Hkn",
+    "nameFa": "سري حوض خان",
+    "nameEn": "Hoze-Khan Series"
+  },
+  {
+    "code": "006",
+    "abbreviation": "Bk",
+    "nameFa": "بختياري",
+    "nameEn": "Bakhtyari"
+  },
+  {
+    "code": "007",
+    "abbreviation": "Bth",
+    "nameFa": "بوتمه",
+    "nameEn": "Butmah"
+  },
+  {
+    "code": "008",
+    "abbreviation": "Cz",
+    "nameFa": "چيازري",
+    "nameEn": "Chia Zari"
+  },
+  {
+    "code": "009",
+    "abbreviation": "Dk",
+    "nameFa": "دشتک",
+    "nameEn": "Dashtak"
+  },
+  {
+    "code": "010",
+    "abbreviation": "Dr",
+    "nameFa": "داريان",
+    "nameEn": "Dariyan"
+  },
+  {
+    "code": "011",
+    "abbreviation": "Dl",
+    "nameFa": "دالان",
+    "nameEn": "Dalan"
+  },
+  {
+    "code": "012",
+    "abbreviation": "Fa",
+    "nameFa": "فهليان",
+    "nameEn": "Fahliyan"
+  },
+  {
+    "code": "013",
+    "abbreviation": "Fr",
+    "nameFa": "فراقون",
+    "nameEn": "Faraghun"
+  },
+  {
+    "code": "014",
+    "abbreviation": "Gs",
+    "nameFa": "گچساران",
+    "nameEn": "Gachsaran"
+  },
+  {
+    "code": "015",
+    "abbreviation": "Gd",
+    "nameFa": "گدوان",
+    "nameEn": "Gadvan"
+  },
+  {
+    "code": "016",
+    "abbreviation": "Gr",
+    "nameFa": "گرو",
+    "nameEn": "Garau"
+  },
+  {
+    "code": "017",
+    "abbreviation": "Gk",
+    "nameFa": "گلي خانا",
+    "nameEn": "Geli Khana"
+  },
+  {
+    "code": "018",
+    "abbreviation": "Gt",
+    "nameFa": "گوتنيا",
+    "nameEn": "Gotnia"
+  },
+  {
+    "code": "019",
+    "abbreviation": "Gu",
+    "nameFa": "گورپي",
+    "nameEn": "Gurpi"
+  },
+  {
+    "code": "020",
+    "abbreviation": "Hi",
+    "nameFa": "هيث",
+    "nameEn": "Hith"
+  },
+  {
+    "code": "021",
+    "abbreviation": "Il",
+    "nameFa": "ايلام",
+    "nameEn": "Ilam"
+  },
+  {
+    "code": "022",
+    "abbreviation": "Ja",
+    "nameFa": "جهرم",
+    "nameEn": "Jahrum"
+  },
+  {
+    "code": "023",
+    "abbreviation": "Ka",
+    "nameFa": "كنگان",
+    "nameEn": "Kangan"
+  },
+  {
+    "code": "024",
+    "abbreviation": "Kn",
+    "nameFa": "كشكان",
+    "nameEn": "Kashkan"
+  },
+  {
+    "code": "025",
+    "abbreviation": "Kz",
+    "nameFa": "كژدمي",
+    "nameEn": "Kazhdumi"
+  },
+  {
+    "code": "026",
+    "abbreviation": "Kk",
+    "nameFa": "خانه کت",
+    "nameEn": "Khaneh Kat"
+  },
+  {
+    "code": "027",
+    "abbreviation": "Kurch",
+    "nameFa": "کوراچين",
+    "nameEn": "Kurra Chine"
+  },
+  {
+    "code": "028",
+    "abbreviation": "Mn",
+    "nameFa": "ميشان",
+    "nameEn": "Mishan"
+  },
+  {
+    "code": "029",
+    "abbreviation": "Ms",
+    "nameFa": "موس",
+    "nameEn": "Mus"
+  },
+  {
+    "code": "030",
+    "abbreviation": "Nj",
+    "nameFa": "نجمه",
+    "nameEn": "Najmeh"
+  },
+  {
+    "code": "031",
+    "abbreviation": "Nz",
+    "nameFa": "نيريز",
+    "nameEn": "Neyriz"
+  },
+  {
+    "code": "032",
+    "abbreviation": "Pd",
+    "nameFa": "پابده",
+    "nameEn": "Pabdeh"
+  },
+  {
+    "code": "033",
+    "abbreviation": "Rz",
+    "nameFa": "رازک",
+    "nameEn": "Razak"
+  },
+  {
+    "code": "034",
+    "abbreviation": "Sa",
+    "nameFa": "ساچون",
+    "nameEn": "Sachun"
+  },
+  {
+    "code": "035",
+    "abbreviation": "Sr",
+    "nameFa": "سرگلو",
+    "nameEn": "Sargelu"
+  },
+  {
+    "code": "036",
+    "abbreviation": "Ski",
+    "nameFa": "سرکي",
+    "nameEn": "Sarki"
+  },
+  {
+    "code": "037",
+    "abbreviation": "Sv",
+    "nameFa": "سروک",
+    "nameEn": "Sarvak"
+  },
+  {
+    "code": "038",
+    "abbreviation": "Sb",
+    "nameFa": "شهبازان",
+    "nameEn": "Shahbazan"
+  },
+  {
+    "code": "039",
+    "abbreviation": "Sg",
+    "nameFa": "سورگاه",
+    "nameEn": "Surgah"
+  },
+  {
+    "code": "040",
+    "abbreviation": "Sm",
+    "nameFa": "سورمه",
+    "nameEn": "Surmeh"
+  },
+  {
+    "code": "041",
+    "abbreviation": "Tz",
+    "nameFa": "تله زنگ",
+    "nameEn": "Taleh Zang"
+  },
+  {
+    "code": "042",
+    "abbreviation": "Tb",
+    "nameFa": "تاربور",
+    "nameEn": "Tarbur"
+  },
+  {
+    "code": "046",
+    "abbreviation": "Blt.Sh",
+    "nameFa": "شيلهاي بلوطي",
+    "nameEn": "Baluti Shale"
+  },
+  {
+    "code": "047",
+    "abbreviation": "Hsk",
+    "nameFa": "سري حوض شيخ",
+    "nameEn": "Hoze-sheykh Series"
+  },
+  {
+    "code": "048",
+    "abbreviation": "Bdh.sh",
+    "nameFa": "شيل بدوه",
+    "nameEn": "Beduh Shale"
+  },
+  {
+    "code": "049",
+    "abbreviation": "Mrd",
+    "nameFa": "سري مراد",
+    "nameEn": "Morad Series"
+  },
+  {
+    "code": "050",
+    "abbreviation": "Dzu",
+    "nameFa": "سري دزو",
+    "nameEn": "Dezu Series"
+  },
+  {
+    "code": "051",
+    "abbreviation": "KCg",
+    "nameFa": "کنگلومراي کرمان",
+    "nameEn": "Kerman conglomerate"
+  },
+  {
+    "code": "052",
+    "abbreviation": "Vre",
+    "nameFa": "ولکانيکهاي ائوسن",
+    "nameEn": "Volcanic rock of eocene"
+  },
+  {
+    "code": "053",
+    "abbreviation": "Cldmg",
+    "nameFa": "آميزه رنگين",
+    "nameEn": "Coloured Melange"
+  },
+  {
+    "code": "054",
+    "abbreviation": "Rd",
+    "nameFa": "راديولاريتز",
+    "nameEn": "Radiolarites"
+  },
+  {
+    "code": "056",
+    "abbreviation": "Pcg",
+    "nameFa": "کنگلومراي پليوسن",
+    "nameEn": "Pliocene conglomerate"
+  },
+  {
+    "code": "057",
+    "abbreviation": "Az m",
+    "nameFa": ".",
+    "nameEn": "Ahwaz sandstone"
+  },
+  {
+    "code": "058",
+    "abbreviation": "Klm",
+    "nameFa": ".",
+    "nameEn": "Pabdeh /Jahrum interfingering"
+  },
+  {
+    "code": "059",
+    "abbreviation": "Hs",
+    "nameFa": "سري هرمز",
+    "nameEn": "Hormoz Series"
+  },
+  {
+    "code": "060",
+    "abbreviation": ".",
+    "nameFa": ".",
+    "nameEn": "Azadegan sandstone"
+  },
+  {
+    "code": "061",
+    "abbreviation": ".",
+    "nameFa": ".",
+    "nameEn": "Khalij Mbr."
+  },
+  {
+    "code": "062",
+    "abbreviation": ".",
+    "nameFa": ".",
+    "nameEn": "Kushk sand"
+  },
+  {
+    "code": "063",
+    "abbreviation": "Mand",
+    "nameFa": ".",
+    "nameEn": "Mand"
+  },
+  {
+    "code": "064",
+    "abbreviation": "Kalhur Mbr.",
+    "nameFa": ".",
+    "nameEn": "Kalhur Mbr."
+  },
+  {
+    "code": "066",
+    "abbreviation": "Lf",
+    "nameFa": "لافان",
+    "nameEn": "Laffan"
+  },
+  {
+    "code": "074",
+    "abbreviation": "Recent",
+    "nameFa": "عهد حاضر",
+    "nameEn": "Recent"
+  },
+  {
+    "code": "079",
+    "abbreviation": "As",
+    "nameFa": "آسماري",
+    "nameEn": "Asmari"
+  },
+  {
+    "code": "083",
+    "abbreviation": "Sal.Bed",
+    "nameFa": "(لايه هاي نمکي(معادل آسماري مياني-بالايي",
+    "nameEn": "Saliferousbeds(M-U.As.EQ"
+  },
+  {
+    "code": "085",
+    "abbreviation": "As/Ghr",
+    "nameFa": "آسماري-غار",
+    "nameEn": "Asmari/Ghar"
+  },
+  {
+    "code": "089",
+    "abbreviation": "Ja/Pb",
+    "nameFa": "جهرم-پابده",
+    "nameEn": "Jahrum/Pabdeh"
+  },
+  {
+    "code": "090",
+    "abbreviation": "Tb/Gu",
+    "nameFa": "تاربور-گورپي",
+    "nameEn": "Tarbur/Gurpi"
+  },
+  {
+    "code": "093",
+    "abbreviation": "Kz/Bgn",
+    "nameFa": "کژدمي-بورگان",
+    "nameEn": "Kazhdumi/Burgan"
+  },
+  {
+    "code": "095",
+    "abbreviation": "Bgn",
+    "nameFa": "بورگان",
+    "nameEn": "Burgan"
+  },
+  {
+    "code": "100",
+    "abbreviation": "SV-Z8",
+    "nameFa": "سروک 8",
+    "nameEn": "Sarvak/Zone8"
+  },
+  {
+    "code": "101",
+    "abbreviation": "IL-Z1",
+    "nameFa": "ایلام",
+    "nameEn": "Ilam/Zone1"
+  },
+  {
+    "code": "102",
+    "abbreviation": "IL-Z2",
+    "nameFa": "ايلام",
+    "nameEn": "Ilam/Zone2"
+  },
+  {
+    "code": "103",
+    "abbreviation": "IL-Z3",
+    "nameFa": "ايلام",
+    "nameEn": "Ilam/Zone3"
+  },
+  {
+    "code": "104",
+    "abbreviation": "IL-Z4",
+    "nameFa": "ايلام",
+    "nameEn": "Ilam/Zone4"
+  },
+  {
+    "code": "112",
+    "abbreviation": "Zn",
+    "nameFa": "زکين",
+    "nameEn": "Zakeen"
+  },
+  {
+    "code": "113",
+    "abbreviation": "Sch",
+    "nameFa": "سرچاهان",
+    "nameEn": "Sarchahan"
+  },
+  {
+    "code": "114",
+    "abbreviation": "Siahou",
+    "nameFa": "سياهو",
+    "nameEn": "Siahou"
+  },
+  {
+    "code": "115",
+    "abbreviation": "Zh",
+    "nameFa": "زردکوه",
+    "nameEn": "Zard Kuh"
+  },
+  {
+    "code": "116",
+    "abbreviation": "Ik",
+    "nameFa": "ايلبک",
+    "nameEn": "Ilbak"
+  },
+  {
+    "code": "117",
+    "abbreviation": "Ma",
+    "nameFa": "ميلا",
+    "nameEn": "Mila"
+  },
+  {
+    "code": "121",
+    "abbreviation": "Lln",
+    "nameFa": "لالون",
+    "nameEn": "Lalun"
+  },
+  {
+    "code": "122",
+    "abbreviation": "Zgn",
+    "nameFa": "زاگون",
+    "nameEn": "Zaigun"
+  },
+  {
+    "code": "123",
+    "abbreviation": "Brt",
+    "nameFa": "باروت",
+    "nameEn": "Barut"
+  },
+  {
+    "code": "124",
+    "abbreviation": "R.S",
+    "nameFa": "سکانس تکرار شده",
+    "nameEn": "Repeated Section"
+  },
+  {
+    "code": "125",
+    "abbreviation": "Aj/Mn",
+    "nameFa": "آغاجاري-ميشان",
+    "nameEn": "Aghajari/Mishan"
+  },
+  {
+    "code": "126",
+    "abbreviation": "Recent/Aj",
+    "nameFa": "عهد حاضر-آغاجاري",
+    "nameEn": "Recent/Aghajari"
+  },
+  {
+    "code": "128",
+    "abbreviation": "Gu/Il",
+    "nameFa": "گورپي/ايلام",
+    "nameEn": "Gurpi/Ilam"
+  },
+  {
+    "code": "131",
+    "abbreviation": "Fa/Gr",
+    "nameFa": "فهليان-گرو",
+    "nameEn": "Fahliyan/Garau"
+  },
+  {
+    "code": "132",
+    "abbreviation": "As/Ja",
+    "nameFa": "آسماري-جهرم",
+    "nameEn": "Asmari/Jahrum"
+  },
+  {
+    "code": "134",
+    "abbreviation": "KgLst",
+    "nameFa": "آهک خارگ",
+    "nameEn": "Kharg Limestone"
+  },
+  {
+    "code": "135",
+    "abbreviation": "Il/Lf",
+    "nameFa": "ايلام-لافان",
+    "nameEn": "Ilam/Laffan"
+  },
+  {
+    "code": "136",
+    "abbreviation": "Sea Level",
+    "nameFa": "سطح دريا",
+    "nameEn": "Sea Level"
+  },
+  {
+    "code": "139",
+    "abbreviation": "All",
+    "nameFa": "آلوويوم",
+    "nameEn": "Alluvium"
+  },
+  {
+    "code": "140",
+    "abbreviation": "Kgn",
+    "nameFa": "خانگيران",
+    "nameEn": "Khangiran"
+  },
+  {
+    "code": "141",
+    "abbreviation": "Ckn",
+    "nameFa": "چهل کمان",
+    "nameEn": "Chehel Kaman"
+  },
+  {
+    "code": "142",
+    "abbreviation": "Pst",
+    "nameFa": "پستليق",
+    "nameEn": "Pesteligh"
+  },
+  {
+    "code": "143",
+    "abbreviation": "Klt",
+    "nameFa": "کلات",
+    "nameEn": "Kalat"
+  },
+  {
+    "code": "144",
+    "abbreviation": "Nyz",
+    "nameFa": "نيزار",
+    "nameEn": "Neyzar"
+  },
+  {
+    "code": "145",
+    "abbreviation": "Atk",
+    "nameFa": "آب تلخ",
+    "nameEn": "Ab Talkh"
+  },
+  {
+    "code": "146",
+    "abbreviation": "Adz",
+    "nameFa": "آب دراز",
+    "nameEn": "Ab Deraz"
+  },
+  {
+    "code": "147",
+    "abbreviation": "At",
+    "nameFa": "آتامير",
+    "nameEn": "Atamir"
+  },
+  {
+    "code": "148",
+    "abbreviation": "Sgn",
+    "nameFa": "سنگانه",
+    "nameEn": "Sanganeh"
+  },
+  {
+    "code": "149",
+    "abbreviation": "Scm",
+    "nameFa": "سرچشمه",
+    "nameEn": "Sarcheshmeh"
+  },
+  {
+    "code": "150",
+    "abbreviation": "Tg",
+    "nameFa": "تيرگان",
+    "nameEn": "Tirgan"
+  },
+  {
+    "code": "151",
+    "abbreviation": "Suj",
+    "nameFa": "شوريجه",
+    "nameEn": "Shurijeh"
+  },
+  {
+    "code": "152",
+    "abbreviation": "Kbr",
+    "nameFa": "خابور",
+    "nameEn": "Khabur"
+  },
+  {
+    "code": "153",
+    "abbreviation": "Tyt",
+    "nameFa": "طيارات",
+    "nameEn": "Tayarat"
+  },
+  {
+    "code": "154",
+    "abbreviation": "Lr",
+    "nameFa": "قرمز زيرين",
+    "nameEn": "Lower red"
+  },
+  {
+    "code": "155",
+    "abbreviation": "Q",
+    "nameFa": "قم",
+    "nameEn": "Qom"
+  },
+  {
+    "code": "156",
+    "abbreviation": "Ur",
+    "nameFa": "قرمز بالايي",
+    "nameEn": "Upper Red"
+  },
+  {
+    "code": "157",
+    "abbreviation": "Sks",
+    "nameFa": "سرخ شيل",
+    "nameEn": "Sorkh Shale"
+  },
+  {
+    "code": "158",
+    "abbreviation": "Str",
+    "nameFa": "شتري",
+    "nameEn": "Shotori"
+  },
+  {
+    "code": "159",
+    "abbreviation": "Nbd",
+    "nameFa": "سري ناي بند",
+    "nameEn": "Naiband Series"
+  },
+  {
+    "code": "160",
+    "abbreviation": "Ssk",
+    "nameFa": "شمشک",
+    "nameEn": "Shemshak"
+  },
+  {
+    "code": "161",
+    "abbreviation": "Bdm",
+    "nameFa": "بادامو",
+    "nameEn": "Badamu"
+  },
+  {
+    "code": "162",
+    "abbreviation": "Bgs",
+    "nameFa": "بغمشاه",
+    "nameEn": "Baghamshah"
+  },
+  {
+    "code": "163",
+    "abbreviation": "Qdk",
+    "nameFa": "قلعه دختر",
+    "nameEn": "Qaleh Dokhtar"
+  },
+  {
+    "code": "164",
+    "abbreviation": "Efd",
+    "nameFa": "اسفنديار",
+    "nameEn": "Esfandiar"
+  },
+  {
+    "code": "165",
+    "abbreviation": "Jrd",
+    "nameFa": "جيرود",
+    "nameEn": "Jeirud"
+  },
+  {
+    "code": "166",
+    "abbreviation": "Hjd",
+    "nameFa": "هجدک",
+    "nameEn": "Hodjek"
+  }
+]

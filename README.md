@@ -11,19 +11,28 @@ fields and contractors, with strict per-tenant data isolation.
 
 ---
 
-## Quick start (fresh system)
+## Quick start (fresh machine, only internet)
 
-You need only **Node.js ≥ 20** and **Docker** (with the Compose plugin).
-Everything else — pnpm, PostgreSQL, the database roles, migrations and seed
-data — is set up for you.
+On a brand-new machine you need **nothing pre-installed but internet** — the run
+script checks for and installs every prerequisite (Node ≥ 20, Docker, pnpm; and
+optionally the Supabase CLI + Python for the legacy ETL), then sets up PostgreSQL,
+the DB roles, migrations and seed data.
 
 ```bash
 # Linux / macOS / WSL
+./run.sh deps       # install ALL prerequisites (Node, Docker, pnpm, Supabase, Python)
 ./run.sh            # bootstrap everything, then start web + api
 
 # Windows
+run.bat deps
 run.bat
 ```
+
+> **Linux:** prerequisite installs use `sudo`. If Docker was just installed, log
+> out/in (or `newgrp docker`) once so your user can use Docker, then re-run.
+> **Windows:** installs use `winget`; after them open a **new terminal**, and if
+> Docker Desktop was just installed, **reboot and launch it once** before re-running.
+> If Docker/Node are already present, `./run.sh` alone does everything.
 
 Then open:
 
@@ -38,6 +47,7 @@ Then open:
 
 | Command | What it does |
 |---------|--------------|
+| `deps` | check + install **all** prerequisites (Node, Docker, pnpm, Supabase CLI, Python) — for a fresh machine |
 | _(none)_ / `all` | full bootstrap, then start web + api |
 | `setup` | bootstrap only (install, DB, migrate, seed, RLS gate) — no start |
 | `start` | start web + api (assumes setup done) |

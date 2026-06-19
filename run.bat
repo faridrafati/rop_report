@@ -3,6 +3,8 @@ REM ============================================================================
 REM  DrillIQ - one-command bootstrap for a FRESH Windows system.
 REM
 REM    run.bat            full bootstrap then start web + api (dev)
+REM    run.bat deps       check + install ALL prerequisites (Node, Docker, pnpm,
+REM                       Supabase CLI, Python) - for a fresh PC with only internet
 REM    run.bat setup      bootstrap only (install, db, migrate, seed, RLS gate)
 REM    run.bat start      start web + api (assumes setup already done)
 REM    run.bat test       run all tests (analytics + RLS gate)
@@ -43,6 +45,7 @@ set "CMD=%~1"
 if "%CMD%"=="" set "CMD=all"
 
 if /i "%CMD%"=="all"   goto :all
+if /i "%CMD%"=="deps"  goto :deps
 if /i "%CMD%"=="setup" goto :setup
 if /i "%CMD%"=="start" goto :start
 if /i "%CMD%"=="test"  goto :test
@@ -50,15 +53,71 @@ if /i "%CMD%"=="reset" goto :reset
 if /i "%CMD%"=="dump"  goto :dump
 if /i "%CMD%"=="restore" goto :restore
 if /i "%CMD%"=="stop"  goto :stop
-echo [X] Unknown command "%CMD%". Use: all ^| setup ^| start ^| test ^| reset ^| dump ^| restore ^| stop
+echo [X] Unknown command "%CMD%". Use: all ^| deps ^| setup ^| start ^| test ^| reset ^| dump ^| restore ^| stop
 exit /b 1
 
 REM ----------------------------------------------------------------------------
+REM Detect core prerequisites; if any are missing/outdated, install them via winget
+REM (Node + Docker Desktop). winget ships with Windows 10/11 (App Installer).
 :check_prereqs
-where node >nul 2>&1 || (echo [X] Node.js ^>= 20 is required. https://nodejs.org & exit /b 1)
-where docker >nul 2>&1 || (echo [X] Docker Desktop is required. https://docs.docker.com/get-docker/ & exit /b 1)
-docker compose version >nul 2>&1 || (echo [X] Docker Compose plugin is required. & exit /b 1)
-echo [OK] Prerequisites present
+set "MISSING="
+where node >nul 2>&1 || set "MISSING=1"
+if not defined MISSING (
+  for /f "tokens=1 delims=v." %%a in ('node -v') do set "NODEMAJ=%%a"
+  if !NODEMAJ! LSS 20 set "MISSING=1"
+)
+where docker >nul 2>&1 || set "MISSING=1"
+if not defined MISSING (
+  docker compose version >nul 2>&1 || set "MISSING=1"
+)
+if defined MISSING (
+  echo [..] Missing or outdated prerequisites - installing Node + Docker via winget
+  call :install_core_deps
+  echo [i] Prerequisites installed. Open a NEW terminal so PATH refreshes.
+  echo     If Docker Desktop was just installed, REBOOT and launch it once.
+  echo     Then run: run.bat
+  exit /b 1
+)
+docker info >nul 2>&1 || (echo [X] Docker is installed but not running. Launch Docker Desktop, then re-run. & exit /b 1)
+echo [OK] Prerequisites present (Node + Docker)
+exit /b 0
+
+:winget_check
+where winget >nul 2>&1 && exit /b 0
+echo [X] winget (App Installer) not found. Install it from the Microsoft Store,
+echo     or manually install Node ^>=20 and Docker Desktop, then re-run.
+exit /b 1
+
+:install_core_deps
+call :winget_check || exit /b 1
+where node >nul 2>&1 || winget install -e --id OpenJS.NodeJS.LTS --accept-source-agreements --accept-package-agreements
+where docker >nul 2>&1 || winget install -e --id Docker.DockerDesktop --accept-source-agreements --accept-package-agreements
+exit /b 0
+
+REM Optional tooling for the legacy NIDC ETL (migration\etl.py). Never fatal.
+:ensure_python_win
+where python >nul 2>&1 && ( echo [OK] Python present & exit /b 0 )
+call :winget_check || exit /b 0
+echo [..] Installing Python via winget (optional, for the legacy ETL)
+winget install -e --id Python.Python.3.12 --accept-source-agreements --accept-package-agreements
+exit /b 0
+
+:ensure_supabase_win
+where supabase >nul 2>&1 && ( echo [OK] Supabase CLI present & exit /b 0 )
+echo [..] Downloading Supabase CLI (optional, for the legacy ETL)
+set "SBDIR=%USERPROFILE%\.drilliq\bin"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; try { $dir='%SBDIR%'; New-Item -ItemType Directory -Force -Path $dir ^| Out-Null; $r=Invoke-RestMethod -Headers @{'User-Agent'='drilliq'} -Uri 'https://api.github.com/repos/supabase/cli/releases/latest'; $a=$r.assets ^| Where-Object { $_.name -match 'windows_amd64\.zip$' } ^| Select-Object -First 1; $zip=Join-Path $env:TEMP 'supabase.zip'; Invoke-WebRequest -Uri $a.browser_download_url -OutFile $zip; Expand-Archive -Path $zip -DestinationPath $dir -Force; Remove-Item $zip; $u=[Environment]::GetEnvironmentVariable('PATH','User'); if ($u -notlike ('*'+$dir+'*')) { [Environment]::SetEnvironmentVariable('PATH', $u+';'+$dir, 'User') } } catch { Write-Host $_; exit 1 }"
+if errorlevel 1 ( echo [i] Supabase CLI download failed. Install manually: https://github.com/supabase/cli & exit /b 0 )
+echo [OK] Supabase CLI installed to %SBDIR% (open a NEW terminal for it on PATH)
+exit /b 0
+
+:install_all_deps
+call :install_core_deps
+call :ensure_python_win
+call :ensure_supabase_win
+echo [OK] Prerequisite installation attempted.
+echo [i] Open a NEW terminal so PATH updates take effect. If Docker Desktop was
+echo     just installed, REBOOT and launch it once, then run: run.bat
 exit /b 0
 
 :ensure_pnpm
@@ -154,6 +213,11 @@ call pnpm dev
 exit /b 0
 
 REM ----------------------------------------------------------------------------
+:deps
+call :install_all_deps
+where node >nul 2>&1 && call :ensure_pnpm
+exit /b 0
+
 :setup
 call :check_prereqs || exit /b 1
 call :ensure_pnpm || exit /b 1

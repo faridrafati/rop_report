@@ -3,6 +3,8 @@
 # DrillIQ — one-command bootstrap for a FRESH system (Linux / macOS / WSL).
 #
 #   ./run.sh            full bootstrap then start web + api (dev)
+#   ./run.sh deps       check + install ALL prerequisites (Node, Docker, pnpm,
+#                       Supabase CLI, Python) — for a fresh machine with only internet
 #   ./run.sh setup      bootstrap only (install, db, migrate, seed, RLS gate) — no start
 #   ./run.sh start      start web + api (assumes setup already done)
 #   ./run.sh test       run all tests (shared analytics + RLS gate)
@@ -48,14 +50,138 @@ OWNER_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${DB_HOST}:${POSTG
 APP_URL="postgresql://${APP_DB_USER}:${APP_DB_PASS}@${DB_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}?schema=public"
 BACKUP_DIR="${ROOT}/backups"
 
-# ── prerequisite checks ──────────────────────────────────────────
+# ── prerequisite detection + auto-install ────────────────────────
+# A fresh machine with only internet can run `./run.sh` (or `./run.sh deps`)
+# and have Node, Docker, pnpm — and optionally the Supabase CLI + Python for the
+# legacy ETL — checked and installed automatically. Installs need sudo on Linux.
+OS="$(uname -s)"
+SUDO=""; [ "$(id -u)" -ne 0 ] && command -v sudo >/dev/null 2>&1 && SUDO="sudo"
+
+pkg_mgr() {
+  if   command -v apt-get >/dev/null 2>&1; then echo apt
+  elif command -v dnf     >/dev/null 2>&1; then echo dnf
+  elif command -v pacman  >/dev/null 2>&1; then echo pacman
+  elif command -v brew    >/dev/null 2>&1; then echo brew
+  else echo none; fi
+}
+
+ensure_curl() {
+  command -v curl >/dev/null 2>&1 && return 0
+  log "Installing curl"
+  case "$(pkg_mgr)" in
+    apt)    $SUDO apt-get update -y && $SUDO apt-get install -y curl ;;
+    dnf)    $SUDO dnf install -y curl ;;
+    pacman) $SUDO pacman -Sy --noconfirm curl ;;
+    brew)   brew install curl ;;
+    *)      die "curl is required but no known package manager was found — install curl, then re-run." ;;
+  esac
+}
+
+ensure_node() {
+  if command -v node >/dev/null 2>&1; then
+    local major; major="$(node -p 'process.versions.node.split(".")[0]' 2>/dev/null || echo 0)"
+    [ "${major:-0}" -ge 20 ] && { ok "Node $(node -v)"; return 0; }
+    warn "Node $(node -v) is older than 20 — installing a newer Node"
+  else
+    log "Node.js not found — installing Node 20"
+  fi
+  case "$(pkg_mgr)" in
+    apt)  ensure_curl; curl -fsSL https://deb.nodesource.com/setup_20.x | $SUDO -E bash - && $SUDO apt-get install -y nodejs ;;
+    dnf)  ensure_curl; curl -fsSL https://rpm.nodesource.com/setup_20.x | $SUDO -E bash - && $SUDO dnf install -y nodejs ;;
+    brew) brew install node@20 ;;
+    *)    die "Could not auto-install Node. Install Node >= 20 from https://nodejs.org and re-run." ;;
+  esac
+  command -v node >/dev/null 2>&1 || die "Node install failed — install Node >= 20 manually and re-run."
+  ok "Node $(node -v)"
+}
+
+ensure_docker() {
+  if command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1; then
+    if docker info >/dev/null 2>&1; then ok "Docker present"; return 0; fi
+    die "Docker is installed but the daemon isn't reachable. Start it (e.g. 'sudo systemctl start docker', or launch Docker Desktop) and re-run."
+  fi
+  log "Docker not found — installing Docker Engine + compose plugin"
+  case "$OS" in
+    Linux)
+      case "$(pkg_mgr)" in
+        apt|dnf|pacman)
+          ensure_curl
+          curl -fsSL https://get.docker.com | $SUDO sh
+          $SUDO systemctl enable --now docker 2>/dev/null || true
+          if [ -n "$SUDO" ]; then
+            $SUDO usermod -aG docker "$USER" 2>/dev/null || true
+            warn "Docker installed. Your user was added to the 'docker' group — log out and back in"
+            warn "(or run 'newgrp docker'), then re-run ./run.sh so Docker works without sudo."
+            exit 0
+          fi ;;
+        *) die "Could not auto-install Docker on this distro. See https://docs.docker.com/engine/install/ , then re-run." ;;
+      esac ;;
+    Darwin) die "Install Docker Desktop for Mac (https://docs.docker.com/desktop/install/mac-install/ or 'brew install --cask docker'), launch it, then re-run." ;;
+    *) die "Unsupported OS for automatic Docker install. See https://docs.docker.com/get-docker/ , then re-run." ;;
+  esac
+  command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1 || die "Docker install incomplete. See https://docs.docker.com/get-docker/"
+  ok "Docker installed"
+}
+
+# Optional tools — only needed for the legacy NIDC ETL (migration/etl.py). Never fatal.
+ensure_supabase() {
+  command -v supabase >/dev/null 2>&1 && { ok "Supabase CLI $(supabase --version 2>/dev/null || true)"; return 0; }
+  log "Supabase CLI not found — installing (optional, for the legacy ETL)"
+  if command -v brew >/dev/null 2>&1; then
+    brew install supabase/tap/supabase || warn "brew install supabase failed — see https://github.com/supabase/cli#install-the-cli"
+  else
+    ensure_curl
+    local os arch url tmp
+    case "$OS" in Linux) os=linux ;; Darwin) os=darwin ;; *) os="" ;; esac
+    case "$(uname -m)" in x86_64|amd64) arch=amd64 ;; aarch64|arm64) arch=arm64 ;; *) arch="" ;; esac
+    if [ -z "$os" ] || [ -z "$arch" ]; then
+      warn "No prebuilt Supabase CLI for ${OS}/$(uname -m) — see https://github.com/supabase/cli/releases"; return 0
+    fi
+    # Resolve the latest release asset (supabase_<ver>_<os>_<arch>.tar.gz) via the GitHub API.
+    url="$(curl -fsSL -H 'Accept: application/vnd.github+json' https://api.github.com/repos/supabase/cli/releases/latest \
+          | grep -oE "https://[^\"]*supabase_[0-9.]+_${os}_${arch}\.tar\.gz" | head -1)"
+    if [ -z "$url" ]; then warn "Could not resolve the Supabase CLI download URL — see https://github.com/supabase/cli/releases"; return 0; fi
+    tmp="$(mktemp -d)"
+    if curl -fsSL "$url" -o "$tmp/supabase.tar.gz" && tar -xzf "$tmp/supabase.tar.gz" -C "$tmp" supabase; then
+      $SUDO install -m 0755 "$tmp/supabase" /usr/local/bin/supabase
+    else
+      warn "Supabase CLI download/extract failed — see https://github.com/supabase/cli/releases"
+    fi
+    rm -rf "$tmp"
+  fi
+  command -v supabase >/dev/null 2>&1 && ok "Supabase CLI $(supabase --version 2>/dev/null || true)" \
+    || warn "Supabase CLI not installed (optional — only the legacy ETL needs it)."
+}
+
+ensure_python() {
+  if command -v python3 >/dev/null 2>&1; then ok "Python $(python3 --version 2>&1 | awk '{print $2}')"; return 0; fi
+  log "Python 3 not found — installing (optional, for the legacy ETL)"
+  case "$(pkg_mgr)" in
+    apt)    $SUDO apt-get install -y python3 python3-venv python3-pip ;;
+    dnf)    $SUDO dnf install -y python3 python3-pip ;;
+    pacman) $SUDO pacman -Sy --noconfirm python python-pip ;;
+    brew)   brew install python ;;
+    *)      warn "Could not auto-install Python 3 (optional — only the legacy ETL needs it)."; return 0 ;;
+  esac
+  command -v python3 >/dev/null 2>&1 && ok "Python $(python3 --version 2>&1 | awk '{print $2}')" || warn "Python 3 install failed (optional)."
+}
+
+# Core prerequisites for the DrillIQ app itself (auto-installed on a fresh PC).
 check_prereqs() {
-  command -v node >/dev/null 2>&1 || die "Node.js is required (>= 20). Install from https://nodejs.org"
-  local major; major="$(node -p 'process.versions.node.split(".")[0]')"
-  [ "$major" -ge 20 ] || die "Node.js >= 20 required (found $(node -v))."
-  command -v docker >/dev/null 2>&1 || die "Docker is required. Install from https://docs.docker.com/get-docker/"
-  docker compose version >/dev/null 2>&1 || die "Docker Compose plugin is required (docker compose)."
+  ensure_node
+  ensure_docker
   ok "Prerequisites OK (node $(node -v), docker present)"
+}
+
+# Install EVERYTHING a fresh machine needs, including the optional ETL tooling.
+install_all_deps() {
+  ensure_node
+  ensure_docker
+  ensure_pnpm
+  ensure_supabase
+  ensure_python
+  ok "All prerequisites are installed."
+  warn "If Docker was just installed on Linux, log out/in (or 'newgrp docker') before continuing."
 }
 
 # ── enable pnpm (via corepack, bundled with Node) ────────────────
@@ -230,6 +356,7 @@ do_setup() {
 
 case "${1:-all}" in
   all)   do_setup; start_app ;;
+  deps)  ensure_pnpm; install_all_deps ;;
   setup) do_setup ;;
   start) check_prereqs; ensure_pnpm; start_db >/dev/null 2>&1 || true; start_app ;;
   test)  check_prereqs; ensure_pnpm; install_deps; start_db; ensure_app_role; migrate >/dev/null 2>&1 || migrate; seed; run_tests ;;
@@ -243,5 +370,5 @@ case "${1:-all}" in
   dump)    check_prereqs; dump_db "${2:-}" ;;
   restore) check_prereqs; restore_db "${2:-}" ;;
   stop)  log "Stopping docker stack"; docker compose down; ok "Stopped" ;;
-  *) die "Unknown command '$1'. Use: all | setup | start | test | reset | dump | restore | stop" ;;
+  *) die "Unknown command '$1'. Use: all | deps | setup | start | test | reset | dump | restore | stop" ;;
 esac

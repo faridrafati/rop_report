@@ -240,7 +240,19 @@ migrate() {
   # on PATH so the prisma binary always resolves (avoids ERR_PNPM_RECURSIVE_EXEC "Command not found").
   DATABASE_URL="${OWNER_URL}" pnpm --filter @drilliq/db migrate:deploy
   log "Generating Prisma client"
-  DATABASE_URL="${OWNER_URL}" pnpm --filter @drilliq/db generate
+  if ! DATABASE_URL="${OWNER_URL}" pnpm --filter @drilliq/db generate; then
+    # `prisma generate` can fail to RENAME the engine binary when another process
+    # (a running dev server / IDE / antivirus) holds it — notably EPERM on Windows.
+    # If a generated client is already present, the existing one is valid (the
+    # schema is unchanged), so warn and continue instead of aborting the bootstrap.
+    if ls node_modules/.pnpm/@prisma+client@*/node_modules/.prisma/client/*query_engine*.node >/dev/null 2>&1; then
+      warn "prisma generate could not rewrite the client (engine file locked by another"
+      warn "process). An existing generated client is present — continuing. If you changed"
+      warn "the schema, close other node/dev processes and re-run."
+    else
+      die "prisma generate failed and no generated Prisma client was found."
+    fi
+  fi
   # Re-grant on the freshly created tables so the app role can use them.
   ensure_app_role
   ok "Database schema in sync"

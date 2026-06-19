@@ -189,9 +189,23 @@ set "DATABASE_URL=%OWNER_URL%"
 REM Use the package's npm scripts (not `pnpm exec`): script runs put node_modules\.bin
 REM on PATH so the prisma binary always resolves (avoids ERR_PNPM_RECURSIVE_EXEC "Command not found").
 call pnpm --filter @drilliq/db migrate:deploy || exit /b 1
-call pnpm --filter @drilliq/db generate || exit /b 1
+call pnpm --filter @drilliq/db generate
+if errorlevel 1 call :generate_fallback || exit /b 1
 call :ensure_app_role
 echo [OK] Database schema in sync
+exit /b 0
+
+REM `prisma generate` often fails to rename query_engine-windows.dll.node on Windows
+REM when another process (dev server / IDE / antivirus) holds it (EPERM). If a client
+REM is already generated it is valid (schema unchanged), so warn and continue.
+:generate_fallback
+set "HASCLIENT="
+for /d %%d in ("node_modules\.pnpm\@prisma+client@*") do if exist "%%d\node_modules\.prisma\client\query_engine-windows.dll.node" set "HASCLIENT=1"
+if not defined HASCLIENT ( echo [X] prisma generate failed and no generated Prisma client was found. & exit /b 1 )
+echo [!] 'prisma generate' could not rewrite the client - query_engine-windows.dll.node is
+echo     locked by another process ^(dev server / IDE / antivirus^). An existing client is
+echo     present, so continuing. If you changed the schema, close other node processes and
+echo     re-run: run.bat setup
 exit /b 0
 
 :seed

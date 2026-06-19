@@ -45,3 +45,8 @@ coverage/
 
 # Reports generated at runtime (PDF/XLSX exports)
 /tmp/drilliq-reports/
+
+# Legacy source databases (large binaries — not tracked; see db/seed-data/*.json)
+sqlite_DB/
+*.sqlite
+*.mdb

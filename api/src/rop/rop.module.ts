@@ -6,5 +6,6 @@ import { RopService } from './rop.service';
 @Module({
   controllers: [RopController],
   providers: [RopService],
+  exports: [RopService],
 })
 export class RopModule {}

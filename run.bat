@@ -21,8 +21,21 @@ set "POSTGRES_DB=drilliq"
 set "POSTGRES_PORT=5432"
 set "APP_DB_USER=drilliq_app"
 set "APP_DB_PASS=change-me-app"
-set "OWNER_URL=postgresql://%POSTGRES_USER%:%POSTGRES_PASSWORD%@localhost:%POSTGRES_PORT%/%POSTGRES_DB%?schema=public"
-set "APP_URL=postgresql://%APP_DB_USER%:%APP_DB_PASS%@localhost:%POSTGRES_PORT%/%POSTGRES_DB%?schema=public"
+REM Use 127.0.0.1, NOT localhost: on some Windows hosts localhost resolves to ::1
+REM (IPv6) first and Docker's IPv6 port proxy is unreachable -> Prisma "P1001:
+REM Can't reach database server" even though the container is healthy.
+set "DB_HOST=127.0.0.1"
+set "OWNER_URL=postgresql://%POSTGRES_USER%:%POSTGRES_PASSWORD%@%DB_HOST%:%POSTGRES_PORT%/%POSTGRES_DB%?schema=public"
+set "APP_URL=postgresql://%APP_DB_USER%:%APP_DB_PASS%@%DB_HOST%:%POSTGRES_PORT%/%POSTGRES_DB%?schema=public"
+
+REM API runtime secrets, exported into the environment for `pnpm dev`. The API's
+REM ConfigModule reads process env, and its cwd-based .env lookup runs in api\ and
+REM never reaches the repo-root .env, so these must be present in the environment.
+REM Pre-set values (e.g. real secrets) in your shell take precedence.
+if not defined JWT_ACCESS_SECRET  set "JWT_ACCESS_SECRET=change-me-access-secret"
+if not defined JWT_REFRESH_SECRET set "JWT_REFRESH_SECRET=change-me-refresh-secret"
+if not defined JWT_ACCESS_TTL     set "JWT_ACCESS_TTL=900"
+if not defined JWT_REFRESH_TTL    set "JWT_REFRESH_TTL=604800"
 
 set "CMD=%~1"
 if "%CMD%"=="" set "CMD=all"
@@ -50,8 +63,13 @@ if %errorlevel%==0 ( echo [OK] pnpm present & exit /b 0 )
 echo [..] Enabling pnpm via corepack
 call corepack enable >nul 2>&1
 call corepack prepare pnpm@9.12.0 --activate >nul 2>&1
-where pnpm >nul 2>&1 || (echo [X] Could not enable pnpm. Run: corepack enable ^&^& corepack prepare pnpm@9.12.0 --activate & exit /b 1)
-echo [OK] pnpm enabled
+where pnpm >nul 2>&1 && ( echo [OK] pnpm enabled via corepack & exit /b 0 )
+REM Corepack is not bundled with every Node install (e.g. some Node 25 builds) —
+REM fall back to a global npm install of the pinned pnpm version.
+echo [..] Corepack unavailable; installing pnpm via npm (npm install -g pnpm@9.12.0)
+call npm install -g pnpm@9.12.0 >nul 2>&1
+where pnpm >nul 2>&1 || (echo [X] Could not install pnpm. Try: npm install -g pnpm@9.12.0 & exit /b 1)
+echo [OK] pnpm installed via npm
 exit /b 0
 
 :ensure_env
@@ -75,7 +93,10 @@ for /l %%i in (1,1,60) do (
   for /f "delims=" %%s in ('docker inspect --format "{{.State.Health.Status}}" drilliq-db 2^>nul') do (
     if "%%s"=="healthy" ( echo [OK] PostgreSQL is healthy & exit /b 0 )
   )
-  timeout /t 2 /nobreak >nul
+  REM `ping` instead of `timeout`: timeout reads the console input handle and aborts
+  REM with "Input redirection is not supported" when stdin isn't a console (CI,
+  REM pipes, non-interactive shells). ping -n 3 on loopback waits ~2s and never reads stdin.
+  ping -n 3 127.0.0.1 >nul
 )
 echo [X] PostgreSQL did not become healthy. Check: docker compose logs db
 exit /b 1
@@ -100,8 +121,10 @@ exit /b 0
 :migrate
 echo [..] Applying Prisma migrations
 set "DATABASE_URL=%OWNER_URL%"
-call pnpm --filter @drilliq/db exec prisma migrate deploy || exit /b 1
-call pnpm --filter @drilliq/db exec prisma generate || exit /b 1
+REM Use the package's npm scripts (not `pnpm exec`): script runs put node_modules\.bin
+REM on PATH so the prisma binary always resolves (avoids ERR_PNPM_RECURSIVE_EXEC "Command not found").
+call pnpm --filter @drilliq/db migrate:deploy || exit /b 1
+call pnpm --filter @drilliq/db generate || exit /b 1
 call :ensure_app_role
 echo [OK] Database schema in sync
 exit /b 0
@@ -109,14 +132,14 @@ exit /b 0
 :seed
 echo [..] Seeding reference vocabulary + demo data
 set "DATABASE_URL=%OWNER_URL%"
-call pnpm --filter @drilliq/db exec tsx prisma/seed.ts || exit /b 1
+call pnpm --filter @drilliq/db seed || exit /b 1
 echo [OK] Seed complete
 exit /b 0
 
 :rls_gate
 echo [..] Running RLS tenant-isolation gate
 set "APP_DATABASE_URL=%APP_URL%"
-call pnpm --filter @drilliq/db exec tsx prisma/rls.test.ts || exit /b 1
+call pnpm --filter @drilliq/db test:rls || exit /b 1
 exit /b 0
 
 :start_app
@@ -175,7 +198,7 @@ call :ensure_pnpm || exit /b 1
 call :start_db || exit /b 1
 echo [!] Resetting database (DESTRUCTIVE)
 set "DATABASE_URL=%OWNER_URL%"
-call pnpm --filter @drilliq/db exec prisma migrate reset --force || exit /b 1
+call pnpm --filter @drilliq/db reset || exit /b 1
 call :ensure_app_role
 call :seed || exit /b 1
 call :rls_gate || exit /b 1

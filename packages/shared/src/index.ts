@@ -4,6 +4,7 @@
  */
 export * from "./units.js";
 export * from "./drilling-formulas.js";
+export * from "./dysfunction.js";
 export * from "./stats.js";
 export * from "./cost.js";
 export * from "./bit.js";

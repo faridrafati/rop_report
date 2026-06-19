@@ -168,7 +168,7 @@ export function RopOptimizationTab() {
 
   return (
     <div className="flex min-h-[calc(100vh-3.5rem)] flex-col">
-      <header className="flex items-center justify-between border-b border-slate-200 bg-white px-6 py-3">
+      <header className="flex flex-col gap-2 border-b border-slate-200 bg-white px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <h1 className="text-lg font-semibold text-slate-900">ROP optimization</h1>
         <nav className="flex flex-wrap gap-1">
           {VIEWS.map((v) => (
@@ -188,9 +188,9 @@ export function RopOptimizationTab() {
         </nav>
       </header>
 
-      <div className="flex flex-1">
+      <div className="flex flex-1 flex-col lg:flex-row">
         {/* Sidebar */}
-        <aside className="w-72 shrink-0 space-y-4 border-r border-gray-200 p-4">
+        <aside className="w-full shrink-0 space-y-4 border-b border-gray-200 p-4 lg:w-72 lg:border-b-0 lg:border-r">
           <MultiSelect
             title="Wells"
             options={(options?.wells ?? []).map((w) => ({ value: w.id, label: w.name }))}
@@ -279,7 +279,7 @@ export function RopOptimizationTab() {
         </aside>
 
         {/* Main panel */}
-        <main className="flex-1 overflow-x-auto p-6">
+        <main className="min-w-0 flex-1 overflow-x-auto p-4 sm:p-6">
           {/* Status header */}
           <div className="mb-4 flex flex-wrap items-center gap-x-6 gap-y-1 text-sm text-gray-600">
             <span>

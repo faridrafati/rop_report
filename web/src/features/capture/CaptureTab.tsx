@@ -64,7 +64,7 @@ function DullGradeFields({ value, onChange, reasons }: {
   const set = (k: keyof DullState) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     onChange({ ...value, [k]: e.target.value });
   return (
-    <div className="grid grid-cols-4 gap-2">
+    <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
       <Field label="1 Inner (0–8)"><input className={inputCls} type="number" min={0} max={8} value={value.inner} onChange={set('inner')} /></Field>
       <Field label="2 Outer (0–8)"><input className={inputCls} type="number" min={0} max={8} value={value.outer} onChange={set('outer')} /></Field>
       <Field label="3 Dull char">
@@ -143,7 +143,7 @@ function BitRunForm({ refs }: { refs: CaptureRefs }) {
   return (
     <form onSubmit={submit} className="flex flex-col gap-4 rounded-lg border border-gray-200 bg-white p-4">
       <h3 className="text-sm font-semibold text-gray-800">Capture a bit run</h3>
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
         <Field label="Wellbore *">
           <select className={inputCls} required value={wellboreId} onChange={(e) => setWellboreId(e.target.value)}>
             <option value="">Select…</option>
@@ -163,7 +163,7 @@ function BitRunForm({ refs }: { refs: CaptureRefs }) {
           </select>
         </Field>
       </div>
-      <div className="grid grid-cols-6 gap-2">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6">
         <Field label="Bit #"><input className={inputCls} type="number" value={p.numBit} onChange={setParam('numBit')} /></Field>
         <Field label="Depth in (m)"><input className={inputCls} type="number" value={p.depthIn} onChange={setParam('depthIn')} /></Field>
         <Field label="Depth out (m)"><input className={inputCls} type="number" value={p.depthOut} onChange={setParam('depthOut')} /></Field>
@@ -177,7 +177,7 @@ function BitRunForm({ refs }: { refs: CaptureRefs }) {
         <Field label="Flow Q (gpm)"><input className={inputCls} type="number" value={p.flowRate} onChange={setParam('flowRate')} /></Field>
         <Field label="MW (ppg)"><input className={inputCls} type="number" value={p.mudWeight} onChange={setParam('mudWeight')} /></Field>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <Field label="Bit class">
           <select className={inputCls} value={bitClass} onChange={(e) => setBitClass(e.target.value)}>
             <option value="">—</option><option value="N">N (new)</option><option value="U">U (used)</option>
@@ -295,7 +295,7 @@ function DdrForm({ refs }: { refs: CaptureRefs }) {
   return (
     <form onSubmit={submit} className="flex flex-col gap-4 rounded-lg border border-gray-200 bg-white p-4">
       <h3 className="text-sm font-semibold text-gray-800">Capture a daily drilling report</h3>
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
         <Field label="Wellbore *">
           <select className={inputCls} required value={wellboreId} onChange={(e) => setWellboreId(e.target.value)}>
             <option value="">Select…</option>
@@ -313,7 +313,7 @@ function DdrForm({ refs }: { refs: CaptureRefs }) {
           <button type="button" className="text-xs text-blue-600 hover:underline" onClick={() => setActivities([...activities, { classification: 'PLANNED', isProductive: true, description: '' }])}>+ add activity</button>
         </div>
         {activities.map((a, i) => (
-          <div key={i} className="grid grid-cols-12 items-end gap-2">
+          <div key={i} className="flex flex-col gap-2 sm:grid sm:grid-cols-12 sm:items-end">
             <div className="col-span-3"><Field label="Classification">
               <select className={inputCls} value={a.classification} onChange={(e) => setAct(i, { classification: e.target.value as CreateActivityInput['classification'] })}>
                 <option value="PLANNED">PLANNED</option><option value="UNPLANNED">UNPLANNED</option><option value="DOWNTIME">DOWNTIME</option>
@@ -335,7 +335,7 @@ function DdrForm({ refs }: { refs: CaptureRefs }) {
           <button type="button" className="text-xs text-blue-600 hover:underline" onClick={() => setFluids([...fluids, {}])}>+ add fluid</button>
         </div>
         {fluids.map((f, i) => (
-          <div key={i} className="grid grid-cols-6 items-end gap-2">
+          <div key={i} className="grid grid-cols-2 items-end gap-2 sm:grid-cols-6">
             <Field label="MW (ppg)"><input className={inputCls} type="number" value={f.mw ?? ''} onChange={(e) => setFluids(fluids.map((x, j) => j === i ? { ...x, mw: num(e.target.value) } : x))} /></Field>
             <Field label="PV"><input className={inputCls} type="number" value={f.pv ?? ''} onChange={(e) => setFluids(fluids.map((x, j) => j === i ? { ...x, pv: num(e.target.value) } : x))} /></Field>
             <Field label="YP"><input className={inputCls} type="number" value={f.yp ?? ''} onChange={(e) => setFluids(fluids.map((x, j) => j === i ? { ...x, yp: num(e.target.value) } : x))} /></Field>

@@ -11,6 +11,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { PlansModule } from './plans/plans.module';
 import { ReportsModule } from './reports/reports.module';
 import { IntegrationsModule } from './integrations/integrations.module';
+import { DdrImportModule } from './ddr-import/ddr-import.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { RolesGuard } from './auth/roles.guard';
@@ -29,6 +30,7 @@ import { RolesGuard } from './auth/roles.guard';
     PlansModule,
     ReportsModule,
     IntegrationsModule,
+    DdrImportModule,
   ],
   providers: [
     // Global auth: every route requires a valid JWT unless marked @Public().

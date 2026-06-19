@@ -15,6 +15,7 @@ const NAV: NavItem[] = [
   { to: '/capture', label: 'Capture' },
   { to: '/dashboard', label: 'Dashboard' },
   { to: '/plans', label: 'Plans', roles: ['OFFICE_ENGINEER', 'MANAGEMENT'] },
+  { to: '/import-ddr', label: 'Import DDR', roles: ['OFFICE_ENGINEER'] },
   { to: '/reports', label: 'Reports' },
 ];
 

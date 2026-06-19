@@ -1,0 +1,233 @@
+                                                             Daily Drilling Report
+                                                                       SPD20-14
+         DDR No: 31.0                                                                                                        DDR Date: 5/26/2026
+       Field Name              Client                  Well Type               Water Depth (m)         Latitude (°)            Longitude (°)
+       South Pars Gas field    POGC                    Infill                                    61.50          26° 46' 39.11" N          52° 9' 4.55" E
+       Rig Number              Contractor              Original KB Elevation (m)Other Elevation Note   Comment
+       P-200                   OKDC                                      36.15 Air Gap(m): 18          Leg Pen.(m): FWD: 1.92/STBD: 1.86/PORT: 1.68
+       Spud Date               Cum Time Log Days (days)Days LTI (days)         Kick Off Depth (mKB)    Last Casing String
+              4/25/2026                          29.13                  159.00                  210.00 26" Conductor, 195.00mKB
+       Ops Category            Current Geology         Mud Type                Last Mud Check Density (lb/gal)Head Count       Hazards
+       24" H.S.                Jahrum                  SW/PHG/Guar Gum Pill                       8.60                   105.0 STOP CARD: 23
+       Start Depth (mKB)       End Depth (mKB)         End Depth (TVD) (mKB)   Depth Progress (m)      Drilling Hours (hr)     Avg ROP (m/hr)
+                        917.00                  967.00                                           50.02                   19.95                     2.5
+       Operations at Report Time
+       Drilling 24" H.S at 972.8m
+       Operations Summary
+       Cont. Drilling 24" Hole section F/ 917m to 967m W/no return.
+       Operations Next Report Period
+       Cont. Drilling 24" H.S. to section TD.
+       Supervisors Contact
+                                Job Contact                                                               Position
+       H.Abdollahi                                                   Head of Operation
+       A.FathiNejad                                                  Senior Drilling Sup.
+       F.M.Yazdani                                                   Night Drilling Sup.
+       A.Rajaei                                                      Wellsite Drilling En
+       M.MValipour/A.Faramarzian                                     POGC Rep.
+       S.AbdollahKhani                                               Rig OIM
+       On-Board Companies
+                         Company                          Count                                            Note
+       POGC                                                        2 Client
+       PECO                                                        5 Operator
+       OKDC                                                       73 Drilling Unit Service
+       PDF                                                         2 Drilling Fluid Service
+       PGD                                                         4 Mud Logging Service
+       PDK                                                         6 Directional Drilling Service
+       MAPSA                                                       2 H2S Service
+       NEPTA                                                       2 Cementing Service
+       SARVAK                                                      5 Casing Running Service
+       CST                                                         1 Bit Engineer
+       POGC                                                        3 Content Producer
+       HSE Drill Schedule
+                           Type                           Date                                    Days to Next Check (days)
+       BOP Test
+       H2S Drill
+       Abandon Drill                                 5/3/2026                                                                                      14
+       Fire Drill                                    5/10/2026                                                                                     14
+       Bulk Material
+              Supply Item Des           Unit Label     Consumed        Received        Returned        On Loc                     Note
+       Barite                        MT                                                                     137.0 Useable amount
+       Cement (Class G)              MT                                                                     146.5 Useable amount
+       Diesel Fuel                   liter                 15,000.0                                      63,100.0 Useable amount
+       Drill Water                   m³                                                                     283.0 Useable amount
+       Fresh Water                   m³                        24.3           18.0                           80.0 Useable amount
+       Formations
+                                       Prog Top MD    Final Top MD   Final Top TVD                   Drilled ROP
+              Formation Name              (mKB)          (mKB)           (mKB)         Thick (m)        (m/hr)                   Lith Des
+       Fars Group                              98.79          99.00          99.00          339.00            8.8 Lst,Mrl,Clst,Gyp
+       Asmari                                437.95          438.00         436.38          118.00            9.1 Lst,Dol
+       Jahrum                                553.56          556.00                                               Dol, Lst
+       ilam                                  988.40
+       Directional Survey
+         MD (mKB)          Incl (°)       Azm (°)      TVD (mKB)        NS (m)          EW (m)         VS (m)         DLS (°/30m)       Build (°/30m)
+               436.80          11.49           25.11         435.21           20.52          10.52          23.06               1.09              1.09
+               465.22          12.12           25.70         463.03           25.77          13.01          28.87               0.68              0.67
+               493.72          12.58           26.78         490.87           31.24          15.71          34.97               0.54              0.48
+               520.22          12.87           25.60         516.72           36.48          18.28          40.80               0.44              0.33
+               540.00          13.16           25.60         535.99           40.50          20.21          45.26               0.44              0.44
+                                                                           Page ( 1 )
+
+                                                              Daily Drilling Report
+                                                                       SPD20-14
+         DDR No: 31.0                                                                                                         DDR Date: 5/26/2026
+       24 Hrs Operation Report
+         Start     Dur
+         Time      (hr)  End Time    Code 1    Code 2                                                Com
+       00:00      12.00  12:00     DRL1       P       Cont. Drilling 24" Hole section F/ 917 to 944m W/no return.
+                                                      >> Parameters: (WOB: 12-24kips, SRPM: 60-110, FR: 1092-1103gpm, SPP: 1460-1495psi, TQ: 5-
+                                                      14klbf).
+                                                      >> Off BTM pressure: 1484psi.
+                                                      >> PUHL: 256klbs, SOHL: 229klbs, RotHL: 242klbs.
+                                                      >> Erratic TQ @ 920, 921.6, 927.4, 929, 930, 937.6, 938 & 939.6m,
+                                                      >> Pumped GG/PHG Pill as per sweeping plan.
+                                                      >> F/U Ann. continuously.
+                                                      >> Avg ROP: 2.25m/h.
+       12:00        1.00 13:00     DRL9       P       B/R and R/D last drilled stand.
+                                                      >> Parameters: (SRPM: 80, FR: 800gpm, SPP: 840-1055psi, TQ: 4-7klbf).
+                                                      >> Pumped PHG Pill as per sweeping plan.
+       13:00        1.00 14:00     SN1        SN      Tried to B/O connection, no success due to high TQ. B/R and R/D last drilled joint. Pumped 20bbl
+                                                      weighted PHG pill + 35bbl PHG pill. Disconnect TDS's pipe handler, resumed trying to B/O connection by
+                                                      rig tons, success.
+                                                      >> Connected STD#25 of 5 7/8" DP.
+       14:00      10.00  00:00     DRL1       P       Cont. Drilling 24" Hole section F/ 944 to 967m W/no return. (after making connection & while
+                                                      establishing circulation, observed increasing in SPP around 200psi compared to previous flow rate
+                                                      (assumed nozzle plugged))
+                                                      >> Parameters: (WOB: 8-24kips, SRPM: 90-105, FR: 1095-1100gpm, SPP: 1350-1698psi, TQ: 6-12klbf).
+                                                      >> Off BTM pressure: 1690psi.
+                                                      >> PUHL: 262klbs, SOHL: 244klbs, RotHL: 248klbs.
+                                                      >> @ 15:00 => Stalled string @ 945.8m (BTM), tried to get free while working on stall through applying
+                                                      TQ to 34klbf.ft, no success. Released TQ, worked on stall by applying 70klbs Overpull, string got free
+                                                      (15min).
+                                                         * While working on stalled string, circulation was established without any changing in SPP (FR:
+                                                      1099gpm, SPP: 1697psi)
+                                                      >> Pumped GG/PHG Pill as per sweeping plan.
+                                                      >> Erratic TQ @ 955, 963, 964 & 964.6m.
+                                                      >> Avg ROP: 2.3m/h.
+       6 Hrs Morning Report
+       Remarks
+       2026.May.27
+       00:00   04:00
+       Cont Drilling 24" Hole section F/ 967 to 972.60m W/no return.
+       >> Parameters: (WOB: 6-17kips, SRPM: 91-103, FR: 1095-1100gpm, SPP: 1670-1687psi, TQ: 5-16klbf).
+       >> Erratic TQ @ 971.5 & 972.5m,
+       >> Off BTM pressure: 1484psi
+       >> PUHL: 256klbs, SOHL: 229klbs, RotHL: 242klbs
+       >> Pumped GG/PHG Pill as per sweeping plan.
+       >> Avg ROP: 1.4m/h.
+       Took SCR @ 966m as:
+       >> Pump#1: SPM: 30-40-50, FR: 191-255-319gpm, SPP: 104-146-200 psi.
+       >> Pump#2: SPM: 30-40-50, FR: 191-255-318gpm, SPP: 107-147-200 psi.
+       >> Pump#3: SPM: 30-40-50, FR: 191-254-318gpm, SPP: 110-153-207 psi.
+       04:00   05:30
+       B/R and R/D last drilled stand.
+       >> Parameters: (SRPM: 50, FR: 797gpm, SPP: 910-920psi, TQ: 2-12klbf).
+       >> Pumped 25bbl GG pill
+       >> Pumped 50bbl PHG pill.
+       05:30   06:00
+       Cont Drilling 24" Hole section F/ 972.6 to 972.8m W/no return.
+       >> Parameters: (WOB: 8-15kips, SRPM: 77-100, FR: 1098gpm, SPP: 1445-1455psi, TQ: 4-16klbf).
+       Observed decreasing in SPP, P/U string off-bottom to check pressure. (in progress)
+       Took SCR as:
+       >> Pump#1: SPM: 40-50, FR: 255-319 SPP: 121-167
+       >> Pump#2: SPM: 40-50, FR: 255-318 SPP: 126-170
+       >> Pump#3: SPM: 40-50, FR: 254-318 SPP: 123-172
+       >> Erratic TQ @ 972.6m.
+                                                                           Page ( 2 )
+
+                                                               Daily Drilling Report
+                                                                         SPD20-14
+         DDR No: 31.0                                                                                                           DDR Date: 5/26/2026
+       Drill Strings
+       Drill String Name             BHA #                        Depth In (mKB)                Date In                       BHA Objective
+       24" Rotary BHA                                          12                        895.13           5/25/2026           Rotary BHA
+       Depth Drilled (m)             Drilling Time (hr)           Circulating Time (hr)         Rotating Time (hr)            Sliding Time (hr)
+                               71.91                        25.45                         39.46                         25.45
+       Note
+       Size (in)                     Model                        IADC Codes                    Make                          Serial Number
+                                  24 KHD435GC                     435                           Kingdream                     2503307JH
+       Bit Run                       Nozzles (1/32")              Bit Total Fluid Area (in²)    Bit Revs                      IADC Bit Dull
+       RR#1                          22/22/22/22                                           1.48                    153,577.80 -------
+                                                                                                                                     Cum Len
+                          Item Des                           Serv             SN         OD (in)      ID (in)    Jts     Len (m)       (m)        Com
+       5-7/8" Heavy Weight Drill Pipe (15 joints)      OKDC                                      7       3.875      15      138.26      263.24 In hrs: 156
+       XT-57 B x 6 5/8" B Cross Over Sub               OKDC                                      8       2.800       1        1.10      124.98 In hrs: 157
+       8-1/2" Collar (3 joints)                        OKDC                                  8 1/2       2.812       3       28.02      123.88 In hrs: 145
+       8" Drilling Jar                                 PDK               08230358          7 15/16       3.000       1        9.46       95.86 In hrs: 111
+       8-1/2" Drill Collar (3 joints)                  OKDC                                  9 1/2       2.812       3       28.00       86.40 In hrs: 145
+       6-5/8 B x 7 5/8 p Cross Over Sub                OKDC              SFK5753             9 1/2       3.000       1        1.09       58.40 In hrs: 0
+       9-1/2" Drill Collar (3 joints)                  OKDC                                  9 1/2       3.000       3       27.45       57.31 In hrs: 153
+       15-1/4" IB String Stabilizer                    PDK               PK-SS-9002         15 1/4       3.000       1        2.08       29.86 In hrs: 241
+       9-1/2" Drill Collar (2 joints)                  OKDC                                  9 1/2       3.000       2       18.42       27.78 In hrs: 142
+       23-3/8" IB String Stabilizer                    PDK               PK-SS-9009         23 3/8       3.000       1        2.44        9.36 In hrs: 241
+       9-1/2" Shock Sub                                PDK               2561900006          9 1/2       2.813       1        5.33        6.92 In hrs: 18
+       9-1/2" Bit Sub (Float Valve Inside)             OKDC                                  9 1/2       3.000       1        0.92        1.59 In hrs: 157
+       Drilling Parameters
+                      End Depth     Drill Time   Slide Time    Circ Time     Int ROP                                  Q Flow                      WOB
+        Start (mKB)     (mKB)          (hr)         (hr)          (hr)        (m/hr)       Drill Tq    RPM (rpm)       (gpm)      SPP (psi)     (1000lbf)
+             917.00        920.39         1.67          0.00         1.67           2.0         14.0          110         1,103       1,495.0           24
+             920.37        936.17         7.17          0.00         7.17           2.2          7.0          104         1,103       1,490.0           24
+             936.17        939.31         1.33          0.00         1.33           2.4          7.0           99         1,103       1,487.0           20
+             939.31        944.30         0.97          0.00         0.97           5.1          8.0           99         1,103       1,488.0           24
+             944.30        945.84         0.75          0.00         0.75           2.1          7.0           92         1,103       1,695.0           12
+             945.84        963.10         5.95          0.00         5.95           2.9          8.0           95         1,099       1,700.0           24
+             963.10        964.11         0.53          0.00         0.53           1.9         12.0          100         1,099       1,675.0           30
+             964.11        967.00         1.58          0.00         1.58           1.8          8.0          105         1,100       1,678.0           22
+                                                        0.00         2.60
+       Mud Information
+       Depth (mKB)       Type               Density (lb/gal)  T Flowline (°C)    Funnel Viscosity (s/qt)PV Calc (cP)  YP Calc (lbf/100ft²) Filtrate (mL/30min)
+                  967.00  SW/PHG/Guar                     8.60                                  26
+                          Gum Pill
+       Vis 3rpm          Vis 6rpm           Gel 10 sec (lbf/100ft²) Gel 10 min (lbf/100ft²) Percent Water (%) Percent Oil (%) Solids (%) Low Gravity Solids (%)
+       MBT (lb/bbl)      pH                 Chlorides (mg/L)  Hardness Ca (ppm)  KCl (lb/bbl)      Mud Lost to Hole (bbl) Active Mud Volume (bbl) Vol Mud Res (bbl)
+                                        8.0        20,000.000              2,400                                                                    1222.0
+       Mud Additive Balance
+                             Des                                  Units                 Consumed                    Rec                    On Loc
+       Bentonite                                        1MT                                           3.0                                             68.0
+       Biocide                                          5 Gal                                         2.0                                             43.0
+       Caustic Soda                                     25 kg                                         2.0                                            150.0
+       Citric Acid                                      25 kg                                         4.0                                             60.0
+       Guar Gum                                         25 kg                                       23.0                                              84.0
+       Soda Ash                                         25 kg                                         2.0                                            126.0
+       Casing String
+                                                                                  Set Depth
+                       Csg Des                    Run Date        Top (mKB)         (mKB)                                 Com
+       26" Conductor                           4/27/2026                  0.00          195.00
+       Wellhead Component
+            Install Date      Size (in)            Type               Make         WP (psi)                               Com
+       Well Control-SCR
+               Pump #                 Depth (mKB)             Strokes (spm)               Eff (%)                  P (psi)              Q Flow (gpm)
+                                                                             Page ( 3 )
+
+                                                                   Daily Drilling Report
+                                                                              SPD20-14
+         DDR No: 31.0                                                                                                                    DDR Date: 5/26/2026
+        Formation Integrity Test
+       Test Type                       Test Date                       Last Casing String Run          Depth (mKB)                    TVD (mKB)
+       Applied Surface Pressure (psi)  Fluid Density (lb/gal)          Volume Pumped (bbl)             Leak Off Pressure (psi)        Leak Off Equivalent Fluid Density (lb/gal)
+        Marine Conditions
+                                                                              Wind Spd
+                  Swell Ht (m)             Visibility (km)    Wind Dir          (knots)       T High (°C)      Wave Ht (m)                     Com
+                                    0.65              10               50             17.0                              1.40
+        Support Vessels
+       Vessel Name                               Vessel Type        Arrival Date           Departure Date         Note
+        Stellar Mariner                          Supply Vessel            5/14/2026                               Cargo operation, Standby @ anchorage area.
+        General Notes
+       Comment
+        Material Request:
+        >> New request: 200m3 of F.O.
+        >> Outstanding: 150m3 of D.W.
+        -------------------------------------------------------------------------------------------------------------
+        Received:
+        -------------------------------------------------------------------------------------------------------------
+        Sent:
+        -------------------------------------------------------
+        Vessel Remaining Onboard:
+        On Stellar Mariner: 92 Jts of 18-5/8" CSG (K-55, 96.5#, BTC Thd.), Mud Material, Rig Eq.
+        ---------------------------------------------------------------------------------------------------------------
+        Rig Contractor Shortages:
+        - Driller's cabin needs to be equipped with a protection guard.
+        - Lack of passageway between the third floor of accommodation and cantilever deck for emergency access.
+        - Passenger transfer basket is unsafe and should be replaced with a rigid-type basket.
+        - One rig deep well pump is out of service.
+        - One water maker unit is out of service.
+                                                                                  Page ( 4 )

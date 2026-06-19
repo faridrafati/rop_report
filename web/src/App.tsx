@@ -12,6 +12,7 @@ const CaptureTab = lazy(() => import('./features/capture/CaptureTab').then((m) =
 const DashboardTab = lazy(() => import('./features/dashboard/DashboardTab').then((m) => ({ default: m.DashboardTab })));
 const PlansTab = lazy(() => import('./features/plans/PlansTab').then((m) => ({ default: m.PlansTab })));
 const ReportsTab = lazy(() => import('./features/reports/ReportsTab').then((m) => ({ default: m.ReportsTab })));
+const ImportDdrTab = lazy(() => import('./features/import-ddr/ImportDdrTab').then((m) => ({ default: m.ImportDdrTab })));
 
 interface Tile {
   to: string;
@@ -26,6 +27,7 @@ const TILES: Tile[] = [
   { to: '/capture', title: 'Capture', desc: 'Log bit runs (8-position IADC dull grade, dysfunction flags) and daily reports.', accent: 'bg-emerald-600' },
   { to: '/dashboard', title: 'Management dashboard', desc: 'Fleet KPIs: cost/m, NPT %, MSE, founder rate, bit leaderboard, cross-plots.', accent: 'bg-violet-600' },
   { to: '/plans', title: 'Plans & approvals', desc: 'Bit/parameter recommendations with an approval workflow.', accent: 'bg-amber-600', roles: ['OFFICE_ENGINEER', 'MANAGEMENT'] },
+  { to: '/import-ddr', title: 'Import DDR (PDF)', desc: 'Upload a wellsite Daily Drilling Report PDF and import it into the database.', accent: 'bg-cyan-600', roles: ['OFFICE_ENGINEER'] },
   { to: '/reports', title: 'Reports & exports', desc: 'Generate PDF and Excel reports of bit runs and DDRs — scoped to your client.', accent: 'bg-rose-600' },
 ];
 
@@ -65,6 +67,7 @@ export function App() {
         <Route path="/capture" element={<CaptureTab />} />
         <Route path="/dashboard" element={<DashboardTab />} />
         <Route path="/plans" element={<PlansTab />} />
+        <Route path="/import-ddr" element={<ImportDdrTab />} />
         <Route path="/reports" element={<ReportsTab />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />

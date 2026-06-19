@@ -7,6 +7,8 @@
 #   ./run.sh start      start web + api (assumes setup already done)
 #   ./run.sh test       run all tests (shared analytics + RLS gate)
 #   ./run.sh reset      drop + recreate the database (DESTRUCTIVE), then setup
+#   ./run.sh dump [f]   back up the WHOLE database → backups/drilliq_<ts>.sql.gz (or f)
+#   ./run.sh restore f  restore a dump (DESTRUCTIVE; portable Windows↔Ubuntu)
 #   ./run.sh stop       stop the docker stack
 #
 # Requires: Node.js >= 20 and Docker (with the compose plugin). Everything else
@@ -44,6 +46,7 @@ APP_DB_PASS="change-me-app"
 DB_HOST="127.0.0.1"
 OWNER_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${DB_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}?schema=public"
 APP_URL="postgresql://${APP_DB_USER}:${APP_DB_PASS}@${DB_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}?schema=public"
+BACKUP_DIR="${ROOT}/backups"
 
 # ── prerequisite checks ──────────────────────────────────────────
 check_prereqs() {
@@ -122,6 +125,47 @@ seed() {
   ok "Seed complete"
 }
 
+# ── full DB backup / restore (portable across machines + OSes) ────
+# Dumps the entire `drilliq` database — schema, ALL data, RLS policies,
+# functions and grants — to a single gzip'd .sql file. pg_dump + gzip run
+# INSIDE the container (same postgres:16 image on every machine), so the
+# output restores identically on Windows↔Ubuntu↔macOS. The restricted
+# drilliq_app role is recreated by ensure_app_role, not carried in the dump.
+dump_db() {
+  start_db
+  mkdir -p "${BACKUP_DIR}"
+  local out="${1:-${BACKUP_DIR}/drilliq_$(date +%Y%m%d_%H%M%S).sql.gz}"
+  log "Dumping database '${POSTGRES_DB}' → ${out}"
+  docker exec -e PGPASSWORD="${POSTGRES_PASSWORD}" drilliq-db \
+    bash -c "set -o pipefail; pg_dump -U ${POSTGRES_USER} -d ${POSTGRES_DB} --clean --if-exists --no-owner | gzip -c" > "${out}"
+  [ -s "${out}" ] || die "Dump is empty — check: docker compose logs db"
+  ok "Dump complete: ${out} ($(du -h "${out}" | cut -f1))"
+}
+
+# Restore a dump (.sql.gz or .sql) produced by `dump`. DESTRUCTIVE: replaces
+# all current data. The app role is ensured first so the dump's GRANTs resolve;
+# the dump is self-cleaning (pg_dump --clean --if-exists) so it drops & recreates
+# every object. Then ensure_app_role re-affirms grants on the restored tables.
+restore_db() {
+  local file="${1:-}"
+  [ -n "${file}" ] || die "Usage: ./run.sh restore <file.sql.gz|file.sql>"
+  [ -f "${file}" ] || die "Backup file not found: ${file}"
+  start_db
+  ensure_app_role
+  warn "Restoring '${file}' into '${POSTGRES_DB}' — this REPLACES all current data."
+  # Drop app connections so DROPs in the dump aren't blocked.
+  psql_owner -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname='${POSTGRES_DB}' AND pid<>pg_backend_pid();" >/dev/null 2>&1 || true
+  log "Loading dump"
+  case "${file}" in
+    *.gz) docker exec -i -e PGPASSWORD="${POSTGRES_PASSWORD}" drilliq-db \
+            bash -c "set -o pipefail; gunzip -c | psql -U ${POSTGRES_USER} -d ${POSTGRES_DB} -q -v ON_ERROR_STOP=1" < "${file}" ;;
+    *)    docker exec -i -e PGPASSWORD="${POSTGRES_PASSWORD}" drilliq-db \
+            psql -U "${POSTGRES_USER}" -d "${POSTGRES_DB}" -q -v ON_ERROR_STOP=1 < "${file}" ;;
+  esac
+  ensure_app_role
+  ok "Restore complete — '${POSTGRES_DB}' now matches the dump"
+}
+
 build_shared() {
   log "Building @drilliq/shared (analytics engine)"
   pnpm --filter @drilliq/shared build
@@ -196,6 +240,8 @@ case "${1:-all}" in
     DATABASE_URL="${OWNER_URL}" pnpm --filter @drilliq/db reset
     ensure_app_role; seed; rls_gate
     ok "Reset complete" ;;
+  dump)    check_prereqs; dump_db "${2:-}" ;;
+  restore) check_prereqs; restore_db "${2:-}" ;;
   stop)  log "Stopping docker stack"; docker compose down; ok "Stopped" ;;
-  *) die "Unknown command '$1'. Use: all | setup | start | test | reset | stop" ;;
+  *) die "Unknown command '$1'. Use: all | setup | start | test | reset | dump | restore | stop" ;;
 esac

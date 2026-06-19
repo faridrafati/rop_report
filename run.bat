@@ -7,6 +7,8 @@ REM    run.bat setup      bootstrap only (install, db, migrate, seed, RLS gate)
 REM    run.bat start      start web + api (assumes setup already done)
 REM    run.bat test       run all tests (analytics + RLS gate)
 REM    run.bat reset      drop + recreate the database (DESTRUCTIVE), then setup
+REM    run.bat dump [f]   back up the WHOLE database -> backups\drilliq_<ts>.sql.gz (or f)
+REM    run.bat restore f  restore a dump (DESTRUCTIVE; portable Windows^<-^>Ubuntu)
 REM    run.bat stop       stop the docker stack
 REM
 REM  Requires: Node.js >= 20 and Docker Desktop (with compose). pnpm, Postgres,
@@ -45,8 +47,10 @@ if /i "%CMD%"=="setup" goto :setup
 if /i "%CMD%"=="start" goto :start
 if /i "%CMD%"=="test"  goto :test
 if /i "%CMD%"=="reset" goto :reset
+if /i "%CMD%"=="dump"  goto :dump
+if /i "%CMD%"=="restore" goto :restore
 if /i "%CMD%"=="stop"  goto :stop
-echo [X] Unknown command "%CMD%". Use: all ^| setup ^| start ^| test ^| reset ^| stop
+echo [X] Unknown command "%CMD%". Use: all ^| setup ^| start ^| test ^| reset ^| dump ^| restore ^| stop
 exit /b 1
 
 REM ----------------------------------------------------------------------------
@@ -203,6 +207,48 @@ call :ensure_app_role
 call :seed || exit /b 1
 call :rls_gate || exit /b 1
 echo [OK] Reset complete
+exit /b 0
+
+REM ----------------------------------------------------------------------------
+REM Full DB backup / restore. pg_dump + gzip run INSIDE the drilliq-db container
+REM (same postgres:16 image on every machine), so a dump made here restores
+REM identically on Windows or Ubuntu. The drilliq_app role is recreated by
+REM ensure_app_role, not carried in the dump.
+:dump
+call :check_prereqs || exit /b 1
+call :start_db || exit /b 1
+if not exist "backups" mkdir "backups"
+set "OUT=%~2"
+if "!OUT!"=="" (
+  for /f %%i in ('powershell -NoProfile -Command "Get-Date -Format yyyyMMdd_HHmmss"') do set "OUT=backups\drilliq_%%i.sql.gz"
+)
+echo [..] Dumping database %POSTGRES_DB% to !OUT!
+docker exec -e PGPASSWORD=%POSTGRES_PASSWORD% drilliq-db bash -c "set -o pipefail; pg_dump -U %POSTGRES_USER% -d %POSTGRES_DB% --clean --if-exists --no-owner | gzip -c" > "!OUT!"
+if errorlevel 1 ( echo [X] Dump failed - check: docker compose logs db & exit /b 1 )
+for %%A in ("!OUT!") do if %%~zA EQU 0 ( echo [X] Dump is empty - check: docker compose logs db & exit /b 1 )
+echo [OK] Dump complete: !OUT!
+exit /b 0
+
+:restore
+call :check_prereqs || exit /b 1
+call :start_db || exit /b 1
+set "FILE=%~2"
+if "!FILE!"=="" ( echo [X] Usage: run.bat restore ^<file.sql.gz ^| file.sql^> & exit /b 1 )
+if not exist "!FILE!" ( echo [X] Backup file not found: !FILE! & exit /b 1 )
+call :ensure_app_role
+echo [WARN] Restoring "!FILE!" into %POSTGRES_DB% - this REPLACES all current data
+docker exec -e PGPASSWORD=%POSTGRES_PASSWORD% drilliq-db psql -U %POSTGRES_USER% -d %POSTGRES_DB% -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname='%POSTGRES_DB%' AND pid<>pg_backend_pid();" >nul 2>&1
+echo [..] Loading dump
+set "GZ="
+echo !FILE!|findstr /i "\.gz$" >nul && set "GZ=1"
+if defined GZ (
+  docker exec -i -e PGPASSWORD=%POSTGRES_PASSWORD% drilliq-db bash -c "set -o pipefail; gunzip -c | psql -U %POSTGRES_USER% -d %POSTGRES_DB% -q -v ON_ERROR_STOP=1" < "%FILE%"
+) else (
+  docker exec -i -e PGPASSWORD=%POSTGRES_PASSWORD% drilliq-db psql -U %POSTGRES_USER% -d %POSTGRES_DB% -q -v ON_ERROR_STOP=1 < "%FILE%"
+)
+if errorlevel 1 ( echo [X] Restore failed & exit /b 1 )
+call :ensure_app_role
+echo [OK] Restore complete - %POSTGRES_DB% now matches the dump
 exit /b 0
 
 :stop

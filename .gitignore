@@ -50,3 +50,8 @@ coverage/
 sqlite_DB/
 *.sqlite
 *.mdb
+
+# Database backups (pg_dump output — portable between machines, not tracked)
+backups/
+*.sql.gz
+*.dump

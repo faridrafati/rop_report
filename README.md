@@ -43,7 +43,28 @@ Then open:
 | `start` | start web + api (assumes setup done) |
 | `test`  | run analytics unit tests **and** the RLS isolation gate |
 | `reset` | drop + recreate the database (**destructive**), then re-setup |
+| `dump [file]` | back up the **whole** database (schema, data, RLS policies, functions, grants) → `backups/drilliq_<timestamp>.sql.gz` (or `file`) |
+| `restore <file>` | restore a dump (**destructive**); the dump is portable across machines and OSes |
 | `stop`  | stop the Docker stack |
+
+### Moving a database between machines (Windows ↔ Ubuntu ↔ macOS)
+
+`dump`/`restore` run `pg_dump`/`psql` **inside** the `postgres:16` container, so a
+dump made on any machine restores identically on any other — direction doesn't
+matter (Windows→Ubuntu, Ubuntu→Ubuntu, Windows→Windows, …). The restricted
+`drilliq_app` role is recreated by `setup`/`restore`, not carried in the dump.
+
+```bash
+# on the source machine
+./run.sh dump                       # → backups/drilliq_<timestamp>.sql.gz
+# copy that .sql.gz to the target machine (cloud drive / USB / scp), then:
+./run.sh setup                      # one-time: brings up Docker + applies migrations
+./run.sh restore backups/drilliq_<timestamp>.sql.gz
+```
+
+On Windows use `run.bat dump` / `run.bat restore <file>` (identical behaviour).
+Backups are git-ignored (they hold real data) — move them out-of-band like the
+source sqlite, not through GitHub.
 
 ---
 

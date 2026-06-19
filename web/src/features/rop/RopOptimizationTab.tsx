@@ -11,7 +11,6 @@
  * tab works and shows an empty state gracefully when there are no rows yet.
  */
 import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { fetchRopOptimization, fetchRopOptions } from './api';
 import { screenOutliers } from './screening';
@@ -168,14 +167,9 @@ export function RopOptimizationTab() {
   const points = screened.kept;
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="flex items-center justify-between border-b border-gray-200 px-6 py-3">
-        <div className="flex items-center gap-3">
-          <Link to="/" className="text-sm text-blue-600 hover:underline">
-            ← DrillIQ
-          </Link>
-          <h1 className="text-lg font-semibold text-gray-900">ROP optimization</h1>
-        </div>
+    <div className="flex min-h-[calc(100vh-3.5rem)] flex-col">
+      <header className="flex items-center justify-between border-b border-slate-200 bg-white px-6 py-3">
+        <h1 className="text-lg font-semibold text-slate-900">ROP optimization</h1>
         <nav className="flex flex-wrap gap-1">
           {VIEWS.map((v) => (
             <button

@@ -6,6 +6,11 @@ import { ClsModule } from 'nestjs-cls';
 import { HealthModule } from './health/health.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { RopModule } from './rop/rop.module';
+import { CaptureModule } from './capture/capture.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { PlansModule } from './plans/plans.module';
+import { ReportsModule } from './reports/reports.module';
+import { IntegrationsModule } from './integrations/integrations.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { RolesGuard } from './auth/roles.guard';
@@ -19,6 +24,11 @@ import { RolesGuard } from './auth/roles.guard';
     AuthModule,
     HealthModule,
     RopModule,
+    CaptureModule,
+    DashboardModule,
+    PlansModule,
+    ReportsModule,
+    IntegrationsModule,
   ],
   providers: [
     // Global auth: every route requires a valid JWT unless marked @Public().

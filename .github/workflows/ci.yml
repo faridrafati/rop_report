@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  PNPM_VERSION: 9.12.0
+  NODE_VERSION: 20
+
+jobs:
+  # Fast, DB-independent gate: install, build the shared lib, typecheck, lint,
+  # and run the pure unit tests (shared analytics incl. the $48.8/ft fixture + web).
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Build shared analytics lib
+        run: pnpm --filter @drilliq/shared build
+      - name: Generate Prisma client
+        run: pnpm --filter @drilliq/db generate
+      - name: Typecheck
+        run: pnpm -r typecheck
+      - name: Lint
+        run: pnpm -r lint
+      - name: Unit tests (shared + web)
+        run: |
+          pnpm --filter @drilliq/shared test
+          pnpm --filter @drilliq/web test
+
+  # Database gate: migrations apply, seed loads, and the RLS zero-rows isolation
+  # proof passes against a real Postgres (mirrors run.sh `test`).
+  db-rls:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: drilliq
+          POSTGRES_PASSWORD: change-me-in-prod
+          POSTGRES_DB: drilliq
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U drilliq -d drilliq"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      OWNER_URL: postgresql://drilliq:change-me-in-prod@127.0.0.1:5432/drilliq?schema=public
+      APP_URL: postgresql://drilliq_app:change-me-app@127.0.0.1:5432/drilliq?schema=public
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Build shared analytics lib
+        run: pnpm --filter @drilliq/shared build
+      - name: Create restricted RLS app role
+        run: |
+          PGPASSWORD=change-me-in-prod psql -h 127.0.0.1 -U drilliq -d drilliq -v ON_ERROR_STOP=1 \
+            -c "DO \$\$ BEGIN IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='drilliq_app') THEN CREATE ROLE drilliq_app LOGIN PASSWORD 'change-me-app'; END IF; END \$\$;" \
+            -c "GRANT CONNECT ON DATABASE drilliq TO drilliq_app; GRANT USAGE ON SCHEMA public TO drilliq_app;"
+      - name: Apply migrations + generate client
+        run: |
+          DATABASE_URL="$OWNER_URL" pnpm --filter @drilliq/db migrate:deploy
+          pnpm --filter @drilliq/db generate
+      - name: Grant table privileges to app role
+        run: |
+          PGPASSWORD=change-me-in-prod psql -h 127.0.0.1 -U drilliq -d drilliq -v ON_ERROR_STOP=1 \
+            -c "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO drilliq_app; GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO drilliq_app;"
+      - name: Seed reference + demo data
+        run: DATABASE_URL="$OWNER_URL" pnpm --filter @drilliq/db seed
+      - name: RLS zero-rows isolation gate
+        run: APP_DATABASE_URL="$APP_URL" pnpm --filter @drilliq/db test:rls

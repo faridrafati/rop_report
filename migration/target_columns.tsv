@@ -1,0 +1,545 @@
+﻿bha_records	1	id	uuid	NO	uuid_generate_v4()
+bha_records	2	report_id	uuid	NO	
+bha_records	3	bha_number	int4	YES	
+bha_records	4	run_number	int4	YES	
+bha_records	5	components	jsonb	YES	
+bha_records	6	total_length	numeric	YES	
+bha_records	7	total_weight	numeric	YES	
+bha_records	8	purpose	text	YES	
+bha_records	9	notes	text	YES	
+bha_records	10	created_at	timestamptz	YES	timezone('utc'::text, now())
+bit_catalog	1	id	uuid	NO	uuid_generate_v4()
+bit_catalog	2	bit_code	text	NO	
+bit_catalog	3	bit_size	numeric	YES	
+bit_catalog	4	bit_type	text	YES	
+bit_catalog	5	iadc_code	text	YES	
+bit_catalog	6	manufacturer	text	YES	
+bit_catalog	7	model	text	YES	
+bit_catalog	8	created_at	timestamptz	YES	timezone('utc'::text, now())
+bit_records	1	id	uuid	NO	uuid_generate_v4()
+bit_records	2	report_id	uuid	NO	
+bit_records	3	bit_number	int4	YES	
+bit_records	4	bit_size	numeric	YES	
+bit_records	5	bit_type	text	YES	
+bit_records	6	bit_manufacturer	text	YES	
+bit_records	7	bit_serial_number	text	YES	
+bit_records	8	depth_in	numeric	YES	
+bit_records	9	depth_out	numeric	YES	
+bit_records	10	footage	numeric	YES	
+bit_records	11	hours_run	numeric	YES	
+bit_records	12	inner_rows	text	YES	
+bit_records	13	outer_rows	text	YES	
+bit_records	14	dull_grade	text	YES	
+bit_records	15	location	text	YES	
+bit_records	16	bearing_seals	text	YES	
+bit_records	17	gauge	text	YES	
+bit_records	18	reason_pulled	text	YES	
+bit_records	19	nozzle_sizes	text	YES	
+bit_records	20	jets_configuration	text	YES	
+bit_records	21	created_at	timestamptz	YES	timezone('utc'::text, now())
+bit_records	22	bit_meter_total	numeric	YES	
+bit_records	23	min_weight_on_bit	numeric	YES	
+bit_records	24	max_weight_on_bit	numeric	YES	
+bit_records	25	min_rpm	numeric	YES	
+bit_records	26	max_rpm	numeric	YES	
+bit_records	27	torque_on_bottom	numeric	YES	
+bit_records	28	torque_off_bottom	numeric	YES	
+bit_records	29	tfa	numeric	YES	
+bit_records	30	bit_hsi	numeric	YES	
+bit_records	31	pump_type_1_code	text	YES	
+bit_records	32	pump_type_2_code	text	YES	
+bit_records	33	pump_liner_size_1	numeric	YES	
+bit_records	34	pump_liner_size_2	numeric	YES	
+bit_records	35	pump_output_1	numeric	YES	
+bit_records	36	pump_output_2	numeric	YES	
+bit_records	37	pump_pressure_1	numeric	YES	
+bit_records	38	pump_pressure_2	numeric	YES	
+bit_records	39	annular_velocity	numeric	YES	
+bit_records	40	connection_drilling_motor_meter	numeric	YES	
+bit_records	41	connection_drilling_motor_hour	numeric	YES	
+bit_records	42	trip_in_out_meter	numeric	YES	
+bit_records	43	trip_in_out_hour	numeric	YES	
+bit_records	44	bit_change_in_time	numeric	YES	
+bit_records	45	bit_change_out_time	numeric	YES	
+bit_records	46	inner_cutter_wear_code	text	YES	
+bit_records	47	outer_cutter_wear_code	text	YES	
+bit_records	48	dull_characteristic_code	text	YES	
+bit_records	49	wear_location_code	text	YES	
+bit_records	50	bearing_wear_code	text	YES	
+bit_records	51	gauge_wear_code	text	YES	
+bit_records	52	other_dull_characteristic_code	text	YES	
+bit_records	53	reason_pulled_code	text	YES	
+bit_records	54	used_percent	int4	YES	
+bop_test	1	id	uuid	NO	uuid_generate_v4()
+bop_test	2	report_id	uuid	NO	
+bop_test	3	well_control_type_code	text	YES	
+bop_test	4	accumulator_pressure	numeric	YES	
+bop_test	5	recharge_time	numeric	YES	
+bop_test	6	recharge_at	text	YES	
+bop_test	7	last_test_before_trip	numeric	YES	
+bop_test	8	last_integrity_kick_test	numeric	YES	
+bop_test	9	created_at	timestamptz	YES	timezone('utc'::text, now())
+casing_catalog	1	id	uuid	NO	uuid_generate_v4()
+casing_catalog	2	casing_code	text	NO	
+casing_catalog	3	casing_name	text	NO	
+casing_catalog	4	size	numeric	YES	
+casing_catalog	5	grade	text	YES	
+casing_catalog	6	weight_per_foot	numeric	YES	
+casing_catalog	7	thread_type	text	YES	
+casing_catalog	8	created_at	timestamptz	YES	timezone('utc'::text, now())
+casing_records	1	id	uuid	NO	uuid_generate_v4()
+casing_records	2	report_id	uuid	NO	
+casing_records	3	casing_string	text	YES	
+casing_records	4	casing_size	numeric	YES	
+casing_records	5	casing_weight	numeric	YES	
+casing_records	6	casing_grade	text	YES	
+casing_records	7	setting_depth	numeric	YES	
+casing_records	8	top_of_cement	numeric	YES	
+casing_records	9	cement_type	text	YES	
+casing_records	10	cement_volume	numeric	YES	
+casing_records	11	cement_density	numeric	YES	
+casing_records	12	cement_company	text	YES	
+casing_records	13	plug_bumped_pressure	numeric	YES	
+casing_records	14	wait_on_cement	numeric	YES	
+casing_records	15	created_at	timestamptz	YES	timezone('utc'::text, now())
+chemical_materials_usage	1	id	uuid	NO	uuid_generate_v4()
+chemical_materials_usage	2	report_id	uuid	NO	
+chemical_materials_usage	3	material_code	text	NO	
+chemical_materials_usage	4	amount	numeric	YES	
+chemical_materials_usage	5	received	numeric	YES	
+chemical_materials_usage	6	stock	numeric	YES	
+chemical_materials_usage	7	on_site	numeric	YES	
+chemical_materials_usage	8	requested	numeric	YES	
+chemical_materials_usage	9	sent	numeric	YES	
+chemical_materials_usage	10	measure_code	text	YES	
+chemical_materials_usage	11	created_at	timestamptz	YES	timezone('utc'::text, now())
+companyman_rig_assignments	1	id	uuid	NO	uuid_generate_v4()
+companyman_rig_assignments	2	companyman_id	uuid	NO	
+companyman_rig_assignments	3	rig_id	uuid	NO	
+companyman_rig_assignments	4	assigned_at	timestamptz	YES	timezone('utc'::text, now())
+companyman_rig_assignments	5	assigned_by	uuid	YES	
+companyman_rig_assignments	6	is_active	bool	YES	true
+contractors	1	id	uuid	NO	uuid_generate_v4()
+contractors	2	contractor_code	text	NO	
+contractors	3	contractor_name	text	NO	
+contractors	4	contractor_type	text	YES	
+contractors	5	contact_info	jsonb	YES	
+contractors	6	created_at	timestamptz	YES	timezone('utc'::text, now())
+contractors	7	updated_at	timestamptz	YES	timezone('utc'::text, now())
+daily_drilling_cost	1	id	uuid	NO	uuid_generate_v4()
+daily_drilling_cost	2	report_id	uuid	NO	
+daily_drilling_cost	3	day_rate	numeric	YES	
+daily_drilling_cost	4	mud_cost	numeric	YES	
+daily_drilling_cost	5	cement_cost	numeric	YES	
+daily_drilling_cost	6	equipment_cost	numeric	YES	
+daily_drilling_cost	7	service_cost	numeric	YES	
+daily_drilling_cost	8	other_cost	numeric	YES	
+daily_drilling_cost	9	day_rate_cumulative	numeric	YES	
+daily_drilling_cost	10	mud_cost_cumulative	numeric	YES	
+daily_drilling_cost	11	cement_cost_cumulative	numeric	YES	
+daily_drilling_cost	12	equipment_cost_cumulative	numeric	YES	
+daily_drilling_cost	13	service_cost_cumulative	numeric	YES	
+daily_drilling_cost	14	other_cost_cumulative	numeric	YES	
+daily_drilling_cost	15	created_at	timestamptz	YES	timezone('utc'::text, now())
+daily_problems	1	id	uuid	NO	uuid_generate_v4()
+daily_problems	2	report_id	uuid	NO	
+daily_problems	3	operation_code	text	YES	
+daily_problems	4	depth_point	numeric	YES	
+daily_problems	5	description	text	YES	
+daily_problems	6	problem_type	text	YES	
+daily_problems	7	duration_hours	numeric	YES	
+daily_problems	8	created_at	timestamptz	YES	timezone('utc'::text, now())
+daily_reports	1	id	uuid	NO	uuid_generate_v4()
+daily_reports	2	user_id	uuid	NO	
+daily_reports	3	report_date	date	NO	
+daily_reports	4	well_name	text	NO	
+daily_reports	5	rig_name	text	YES	
+daily_reports	6	operator	text	YES	
+daily_reports	7	contractor	text	YES	
+daily_reports	8	field	text	YES	
+daily_reports	9	location	text	YES	
+daily_reports	10	report_number	int4	YES	
+daily_reports	11	days_since_spud	numeric	YES	
+daily_reports	12	hole_depth_start	numeric	YES	
+daily_reports	13	hole_depth_end	numeric	YES	
+daily_reports	14	progress_24hr	numeric	YES	
+daily_reports	15	drilling_time	numeric	YES	
+daily_reports	16	tripping_time	numeric	YES	
+daily_reports	17	casing_time	numeric	YES	
+daily_reports	18	rig_repair_time	numeric	YES	
+daily_reports	19	wait_on_cement_time	numeric	YES	
+daily_reports	20	other_time	numeric	YES	
+daily_reports	21	operations_summary	text	YES	
+daily_reports	22	next_operations	text	YES	
+daily_reports	23	safety_incidents	text	YES	
+daily_reports	24	created_at	timestamptz	YES	timezone('utc'::text, now())
+daily_reports	25	updated_at	timestamptz	YES	timezone('utc'::text, now())
+daily_reports	26	well_id	uuid	YES	
+daily_reports	27	actual_rig_days	int4	YES	
+daily_reports	28	morning_depth	numeric	YES	
+daily_reports	29	total_drilling_hours	numeric	YES	
+daily_reports	30	lithology	text	YES	
+daily_reports	31	well_site_superintendent	text	YES	
+daily_reports	32	operation_superintendent	text	YES	
+daily_reports	33	program_engineer	text	YES	
+daily_reports	34	geologist	text	YES	
+daily_reports	35	contractor_tool_pusher_1	text	YES	
+daily_reports	36	contractor_tool_pusher_2	text	YES	
+daily_reports	37	previous_drill_depth	numeric	YES	
+daily_reports	38	kick_off_point	numeric	YES	
+daily_reports	39	weather_conditions	text	YES	
+daily_reports	40	wind_speed_direction	text	YES	
+daily_reports	41	wave_visibility	text	YES	
+daily_reports	42	fresh_water_used	numeric	YES	
+daily_reports	43	fuel_consumed	numeric	YES	
+daily_reports	44	hole_size	text	YES	
+daily_reports	45	mud_name	text	YES	
+dashboard_stats	1	total_reports	int8	YES	
+dashboard_stats	2	max_depth	numeric	YES	
+dashboard_stats	3	avg_progress	numeric	YES	
+dashboard_stats	4	total_drilling_hours	numeric	YES	
+dashboard_stats	5	unique_wells	int8	YES	
+directional_records	1	id	uuid	NO	uuid_generate_v4()
+directional_records	2	report_id	uuid	NO	
+directional_records	3	measured_depth	numeric	YES	
+directional_records	4	inclination	numeric	YES	
+directional_records	5	azimuth	numeric	YES	
+directional_records	6	true_vertical_depth	numeric	YES	
+directional_records	7	north_south	numeric	YES	
+directional_records	8	east_west	numeric	YES	
+directional_records	9	vertical_section	numeric	YES	
+directional_records	10	dogleg_severity	numeric	YES	
+directional_records	11	survey_type	text	YES	
+directional_records	12	tool_type	text	YES	
+directional_records	13	survey_company	text	YES	
+directional_records	14	created_at	timestamptz	YES	timezone('utc'::text, now())
+downhole_motor	1	id	uuid	NO	uuid_generate_v4()
+downhole_motor	2	report_id	uuid	NO	
+downhole_motor	3	motor_type_code	text	YES	
+downhole_motor	4	motor_size	numeric	YES	
+downhole_motor	5	motor_serial_no	text	YES	
+downhole_motor	6	motor_hours	numeric	YES	
+downhole_motor	7	motor_company_code	text	YES	
+downhole_motor	8	created_at	timestamptz	YES	timezone('utc'::text, now())
+drill_string_components	1	id	uuid	NO	uuid_generate_v4()
+drill_string_components	2	report_id	uuid	NO	
+drill_string_components	3	component_order	int4	YES	
+drill_string_components	4	size	text	YES	
+drill_string_components	5	grade	text	YES	
+drill_string_components	6	length	numeric	YES	
+drill_string_components	7	weight	numeric	YES	
+drill_string_components	8	component_type	text	YES	
+drill_string_components	9	created_at	timestamptz	YES	timezone('utc'::text, now())
+equipment_catalog	1	id	uuid	NO	uuid_generate_v4()
+equipment_catalog	2	equipment_code	text	NO	
+equipment_catalog	3	equipment_name	text	NO	
+equipment_catalog	4	equipment_type	text	YES	
+equipment_catalog	5	unit_of_measure	text	YES	
+equipment_catalog	6	created_at	timestamptz	YES	timezone('utc'::text, now())
+equipment_catalog	7	updated_at	timestamptz	YES	timezone('utc'::text, now())
+equipment_used	1	id	uuid	NO	uuid_generate_v4()
+equipment_used	2	report_id	uuid	NO	
+equipment_used	3	equipment_code	text	NO	
+equipment_used	4	amount	numeric	YES	
+equipment_used	5	received	numeric	YES	
+equipment_used	6	stock	numeric	YES	
+equipment_used	7	on_site	numeric	YES	
+equipment_used	8	requested	numeric	YES	
+equipment_used	9	sent	numeric	YES	
+equipment_used	10	measure_code	text	YES	
+equipment_used	11	created_at	timestamptz	YES	timezone('utc'::text, now())
+fields	1	id	uuid	NO	uuid_generate_v4()
+fields	2	field_code	text	NO	
+fields	3	field_abri	text	NO	
+fields	4	field_name	text	YES	
+fields	5	area_code	text	YES	
+fields	6	created_at	timestamptz	YES	timezone('utc'::text, now())
+fields	7	updated_at	timestamptz	YES	timezone('utc'::text, now())
+formation_tops	1	id	uuid	NO	uuid_generate_v4()
+formation_tops	2	report_id	uuid	NO	
+formation_tops	3	formation_name	text	YES	
+formation_tops	4	measured_depth	numeric	YES	
+formation_tops	5	true_vertical_depth	numeric	YES	
+formation_tops	6	lithology	text	YES	
+formation_tops	7	description	text	YES	
+formation_tops	8	created_at	timestamptz	YES	timezone('utc'::text, now())
+formation_types	1	id	uuid	NO	uuid_generate_v4()
+formation_types	2	form_code	text	NO	
+formation_types	3	form_name	text	NO	
+formation_types	4	form_lat	text	YES	
+formation_types	5	display_order	int4	YES	0
+formation_types	6	color_code	text	YES	
+formation_types	7	description	text	YES	
+formation_types	8	created_at	timestamptz	YES	timezone('utc'::text, now())
+jar_equipment	1	id	uuid	NO	uuid_generate_v4()
+jar_equipment	2	report_id	uuid	NO	
+jar_equipment	3	jar_type_code	text	YES	
+jar_equipment	4	jar_size	numeric	YES	
+jar_equipment	5	jar_serial_no	text	YES	
+jar_equipment	6	jar_hours	numeric	YES	
+jar_equipment	7	created_at	timestamptz	YES	timezone('utc'::text, now())
+keyword_groups	1	id	text	NO	
+keyword_groups	2	name	text	NO	
+keyword_groups	3	description	text	YES	
+keyword_groups	4	and_keywords	text	YES	
+keyword_groups	5	or_keywords	text	YES	
+keyword_groups	6	not_keywords	text	YES	
+keyword_groups	7	sql_code	text	YES	
+keyword_groups	8	created_at	timestamptz	YES	now()
+keyword_groups	9	updated_at	timestamptz	YES	now()
+lithology_intervals	1	id	uuid	NO	uuid_generate_v4()
+lithology_intervals	2	well_code	text	NO	
+lithology_intervals	3	well_name	text	YES	
+lithology_intervals	4	from_depth	numeric	NO	
+lithology_intervals	5	to_depth	numeric	NO	
+lithology_intervals	6	lith1_code	text	YES	
+lithology_intervals	7	lith1_percent	numeric	YES	0
+lithology_intervals	8	lith2_code	text	YES	
+lithology_intervals	9	lith2_percent	numeric	YES	0
+lithology_intervals	10	lith3_code	text	YES	
+lithology_intervals	11	lith3_percent	numeric	YES	0
+lithology_intervals	12	lith4_code	text	YES	
+lithology_intervals	13	lith4_percent	numeric	YES	0
+lithology_intervals	14	lith5_code	text	YES	
+lithology_intervals	15	lith5_percent	numeric	YES	0
+lithology_intervals	16	lith6_code	text	YES	
+lithology_intervals	17	lith6_percent	numeric	YES	0
+lithology_intervals	18	description	text	YES	
+lithology_intervals	19	created_at	timestamptz	YES	timezone('utc'::text, now())
+lithology_types	1	id	uuid	NO	uuid_generate_v4()
+lithology_types	2	lithology_code	text	NO	
+lithology_types	3	lithology_name	text	NO	
+lithology_types	4	color_code	text	YES	
+lithology_types	5	description	text	YES	
+lithology_types	6	created_at	timestamptz	YES	timezone('utc'::text, now())
+materials	1	id	uuid	NO	uuid_generate_v4()
+materials	2	material_code	text	NO	
+materials	3	material_name	text	NO	
+materials	4	material_type	text	YES	
+materials	5	unit_of_measure	text	YES	
+materials	6	supplier	text	YES	
+materials	7	created_at	timestamptz	YES	timezone('utc'::text, now())
+materials	8	updated_at	timestamptz	YES	timezone('utc'::text, now())
+monthly_report_counts	1	well_name	text	YES	
+monthly_report_counts	2	month	text	YES	
+monthly_report_counts	3	report_count	int8	YES	
+monthly_report_counts	4	max_depth	numeric	YES	
+monthly_report_counts	5	total_progress	numeric	YES	
+mud_records	1	id	uuid	NO	uuid_generate_v4()
+mud_records	2	report_id	uuid	YES	
+mud_records	3	mud_type	text	YES	
+mud_records	4	mud_weight_in	numeric	YES	
+mud_records	5	mud_weight_out	numeric	YES	
+mud_records	6	plastic_viscosity	numeric	YES	
+mud_records	7	yield_point	numeric	YES	
+mud_records	8	gel_10sec	numeric	YES	
+mud_records	9	gel_10min	numeric	YES	
+mud_records	10	api_filtrate	numeric	YES	
+mud_records	11	hthp_filtrate	numeric	YES	
+mud_records	12	filter_cake	numeric	YES	
+mud_records	13	ph	numeric	YES	
+mud_records	14	alkalinity_pf	numeric	YES	
+mud_records	15	alkalinity_mf	numeric	YES	
+mud_records	16	chlorides	numeric	YES	
+mud_records	17	calcium	numeric	YES	
+mud_records	18	oil_water_ratio	text	YES	
+mud_records	19	total_solids	numeric	YES	
+mud_records	20	sand_content	numeric	YES	
+mud_records	21	mud_volume	numeric	YES	
+mud_records	22	mud_additions	text	YES	
+mud_records	23	created_at	timestamptz	YES	timezone('utc'::text, now())
+mud_records	24	max_weight	numeric	YES	
+mud_records	25	min_weight	numeric	YES	
+mud_records	26	report_time	time	YES	
+mud_records	27	viscosity	numeric	YES	
+mud_records	28	hpht_filtrate	numeric	YES	
+mud_records	29	water_loss	numeric	YES	
+mud_records	30	salinity	numeric	YES	
+mud_records	31	solid_percent	numeric	YES	
+mud_records	32	air_foam_cfm	numeric	YES	
+mud_records	33	oil_percent	numeric	YES	
+mud_records	34	oil_per_water_ratio	text	YES	
+mud_records	35	stability	numeric	YES	
+mud_records	36	mbt	numeric	YES	
+mud_records	37	pf	numeric	YES	
+mud_records	38	mf	numeric	YES	
+mud_records	39	fan_600_rpm	numeric	YES	
+mud_records	40	fan_300_rpm	numeric	YES	
+mud_records	41	initial_gel	numeric	YES	
+mud_records	42	gel_10_minutes	numeric	YES	
+mud_records	43	return_temperature	numeric	YES	
+mud_records	44	kcl_percent	numeric	YES	
+mud_records	45	gas_oil	numeric	YES	
+mud_records	46	mud_system	text	YES	
+mud_records	47	water_on_location	numeric	YES	
+mud_records	48	losses_at_unit	numeric	YES	
+mud_records	49	well_code	text	YES	
+mud_records	50	report_date	date	YES	
+mud_records	51	from_point	numeric	YES	
+mud_records	52	to_point	numeric	YES	
+mud_records	53	serial_no	int4	YES	
+mud_records	54	measure_code	text	YES	
+mud_records	55	mud_change_depth	text	YES	
+mud_records	56	description	text	YES	
+mud_storage_parameters	1	id	uuid	NO	uuid_generate_v4()
+mud_storage_parameters	2	report_id	uuid	NO	
+mud_storage_parameters	3	mud_storage_1_bbl	numeric	YES	
+mud_storage_parameters	4	mud_storage_1_pcf	numeric	YES	
+mud_storage_parameters	5	mud_storage_2_bbl	numeric	YES	
+mud_storage_parameters	6	mud_storage_2_pcf	numeric	YES	
+mud_storage_parameters	7	slow_rate_pump_1_pressure	numeric	YES	
+mud_storage_parameters	8	slow_rate_pump_1_stroke	numeric	YES	
+mud_storage_parameters	9	slow_rate_pump_2_pressure	numeric	YES	
+mud_storage_parameters	10	slow_rate_pump_2_stroke	numeric	YES	
+mud_storage_parameters	11	created_at	timestamptz	YES	timezone('utc'::text, now())
+mud_types	1	id	uuid	NO	uuid_generate_v4()
+mud_types	2	mud_code	text	NO	
+mud_types	3	mud_name	text	NO	
+mud_types	4	mud_category	text	YES	
+mud_types	5	description	text	YES	
+mud_types	6	created_at	timestamptz	YES	timezone('utc'::text, now())
+mwd_equipment	1	id	uuid	NO	uuid_generate_v4()
+mwd_equipment	2	report_id	uuid	NO	
+mwd_equipment	3	mwd_type_code	text	YES	
+mwd_equipment	4	mwd_size	numeric	YES	
+mwd_equipment	5	mwd_serial_no	text	YES	
+mwd_equipment	6	mwd_hours	numeric	YES	
+mwd_equipment	7	created_at	timestamptz	YES	timezone('utc'::text, now())
+operation_analysis	1	id	uuid	NO	uuid_generate_v4()
+operation_analysis	2	report_id	uuid	NO	
+operation_analysis	3	serial_no	int4	YES	
+operation_analysis	4	operation_code	text	YES	
+operation_analysis	5	from_time	time	YES	
+operation_analysis	6	to_time	time	YES	
+operation_analysis	7	description	text	YES	
+operation_analysis	8	created_at	timestamptz	YES	timezone('utc'::text, now())
+personnel_on_location	1	id	uuid	NO	uuid_generate_v4()
+personnel_on_location	2	report_id	uuid	NO	
+personnel_on_location	3	total_personnel	int4	YES	
+personnel_on_location	4	tool_pusher	text	YES	
+personnel_on_location	5	driller	text	YES	
+personnel_on_location	6	assistant_driller	int4	YES	
+personnel_on_location	7	mud_engineer	int4	YES	
+personnel_on_location	8	mechanic	int4	YES	
+personnel_on_location	9	electrician	int4	YES	
+personnel_on_location	10	trainee	int4	YES	
+personnel_on_location	11	contractor_labor	int4	YES	
+personnel_on_location	12	casual_labor	int4	YES	
+personnel_on_location	13	services_personnel	int4	YES	
+personnel_on_location	14	nioc_trainee	int4	YES	
+personnel_on_location	15	nioc_personnel	int4	YES	
+personnel_on_location	16	created_at	timestamptz	YES	timezone('utc'::text, now())
+profiles	1	id	uuid	NO	
+profiles	2	full_name	text	YES	
+profiles	3	role	text	YES	'companyman'::text
+profiles	4	company	text	YES	
+profiles	5	created_at	timestamptz	YES	timezone('utc'::text, now())
+profiles	6	updated_at	timestamptz	YES	timezone('utc'::text, now())
+report_comments	1	id	uuid	NO	uuid_generate_v4()
+report_comments	2	report_id	uuid	NO	
+report_comments	3	user_id	uuid	YES	
+report_comments	4	comment	text	NO	
+report_comments	5	comment_type	text	YES	
+report_comments	6	created_at	timestamptz	YES	timezone('utc'::text, now())
+rigs	1	id	uuid	NO	uuid_generate_v4()
+rigs	2	name	text	NO	
+rigs	3	contractor	text	YES	
+rigs	4	rig_type	text	YES	
+rigs	5	status	text	YES	'active'::text
+rigs	6	created_at	timestamptz	YES	timezone('utc'::text, now())
+rigs	7	updated_at	timestamptz	YES	timezone('utc'::text, now())
+rop_records	1	id	uuid	NO	uuid_generate_v4()
+rop_records	2	report_id	uuid	NO	
+rop_records	3	depth_from	numeric	YES	
+rop_records	4	depth_to	numeric	YES	
+rop_records	5	formation	text	YES	
+rop_records	6	rop_avg	numeric	YES	
+rop_records	7	rop_max	numeric	YES	
+rop_records	8	wob	numeric	YES	
+rop_records	9	rpm	numeric	YES	
+rop_records	10	torque	numeric	YES	
+rop_records	11	spp	numeric	YES	
+rop_records	12	flow_rate	numeric	YES	
+rop_records	13	created_at	timestamptz	YES	timezone('utc'::text, now())
+solid_control_parameters	1	id	uuid	NO	uuid_generate_v4()
+solid_control_parameters	2	report_id	uuid	NO	
+solid_control_parameters	3	clay_ejector_hour	numeric	YES	
+solid_control_parameters	4	clay_ejector_underflow	numeric	YES	
+solid_control_parameters	5	clay_ejector_overflow	numeric	YES	
+solid_control_parameters	6	clay_ejector_feed	numeric	YES	
+solid_control_parameters	7	clay_ejector_fprs	numeric	YES	
+solid_control_parameters	8	mud_cleaner_hour	numeric	YES	
+solid_control_parameters	9	mud_cleaner_underflow	numeric	YES	
+solid_control_parameters	10	mud_cleaner_overflow	numeric	YES	
+solid_control_parameters	11	mud_cleaner_feed	numeric	YES	
+solid_control_parameters	12	mud_cleaner_cons	numeric	YES	
+solid_control_parameters	13	mud_cleaner_fprs	numeric	YES	
+solid_control_parameters	14	shaker_hour	numeric	YES	
+solid_control_parameters	15	shaker_size_1	text	YES	
+solid_control_parameters	16	shaker_size_2	text	YES	
+solid_control_parameters	17	created_at	timestamptz	YES	timezone('utc'::text, now())
+stabilizers	1	id	uuid	NO	uuid_generate_v4()
+stabilizers	2	report_id	uuid	NO	
+stabilizers	3	depth_point	numeric	YES	
+stabilizers	4	description	text	YES	
+stabilizers	5	stabilizer_type	text	YES	
+stabilizers	6	size	numeric	YES	
+stabilizers	7	created_at	timestamptz	YES	timezone('utc'::text, now())
+time_analysis	1	id	uuid	NO	uuid_generate_v4()
+time_analysis	2	report_id	uuid	NO	
+time_analysis	3	activity_group_code	text	YES	
+time_analysis	4	activity_type_code	text	YES	
+time_analysis	5	activity_code	text	YES	
+time_analysis	6	from_time	time	YES	
+time_analysis	7	to_time	time	YES	
+time_analysis	8	hours	numeric	YES	
+time_analysis	9	description	text	YES	
+time_analysis	10	created_at	timestamptz	YES	timezone('utc'::text, now())
+tools_failure	1	id	uuid	NO	uuid_generate_v4()
+tools_failure	2	report_id	uuid	NO	
+tools_failure	3	tool_description	text	YES	
+tools_failure	4	make_manufacturer	text	YES	
+tools_failure	5	failure_type	text	YES	
+tools_failure	6	depth_of_failure	numeric	YES	
+tools_failure	7	corrective_action	text	YES	
+tools_failure	8	created_at	timestamptz	YES	timezone('utc'::text, now())
+well_formation_tops	1	id	uuid	NO	uuid_generate_v4()
+well_formation_tops	2	well_code	text	NO	
+well_formation_tops	3	well_name	text	YES	
+well_formation_tops	4	form_code	text	YES	
+well_formation_tops	5	depth_point	numeric	YES	
+well_formation_tops	6	tvd	numeric	YES	
+well_formation_tops	7	description	text	YES	
+well_formation_tops	8	created_at	timestamptz	YES	timezone('utc'::text, now())
+well_profiles	1	id	uuid	NO	uuid_generate_v4()
+well_profiles	2	profile_code	text	NO	
+well_profiles	3	profile_name	text	NO	
+well_profiles	4	description	text	YES	
+well_profiles	5	created_at	timestamptz	YES	timezone('utc'::text, now())
+well_types	1	id	uuid	NO	uuid_generate_v4()
+well_types	2	well_type_code	text	NO	
+well_types	3	well_type_name	text	NO	
+well_types	4	description	text	YES	
+well_types	5	created_at	timestamptz	YES	timezone('utc'::text, now())
+wells	1	id	uuid	NO	uuid_generate_v4()
+wells	2	name	text	NO	
+wells	3	rig_id	uuid	YES	
+wells	4	operator	text	YES	
+wells	5	field	text	YES	
+wells	6	location	text	YES	
+wells	7	spud_date	date	YES	
+wells	8	status	text	YES	'drilling'::text
+wells	9	created_at	timestamptz	YES	timezone('utc'::text, now())
+wells	10	updated_at	timestamptz	YES	timezone('utc'::text, now())
+wells	11	well_type_code	text	YES	
+wells	12	well_profile_code	text	YES	
+wells	13	field_code	text	YES	
+wells	14	final_forecasted_depth	numeric	YES	
+wells	15	estimated_total_rig_days	int4	YES	
+wells	16	spudded_in_date	date	YES	
+wells	17	released_date	date	YES	
+wells	18	rig_released_date	date	YES	
+wells	19	reservoir	text	YES	
+wells	20	rt_elevation	numeric	YES	
+wells	21	water_depth	numeric	YES	
+wells	22	company_code	text	YES	

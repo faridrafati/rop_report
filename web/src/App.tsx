@@ -1,60 +1,50 @@
-import { Link, Route, Routes } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import { RopOptimizationTab } from './features/rop/RopOptimizationTab';
+import { lazy } from 'react';
+import { Link, Navigate, Route, Routes } from 'react-router-dom';
+import { useAuth } from './auth/AuthContext';
+import { RequireAuth } from './auth/RequireAuth';
+import { AppLayout } from './components/AppLayout';
+import { LoginPage } from './auth/LoginPage';
 
-interface HealthResponse {
-  status?: string;
+// Code-split feature tabs so the heavy Plotly/Recharts bundles load on demand
+// (keeps the initial app — login + overview — light and fast).
+const RopOptimizationTab = lazy(() => import('./features/rop/RopOptimizationTab').then((m) => ({ default: m.RopOptimizationTab })));
+const CaptureTab = lazy(() => import('./features/capture/CaptureTab').then((m) => ({ default: m.CaptureTab })));
+const DashboardTab = lazy(() => import('./features/dashboard/DashboardTab').then((m) => ({ default: m.DashboardTab })));
+const PlansTab = lazy(() => import('./features/plans/PlansTab').then((m) => ({ default: m.PlansTab })));
+const ReportsTab = lazy(() => import('./features/reports/ReportsTab').then((m) => ({ default: m.ReportsTab })));
+
+interface Tile {
+  to: string;
+  title: string;
+  desc: string;
+  accent: string;
+  roles?: string[];
 }
 
-async function fetchHealth(): Promise<HealthResponse> {
-  const res = await fetch('/api/health');
-  if (!res.ok) {
-    throw new Error(`Health check failed: ${res.status}`);
-  }
-  return (await res.json()) as HealthResponse;
-}
+const TILES: Tile[] = [
+  { to: '/rop', title: 'ROP optimization', desc: 'WOB×RPM drill-off maps, MSE, hydraulics and economics over captured bit runs.', accent: 'bg-blue-600' },
+  { to: '/capture', title: 'Capture', desc: 'Log bit runs (8-position IADC dull grade, dysfunction flags) and daily reports.', accent: 'bg-emerald-600' },
+  { to: '/dashboard', title: 'Management dashboard', desc: 'Fleet KPIs: cost/m, NPT %, MSE, founder rate, bit leaderboard, cross-plots.', accent: 'bg-violet-600' },
+  { to: '/plans', title: 'Plans & approvals', desc: 'Bit/parameter recommendations with an approval workflow.', accent: 'bg-amber-600', roles: ['OFFICE_ENGINEER', 'MANAGEMENT'] },
+  { to: '/reports', title: 'Reports & exports', desc: 'Generate PDF and Excel reports of bit runs and DDRs — scoped to your client.', accent: 'bg-rose-600' },
+];
 
-export function HealthBadge() {
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ['health'],
-    queryFn: fetchHealth,
-    retry: false,
-  });
-
-  const label = isLoading
-    ? 'checking…'
-    : isError
-      ? 'offline'
-      : (data?.status ?? 'ok');
-
-  const tone = isLoading
-    ? 'bg-gray-200 text-gray-700'
-    : isError
-      ? 'bg-red-100 text-red-700'
-      : 'bg-green-100 text-green-700';
-
+export function Overview() {
+  const { user } = useAuth();
+  const tiles = TILES.filter((t) => !t.roles || (user && t.roles.includes(user.role)));
   return (
-    <span
-      className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-medium ${tone}`}
-    >
-      API: {label}
-    </span>
-  );
-}
-
-export function Home() {
-  return (
-    <main className="mx-auto flex min-h-screen max-w-3xl flex-col items-start gap-4 p-8">
-      <h1 className="text-3xl font-bold tracking-tight">DrillIQ</h1>
-      <HealthBadge />
-      <nav className="mt-2">
-        <Link
-          to="/rop"
-          className="inline-flex items-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-        >
-          ROP optimization →
-        </Link>
-      </nav>
+    <main className="mx-auto max-w-7xl px-4 py-8">
+      <h1 className="text-2xl font-bold tracking-tight text-slate-900">Welcome to DrillIQ</h1>
+      <p className="mt-1 text-sm text-slate-500">Plan → capture → analyze → report. Pick a workspace below.</p>
+      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {tiles.map((t) => (
+          <Link key={t.to} to={t.to} className="card group flex flex-col gap-2 p-5 transition-shadow hover:shadow-md">
+            <span className={`h-1.5 w-10 rounded-full ${t.accent}`} />
+            <h2 className="text-base font-semibold text-slate-900 group-hover:text-blue-700">{t.title}</h2>
+            <p className="text-sm text-slate-500">{t.desc}</p>
+          </Link>
+        ))}
+      </div>
     </main>
   );
 }
@@ -62,8 +52,22 @@ export function Home() {
 export function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/rop" element={<RopOptimizationTab />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route
+        element={
+          <RequireAuth>
+            <AppLayout />
+          </RequireAuth>
+        }
+      >
+        <Route path="/" element={<Overview />} />
+        <Route path="/rop" element={<RopOptimizationTab />} />
+        <Route path="/capture" element={<CaptureTab />} />
+        <Route path="/dashboard" element={<DashboardTab />} />
+        <Route path="/plans" element={<PlansTab />} />
+        <Route path="/reports" element={<ReportsTab />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }

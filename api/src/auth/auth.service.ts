@@ -88,6 +88,9 @@ export class AuthService {
         role: user.role,
         email: user.email,
         type: 'access',
+        // jti makes every access token unique so a login + refresh within the
+        // same second don't yield byte-identical tokens (same iat+payload).
+        jti: randomUUID(),
       },
       {
         secret:

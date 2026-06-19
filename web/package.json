@@ -12,22 +12,25 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@drilliq/shared": "workspace:*",
     "@hookform/resolvers": "^3.9.0",
     "@tanstack/react-query": "^5.51.21",
     "@tanstack/react-table": "^8.20.5",
+    "plotly.js-dist-min": "^3.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
+    "react-plotly.js": "^4.0.0",
     "react-router-dom": "^6.26.0",
     "recharts": "^2.13.0",
     "zod": "^3.23.8",
-    "zustand": "^4.5.4",
-    "@drilliq/shared": "workspace:*"
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@testing-library/react": "^16.0.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@types/react-plotly.js": "^2.6.4",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
     "jsdom": "^25.0.1",

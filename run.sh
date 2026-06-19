@@ -37,8 +37,13 @@ set -a; . ./.env; set +a
 : "${POSTGRES_PORT:=5432}"
 APP_DB_USER="drilliq_app"
 APP_DB_PASS="change-me-app"
-OWNER_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@localhost:${POSTGRES_PORT}/${POSTGRES_DB}?schema=public"
-APP_URL="postgresql://${APP_DB_USER}:${APP_DB_PASS}@localhost:${POSTGRES_PORT}/${POSTGRES_DB}?schema=public"
+# Use 127.0.0.1, not localhost: on some hosts (notably Windows/WSL with Docker
+# Desktop) localhost resolves to ::1 (IPv6) first and Docker's IPv6 port proxy is
+# unreachable, yielding Prisma "P1001: Can't reach database server" despite a
+# healthy container. 127.0.0.1 forces IPv4 and is safe on Linux/macOS too.
+DB_HOST="127.0.0.1"
+OWNER_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${DB_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}?schema=public"
+APP_URL="postgresql://${APP_DB_USER}:${APP_DB_PASS}@${DB_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}?schema=public"
 
 # ── prerequisite checks ──────────────────────────────────────────
 check_prereqs() {
@@ -57,7 +62,13 @@ ensure_pnpm() {
     corepack enable >/dev/null 2>&1 || true
     corepack prepare pnpm@9.12.0 --activate >/dev/null 2>&1 || true
   fi
-  command -v pnpm >/dev/null 2>&1 || die "Could not enable pnpm. Run: corepack enable && corepack prepare pnpm@9.12.0 --activate"
+  # Corepack isn't bundled with every Node install (e.g. some Node 25 builds) —
+  # fall back to a global npm install of the pinned pnpm version.
+  if ! command -v pnpm >/dev/null 2>&1; then
+    log "Corepack unavailable — installing pnpm via npm (npm install -g pnpm@9.12.0)"
+    npm install -g pnpm@9.12.0 >/dev/null 2>&1 || true
+  fi
+  command -v pnpm >/dev/null 2>&1 || die "Could not install pnpm. Try: npm install -g pnpm@9.12.0"
   ok "pnpm $(pnpm --version)"
 }
 
@@ -95,9 +106,11 @@ ensure_app_role() {
 
 migrate() {
   log "Applying Prisma migrations (as owner)"
-  DATABASE_URL="${OWNER_URL}" pnpm --filter @drilliq/db exec prisma migrate deploy
+  # Use the package's npm scripts (not `pnpm exec`): script runs put node_modules/.bin
+  # on PATH so the prisma binary always resolves (avoids ERR_PNPM_RECURSIVE_EXEC "Command not found").
+  DATABASE_URL="${OWNER_URL}" pnpm --filter @drilliq/db migrate:deploy
   log "Generating Prisma client"
-  DATABASE_URL="${OWNER_URL}" pnpm --filter @drilliq/db exec prisma generate
+  DATABASE_URL="${OWNER_URL}" pnpm --filter @drilliq/db generate
   # Re-grant on the freshly created tables so the app role can use them.
   ensure_app_role
   ok "Database schema in sync"
@@ -105,7 +118,7 @@ migrate() {
 
 seed() {
   log "Seeding reference vocabulary + demo data"
-  DATABASE_URL="${OWNER_URL}" pnpm --filter @drilliq/db exec tsx prisma/seed.ts
+  DATABASE_URL="${OWNER_URL}" pnpm --filter @drilliq/db seed
   ok "Seed complete"
 }
 
@@ -117,7 +130,7 @@ build_shared() {
 
 rls_gate() {
   log "Running RLS tenant-isolation gate (as restricted app role)"
-  APP_DATABASE_URL="${APP_URL}" pnpm --filter @drilliq/db exec tsx prisma/rls.test.ts
+  APP_DATABASE_URL="${APP_URL}" pnpm --filter @drilliq/db test:rls
 }
 
 # Phase 2 gate: start the API as the restricted RLS role, run the auth+RBAC+RLS
@@ -136,7 +149,7 @@ e2e_gate() {
     sleep 1
   done
   local rc=0
-  BASE="http://localhost:${API_PORT:-3000}/api" pnpm --filter @drilliq/api exec tsx test/auth-rls.e2e.ts || rc=$?
+  BASE="http://localhost:${API_PORT:-3000}/api" pnpm --filter @drilliq/api test:e2e || rc=$?
   kill "$pid" 2>/dev/null || true
   [ "$rc" -eq 0 ] || die "Phase 2 e2e gate failed (see /tmp/drilliq-api-e2e.log)"
 }
@@ -180,7 +193,7 @@ case "${1:-all}" in
     check_prereqs; ensure_pnpm
     warn "Resetting database (DESTRUCTIVE)…"
     start_db
-    DATABASE_URL="${OWNER_URL}" pnpm --filter @drilliq/db exec prisma migrate reset --force
+    DATABASE_URL="${OWNER_URL}" pnpm --filter @drilliq/db reset
     ensure_app_role; seed; rls_gate
     ok "Reset complete" ;;
   stop)  log "Stopping docker stack"; docker compose down; ok "Stopped" ;;

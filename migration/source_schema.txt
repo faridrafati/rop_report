@@ -1,0 +1,288 @@
+
+### A01  (rows=1,663)
+cols: WellCode:TEXT, FieldCode:TEXT, ZoneCode:TEXT, CompanyCode:TEXT, ProductiveCompanyCode:TEXT, ProjectionCode:TEXT, GrdLevel:REAL, RTLevelSea:REAL, RTLevelSeaBed:REAL, Depth:REAL, Location:TEXT, Ellipsoide:TEXT, Datum:TEXT, Zone:REAL, Long:TEXT, Lat:TEXT, XUTM:TEXT, YUTM:TEXT, XLambert:TEXT, YLambert:TEXT, CasingHeadPart:TEXT, CompletionPart:TEXT, OperationPart:TEXT, WellTypeCode:TEXT, WellSitCode:TEXT, StartDate:TEXT, RiggedUpDate:TEXT, SpuddedInDate:TEXT, ReachedTDDate:TEXT, TestBeginningDate:TEXT, TestEndDate:TEXT, RigReleasedDate:TEXT, EndDate:TEXT, CompletedDate:TEXT, ChangeOfCompletionType:TEXT, TotalStringDays:TEXT, RigDays:TEXT, TestDays:TEXT, TotalForecastedDays:TEXT, ContractorCode:TEXT, HydroSignCode:TEXT, HydDesc:TEXT, PurposeDesc:TEXT, StrucName:TEXT, WaterDepth:REAL, OwnerCode:TEXT, RIG:TEXT, ReleasedDate:TEXT, FinalForecastedDepth:REAL, Description:TEXT, FarsiName:TEXT, EnglishName:TEXT, WellPath:TEXT, Flag:TEXT, WellProfileCode:TEXT, EstTTLRigDays:TEXT, EstMovingDays:TEXT, ActRigDays:TEXT, Reservoir:TEXT, RTE_THF:REAL, LandingPoint:REAL, TVD:REAL, SurfaceFormCode:TEXT, GeodeticDatum:TEXT, EntryPoint:REAL, TDLogger:REAL, KOPFormationCode:TEXT, PUCode:TEXT, PUTypeCode:INTEGER, KOPDeepeningDepth:REAL, STWOFormCode:TEXT, SideTrack:INTEGER, WorkOver:INTEGER, CompletePer:REAL
+  row0: WellCode=- | FieldCode=055 | ZoneCode=99 | CompanyCode=091 | ProductiveCompanyCode=NULL | ProjectionCode=NULL | GrdLevel=0.0 | RTLevelSea=0.0 | RTLevelSeaBed=NULL | Depth=NULL | Location=NULL | Ellipsoide=NULL | Datum=NULL | Zone=NULL | Long=NULL | Lat=NULL | XUTM=NULL | YUTM=NULL | XLambert=NULL | YLambert=NULL | CasingHeadPart=NULL | CompletionPart=NULL | OperationPart=NULL | WellTypeCode=05 | WellSitCode=09 | StartDate=NULL | RiggedUpDate=NULL | SpuddedInDate=NULL | ReachedTDDate=NULL | TestBeginningDate=NULL | TestEndDate=NULL | RigReleasedDate=.          | EndDate=NULL | CompletedDate=NULL | ChangeOfCompletionType=NULL | TotalStringDays= | RigDays= | TestDays= | TotalForecastedDays= | ContractorCode=NULL | HydroSignCode=NULL | HydDesc=NULL | PurposeDesc=NULL | StrucName=NULL | WaterDepth=NULL | OwnerCode=01 | RIG=CTU-127 | ReleasedDate=NULL | FinalForecastedDepth=0.0 | Description=This Is For Report CTU-127Tools | FarsiName=NULL | EnglishName=CTU-127 | WellPath=NULL | Flag=t | WellProfileCode=NULL | EstTTLRigDays= | EstMovingDays= | ActRigDays=73 | Reservoir=NULL | RTE_THF=NULL | LandingPoint=NULL | TVD=NULL | SurfaceFormCode=NULL | GeodeticDatum=NULL | EntryPoint=NULL | TDLogger=NULL | KOPFormationCode=NULL | PUCode=NULL | PUTypeCode=NULL | KOPDeepeningDepth=NULL | STWOFormCode=NULL | SideTrack=NULL | WorkOver=NULL | CompletePer=NULL
+  row1: WellCode=-- | FieldCode=055 | ZoneCode=99 | CompanyCode=091 | ProductiveCompanyCode=NULL | ProjectionCode=NULL | GrdLevel=1537.0 | RTLevelSea=1545.0 | RTLevelSeaBed=NULL | Depth=NULL | Location=NULL | Ellipsoide=NULL | Datum=NULL | Zone=NULL | Long=NULL | Lat=NULL | XUTM=NULL | YUTM=NULL | XLambert=NULL | YLambert=NULL | CasingHeadPart=NULL | CompletionPart=NULL | OperationPart=NULL | WellTypeCode=05 | WellSitCode=09 | StartDate=NULL | RiggedUpDate=NULL | SpuddedInDate=NULL | ReachedTDDate=NULL | TestBeginningDate=NULL | TestEndDate=NULL | RigReleasedDate=.          | EndDate=NULL | CompletedDate=NULL | ChangeOfCompletionType=NULL | TotalStringDays= | RigDays= | TestDays= | TotalForecastedDays= | ContractorCode=NULL | HydroSignCode=NULL | HydDesc=NULL | PurposeDesc=NULL | StrucName=NULL | WaterDepth=NULL | OwnerCode=01 | RIG=CTU-122 | ReleasedDate=NULL | FinalForecastedDepth=0.0 | Description=This Is For Report CTU-122 Tools | FarsiName=NULL | EnglishName=CTU-122 | WellPath=NULL | Flag=t | WellProfileCode=NULL | EstTTLRigDays= | EstMovingDays= | ActRigDays=73 | Reservoir=NULL | RTE_THF=NULL | LandingPoint=NULL | TVD=NULL | SurfaceFormCode=NULL | GeodeticDatum=NULL | EntryPoint=NULL | TDLogger=NULL | KOPFormationCode=NULL | PUCode=NULL | PUTypeCode=NULL | KOPDeepeningDepth=NULL | STWOFormCode=NULL | SideTrack=NULL | WorkOver=NULL | CompletePer=NULL
+
+### Activities  (rows=65)
+cols: ActivityGroupCode:TEXT, ActivityTypeCode:TEXT, ActivityCode:TEXT, ActivityName:TEXT, ActivityAbri:TEXT, OprationCode:INTEGER
+  row0: ActivityGroupCode=01 | ActivityTypeCode=01 | ActivityCode=001 | ActivityName=Rigging & Moving | ActivityAbri=NULL | OprationCode=NULL
+  row1: ActivityGroupCode=01 | ActivityTypeCode=02 | ActivityCode=001 | ActivityName=Drilling Time | ActivityAbri=NULL | OprationCode=32
+
+### ActivityGroups  (rows=2)
+cols: ActivityGroupCode:TEXT, ActivityGroup:TEXT
+  row0: ActivityGroupCode=01 | ActivityGroup=Drilling
+  row1: ActivityGroupCode=02 | ActivityGroup=Waiting
+
+### ActivityTypes  (rows=15)
+cols: ActivityGroupCode:TEXT, ActivityTypeCode:TEXT, ActivityType:TEXT, ActivityAbri:TEXT
+  row0: ActivityGroupCode=01 | ActivityTypeCode=01 | ActivityType=Rigging & Moving | ActivityAbri=NULL
+  row1: ActivityGroupCode=01 | ActivityTypeCode=02 | ActivityType=Drilling Operation | ActivityAbri=NULL
+
+### Bit  (rows=2,570)
+cols: BitCode:TEXT, BitName:TEXT, Size:TEXT, Make:TEXT, Type:TEXT, DiamondBit:TEXT, IADC:TEXT
+  row0: BitCode=000  | BitName=TCI | Size=12 1/4 | Make=Make | Type=XZ05GFP | DiamondBit=0 | IADC=IADC
+  row1: BitCode=0001 | BitName=5 7/8 | Size=5.875 | Make=NULL | Type=MKS57 | DiamondBit=1 | IADC=NULL
+
+### BottomHoleAssembly  (rows=46,296)
+cols: WellCode:TEXT, fDate:TEXT, AssemblyNo:TEXT, Specification:TEXT, Weight:TEXT, Length:TEXT, DragUp:TEXT, DragDown:TEXT
+  row0: WellCode=AB-001WO1 | fDate=1394/12/13 | AssemblyNo=1 | Specification=8 3/8” E.MILL + 9 5/8” SCRAPER   + 6 1/2” BIT SUB + 2 STDs 6… | Weight=NULL | Length=95.51 | DragUp=NULL | DragDown=NULL
+  row1: WellCode=AB-001WO1 | fDate=1394/12/14 | AssemblyNo=1 | Specification=8 3/8” E.MILL + 9 5/8” SCRAPER   + 6 1/2” BIT SUB + 2 STDs 6… | Weight=NULL | Length=95.51 | DragUp=NULL | DragDown=NULL
+
+### Casing  (rows=157)
+cols: CasingCode:TEXT, CasingName:TEXT, OuterDiameter:REAL, InnerDiameter:REAL, Pound_Foot:TEXT, Burst:TEXT, Collaps:TEXT, BodyYeald:TEXT, Thread:TEXT, Grade:TEXT, Make:TEXT
+  row0: CasingCode=001 | CasingName=7 | OuterDiameter=7.0 | InnerDiameter=NULL | Pound_Foot=29 | Burst=NULL | Collaps=NULL | BodyYeald=NULL | Thread=BTS | Grade=C75 | Make=NULL
+  row1: CasingCode=010 | CasingName=13 3/8 | OuterDiameter=13.375 | InnerDiameter=NULL | Pound_Foot=72 | Burst=NULL | Collaps=NULL | BodyYeald=NULL | Thread=BTS | Grade=N-80 | Make=NULL
+
+### ChemicalMaterials  (rows=1,226,610)
+cols: WellCode:TEXT, SerialNo:INTEGER, fDate:TEXT, FromPoint:REAL, ToPoint:REAL, MaterialCode:TEXT, Amount:REAL, MeasureCode:TEXT, CostRial:REAL, CostDollar:REAL, Rec:REAL, Stock:REAL, OS:REAL, Req:REAL, Sent:REAL
+  row0: WellCode=AB-001WO1 | SerialNo=1 | fDate=1394/11/28 | FromPoint=3259.55 | ToPoint=3259.55 | MaterialCode=008 | Amount=NULL | MeasureCode=039 | CostRial=NULL | CostDollar=NULL | Rec=NULL | Stock=200.0 | OS=NULL | Req=NULL | Sent=NULL
+  row1: WellCode=AB-001WO1 | SerialNo=1 | fDate=1394/11/29 | FromPoint=3259.55 | ToPoint=3259.55 | MaterialCode=008 | Amount=NULL | MeasureCode=039 | CostRial=NULL | CostDollar=NULL | Rec=NULL | Stock=200.0 | OS=NULL | Req=NULL | Sent=NULL
+
+### Companies  (rows=201)
+cols: CompanyCode:TEXT, CompanyName:TEXT, CompanyTypeCode:TEXT
+  row0: CompanyCode=001 | CompanyName=AGIP-SIRIP | CompanyTypeCode=13
+  row1: CompanyCode=002 | CompanyName=BUSHCO                                             | CompanyTypeCode=99
+
+### Contractor  (rows=14)
+cols: ContractorCode:TEXT, Contractor:TEXT
+  row0: ContractorCode=00 | Contractor=CNPC
+  row1: ContractorCode=01 | Contractor=NIDC
+
+### D04  (rows=137,757)
+cols: WellCode:TEXT, SerialNo:INTEGER, FromPoint:REAL, ToPoint:REAL, Lith1Code:TEXT, Lith1Per:INTEGER, Lith2Code:TEXT, Lith2Per:INTEGER, Lith3Code:TEXT, Lith3Per:INTEGER, Lith4Code:TEXT, Lith4Per:INTEGER, Lith5Code:TEXT, Lith5Per:INTEGER, Lith6Code:TEXT, Lith6Per:INTEGER, Boundry:TEXT, bed:REAL, Description:TEXT, Id:INTEGER
+  row0: WellCode=AB-001WO1 | SerialNo=1 | FromPoint=2543.0 | ToPoint=2544.0 | Lith1Code=C12 | Lith1Per=100 | Lith2Code=NULL | Lith2Per=0 | Lith3Code=NULL | Lith3Per=0 | Lith4Code=NULL | Lith4Per=0 | Lith5Code=NULL | Lith5Per=0 | Lith6Code=NULL | Lith6Per=0 | Boundry=0 | bed=1.0 | Description=NULL | Id=1
+  row1: WellCode=AB-001WO1 | SerialNo=2 | FromPoint=2544.0 | ToPoint=2546.0 | Lith1Code=C26 | Lith1Per=100 | Lith2Code=NULL | Lith2Per=0 | Lith3Code=NULL | Lith3Per=0 | Lith4Code=NULL | Lith4Per=0 | Lith5Code=NULL | Lith5Per=0 | Lith6Code=NULL | Lith6Per=0 | Boundry=0 | bed=1.0 | Description=NULL | Id=2
+
+### D07  (rows=3,609)
+cols: WellCode:TEXT, SerialNo:INTEGER, DepthPoint:REAL, FormCode:TEXT, TopTypeCode:TEXT, SecondDepth:TEXT, BooleanCode:TEXT, Id:INTEGER
+  row0: WellCode=AB-001WO1 | SerialNo=1 | DepthPoint=2575.0 | FormCode=364 | TopTypeCode=NULL | SecondDepth=-2403.3m | BooleanCode=NULL | Id=1
+  row1: WellCode=AB-001WO1 | SerialNo=2 | DepthPoint=2829.0 | FormCode=363 | TopTypeCode=NULL | SecondDepth=-2649.3m | BooleanCode=NULL | Id=2
+
+### D13  (rows=566)
+cols: Id:INTEGER, WellCode:TEXT, SerialNo:INTEGER, FromPoint:REAL, ToPoint:REAL, MemberCode:TEXT, TopTypeCode:TEXT, SecondDepth:TEXT
+  row0: Id=1 | WellCode=KGN-034 | SerialNo=1 | FromPoint=317.0 | ToPoint=360.0 | MemberCode=162 | TopTypeCode=NULL | SecondDepth=693m
+  row1: Id=2 | WellCode=KGN-034 | SerialNo=2 | FromPoint=360.0 | ToPoint=432.0 | MemberCode=160 | TopTypeCode=NULL | SecondDepth=650m
+
+### D16  (rows=2,302)
+cols: WellCode:TEXT, SerialNo:INTEGER, DepthPoint:REAL, FormCode:TEXT, SecondDepth:TEXT, TopTypeCode:TEXT
+  row0: WellCode=- | SerialNo=1 | DepthPoint=0.0 | FormCode=332 | SecondDepth=NULL | TopTypeCode=NULL
+  row1: WellCode=-- | SerialNo=1 | DepthPoint=0.0 | FormCode=332 | SecondDepth=NULL | TopTypeCode=NULL
+
+### DHMotor  (rows=5,973)
+cols: WellCode:TEXT, fDate:TEXT, DHMotorSize:TEXT, DHMotorSerialNo:TEXT, fHour:REAL, DHMotorTypeCode:TEXT
+  row0: WellCode=AB-001WO1ST1 | fDate=1395/01/31 | DHMotorSize=4 3/4 | DHMotorSerialNo=RWORT 120150562S1 | fHour=5.0 | DHMotorTypeCode=06
+  row1: WellCode=AB-001WO1ST1 | fDate=1395/02/01 | DHMotorSize=4-3/4 | DHMotorSerialNo=RWORTI | fHour=29.0 | DHMotorTypeCode=06
+
+### DHMotorType  (rows=14)
+cols: DHMotorTypeCode:TEXT, DHMotorType:TEXT
+  row0: DHMotorTypeCode=01 | DHMotorType=WENZEL
+  row1: DHMotorTypeCode=02 | DHMotorType=SLZ120X7Y
+
+### DailyLitologyDecription  (rows=119,118)
+cols: WellCode:TEXT, fDate:TEXT, RowNumber:INTEGER, FromPoint:REAL, ToPoint:REAL, Description:TEXT, Id:INTEGER
+  row0: WellCode=AB-001WO1 | fDate=1394/12/22 | RowNumber=1 | FromPoint=2543.0 | ToPoint=2544.0 | Description=Anhy: wh, off wh, md hd, putty 100% | Id=1
+  row1: WellCode=AB-001WO1 | fDate=1394/12/22 | RowNumber=2 | FromPoint=2544.0 | ToPoint=2545.4 | Description=Gy Ml: gy, lt gy, sft, stky, sm slty 100% | Id=2
+
+### DrillString  (rows=65,203)
+cols: WellCode:TEXT, fDate:TEXT, SerialNo:INTEGER, fSize:TEXT, Grade:TEXT
+  row0: WellCode=AB-001WO1 | fDate=1394/12/13 | SerialNo=1 | fSize=5 | Grade=G
+  row1: WellCode=AB-001WO1 | fDate=1394/12/14 | SerialNo=1 | fSize=5 | Grade=G
+
+### FHoleSize  (rows=7)
+cols: HoleSizeCode:TEXT, HoleSize:TEXT
+  row0: HoleSizeCode=1          | HoleSize=36"
+  row1: HoleSizeCode=2          | HoleSize=26"
+
+### Fields  (rows=33)
+cols: FieldCode:TEXT, FieldAbri:TEXT, FieldName:TEXT, AreaCode:TEXT, NumberOfDrilledWells:REAL, NumberOfProductiveWells:REAL, NumberOfInjectionWells:REAL, NumberOfShutinWells:REAL, NumberOfAbandonedWells:REAL, NumberOfPlatforms:REAL, WellheadAltitude:REAL, AvgWellCompletionDepth:REAL, NumberOfGasLifting:REAL, DistrictCode:TEXT
+  row0: FieldCode=001 | FieldAbri=SJ | FieldName=sarajeh | AreaCode=108 | NumberOfDrilledWells=NULL | NumberOfProductiveWells=NULL | NumberOfInjectionWells=NULL | NumberOfShutinWells=NULL | NumberOfAbandonedWells=NULL | NumberOfPlatforms=NULL | WellheadAltitude=NULL | AvgWellCompletionDepth=NULL | NumberOfGasLifting=NULL | DistrictCode=NULL
+  row1: FieldCode=002 | FieldAbri=AGH | FieldName=AGHAR | AreaCode=003 | NumberOfDrilledWells=NULL | NumberOfProductiveWells=NULL | NumberOfInjectionWells=NULL | NumberOfShutinWells=NULL | NumberOfAbandonedWells=NULL | NumberOfPlatforms=NULL | WellheadAltitude=NULL | AvgWellCompletionDepth=NULL | NumberOfGasLifting=NULL | DistrictCode=NULL
+
+### Formation  (rows=382)
+cols: FormCode:TEXT, FormAbri:TEXT, FormFar:TEXT, FormLat:TEXT, FormColor:INTEGER
+  row0: FormCode=001 | FormAbri=Ad               | FormFar=عدايه                                              | FormLat=Adaiyah                                            | FormColor=NULL
+  row1: FormCode=002 | FormAbri=Aj                  | FormFar=آغاجاري                                            | FormLat=Aghajari                                           | FormColor=30
+
+### H02  (rows=42,308)
+cols: Id:INTEGER, WellCode:TEXT, SerialNo:INTEGER, DepthPoint:REAL, Description:TEXT, Color:INTEGER
+  row0: Id=1 | WellCode=AB-001 | SerialNo=1 | DepthPoint=2.0 | Description=Rotary Table + Coductor Pipe | Color=NULL
+  row1: Id=2 | WellCode=AB-001 | SerialNo=2 | DepthPoint=27.0 | Description=Sst: free grn,f.-crs grn,br,yl,glassy,sub ang,sub rnd | Color=NULL
+
+### HoleSize  (rows=17)
+cols: HoleSizeCode:TEXT, HoleSize:TEXT
+  row0: HoleSizeCode=01         | HoleSize=36"   
+  row1: HoleSizeCode=02         | HoleSize=26"   
+
+### HydroSign  (rows=41)
+cols: HydroSignCode:TEXT, HydroSignName:TEXT
+  row0: HydroSignCode=01 | HydroSignName=Oil Show                      
+  row1: HydroSignCode=02 | HydroSignName=Gas Show                      
+
+### Jar  (rows=27,316)
+cols: WellCode:TEXT, fDate:TEXT, JarSize:TEXT, JarSerialNo:TEXT, fHour:REAL, JarTypeCode:TEXT
+  row0: WellCode=AB-002WO1ST1 | fDate=1390/05/27 | JarSize=6-1/2” | JarSerialNo=NULL | fHour=439.0 | JarTypeCode=03
+  row1: WellCode=AB-002WO1ST1 | fDate=1390/05/28 | JarSize=6-1/2” | JarSerialNo=NULL | fHour=0.0 | JarTypeCode=03
+
+### JarType  (rows=14)
+cols: JarTypeCode:TEXT, JarType:TEXT
+  row0: JarTypeCode=01 | JarType=DAILY JAR
+  row1: JarTypeCode=02 | JarType=DAILY JAR
+
+### KickOfPoint  (rows=25,368)
+cols: WellCode:TEXT, SerialNo:INTEGER, fDate:TEXT, Depth:REAL, PrevDrillDepth:TEXT
+  row0: WellCode=AB-001WO1ST1 | SerialNo=1 | fDate=1395/01/31 | Depth=2543.0 | PrevDrillDepth=NULL
+  row1: WellCode=AB-001WO1ST1 | SerialNo=25 | fDate=1395/02/02 | Depth=2543.0 | PrevDrillDepth=NULL
+
+### L04  (rows=79,395)
+cols: WellCode:TEXT, SerialNo:INTEGER, DrillingDate:TEXT, EngName:TEXT, FromPoint:REAL, ToPoint:REAL, MorningDepth:REAL, TotalMeter:REAL, TotalDRHour:REAL, Description:TEXT, DrillingTime:REAL, WellSiteSupt:TEXT, OPNSupt:TEXT, Cont_T_Push1:TEXT, Cont_T_Push2:TEXT, CompanyCode:TEXT, ProgEng:TEXT, Geologist:TEXT, Bypass:TEXT, WindSpeed_Dir:TEXT, WaveVisible:TEXT, FWater:TEXT, Fuel:TEXT, Lithology:TEXT, MV:TEXT, HoleSizeCode:TEXT
+  row0: WellCode= | SerialNo=1 | DrillingDate=1395/08/15 | EngName=null | FromPoint=0.0 | ToPoint=0.0 | MorningDepth=NULL | TotalMeter=NULL | TotalDRHour=NULL | Description=RIH TO 1871 MT, TAG T.J, NO PASS, POH TO SURFACE, RIH W/ KNU… | DrillingTime=NULL | WellSiteSupt=NULL | OPNSupt=NULL | Cont_T_Push1=NULL | Cont_T_Push2=NULL | CompanyCode=NULL | ProgEng=NULL | Geologist=NULL | Bypass=NULL | WindSpeed_Dir=NULL | WaveVisible=NULL | FWater=NULL | Fuel=NULL | Lithology=NULL | MV=NULL | HoleSizeCode=NULL
+  row1: WellCode=- | SerialNo=1 | DrillingDate=1388/02/27 | EngName=NA | FromPoint=0.0 | ToPoint=0.0 | MorningDepth=0.0 | TotalMeter=NULL | TotalDRHour=0.0 | Description=MOVE TO TBK  | DrillingTime=NULL | WellSiteSupt= | OPNSupt= | Cont_T_Push1= | Cont_T_Push2= | CompanyCode=NULL | ProgEng= | Geologist= | Bypass=0 | WindSpeed_Dir= | WaveVisible= | FWater= | Fuel= | Lithology= | MV= | HoleSizeCode=NULL
+
+### L04G  (rows=17,827)
+cols: WellCode:TEXT, SerialNo:INTEGER, fDate:TEXT, FromPoint:REAL, ToPoint:REAL, Geologist:TEXT, id:INTEGER
+  row0: WellCode=AB-001WO1 | SerialNo=1 | fDate=1394/12/20 | FromPoint=2538.23 | ToPoint=2541.7 | Geologist=J. Ranjbar & A. Sharghi Namin | id=1
+  row1: WellCode=AB-001WO1 | SerialNo=2 | fDate=1394/12/22 | FromPoint=2541.7 | ToPoint=2545.4 | Geologist= | id=2
+
+### L05  (rows=51,215)
+cols: WellCode:TEXT, fDate:TEXT, SerialNo:INTEGER, FromPoint:REAL, ToPoint:REAL, BitCode:TEXT, MinWeight:REAL, MaxWeight:REAL, MinRPM:REAL, MaxRPM:REAL, MotorRotation:REAL, BitNo:TEXT, BitSerialNo:TEXT, BitHour:REAL, HoleSize:REAL, NozzleSize:TEXT, OpenNazzle:REAL, TFA:REAL, ICutterWearCode:TEXT, OCutterWearCode:TEXT, DullCharacteristicCode:TEXT, WearLocationCode:TEXT, BearingWearCode:TEXT, GaugeWearCode:TEXT, ODullCharacteristicCode:TEXT, ReasonPulledCode:TEXT, Description:TEXT, MudPumpType1Code:TEXT, MudPumpType2Code:TEXT, PumpLinerSize1:REAL, PumpLinerSize2:REAL, PumpOutput1:REAL, PumpOutput2:REAL, PumpPressure1:REAL, PumpPressure2:REAL, AnnularVelocity:REAL, BitHSI:REAL, TorqueOffBottom:REAL, TorqueOnBottom:REAL, CMTDRLMotor:REAL, CMTDRLHour:REAL, WAndRMeter:REAL, WAndRHour:REAL, BitMeterTotal:REAL, BitChangeOut:REAL, BitChangeIn:REAL, UsedPer:REAL
+  row0: WellCode=AB-001WO1 | fDate=1394/12/13 | SerialNo=7 | FromPoint=3259.55 | ToPoint=3259.55 | BitCode=0156 | MinWeight=NULL | MaxWeight=NULL | MinRPM=NULL | MaxRPM=NULL | MotorRotation=NULL | BitNo=1 | BitSerialNo=02 | BitHour=NULL | HoleSize=NULL | NozzleSize=NULL | OpenNazzle=NULL | TFA=NULL | ICutterWearCode=NULL | OCutterWearCode=NULL | DullCharacteristicCode=NULL | WearLocationCode=NULL | BearingWearCode=NULL | GaugeWearCode=NULL | ODullCharacteristicCode=NULL | ReasonPulledCode=NULL | Description= | MudPumpType1Code=11 | MudPumpType2Code=11 | PumpLinerSize1=6.5 | PumpLinerSize2=7.0 | PumpOutput1=NULL | PumpOutput2=NULL | PumpPressure1=NULL | PumpPressure2=NULL | AnnularVelocity=NULL | BitHSI=NULL | TorqueOffBottom=NULL | TorqueOnBottom=NULL | CMTDRLMotor=NULL | CMTDRLHour=NULL | WAndRMeter=NULL | WAndRHour=NULL | BitMeterTotal=NULL | BitChangeOut=NULL | BitChangeIn=3259.55 | UsedPer=NULL
+  row1: WellCode=AB-001WO1 | fDate=1394/12/14 | SerialNo=8 | FromPoint=3259.55 | ToPoint=3259.55 | BitCode=0156 | MinWeight=NULL | MaxWeight=NULL | MinRPM=NULL | MaxRPM=NULL | MotorRotation=NULL | BitNo=1 | BitSerialNo=02 | BitHour=NULL | HoleSize=NULL | NozzleSize=NULL | OpenNazzle=NULL | TFA=NULL | ICutterWearCode=NULL | OCutterWearCode=NULL | DullCharacteristicCode=NULL | WearLocationCode=NULL | BearingWearCode=NULL | GaugeWearCode=NULL | ODullCharacteristicCode=NULL | ReasonPulledCode=NULL | Description= | MudPumpType1Code=11 | MudPumpType2Code=11 | PumpLinerSize1=6.5 | PumpLinerSize2=7.0 | PumpOutput1=NULL | PumpOutput2=NULL | PumpPressure1=NULL | PumpPressure2=NULL | AnnularVelocity=NULL | BitHSI=NULL | TorqueOffBottom=NULL | TorqueOnBottom=NULL | CMTDRLMotor=NULL | CMTDRLHour=NULL | WAndRMeter=NULL | WAndRHour=NULL | BitMeterTotal=NULL | BitChangeOut=NULL | BitChangeIn=3259.55 | UsedPer=NULL
+
+### L06  (rows=725)
+cols: WellCode:TEXT, SerialNo:INTEGER, fDate:TEXT, FromPoint:REAL, ToPoint:REAL, LinerCode:TEXT, Joint:REAL, Description:TEXT
+  row0: WellCode=AB-001WO1ST1 | SerialNo=1 | fDate=1395/02/13 | FromPoint=2928.0 | ToPoint=3227.0 | LinerCode=291 | Joint=31.0 | Description=
+  row1: WellCode=AB-001WO1WIN1 | SerialNo=1 | fDate=1395/01/23 | FromPoint=2447.27 | ToPoint=3033.0 | LinerCode=287 | Joint=52.0 | Description=
+
+### L08  (rows=1,609)
+cols: WellCode:TEXT, SerialNo:INTEGER, fDate:TEXT, DepthPoint:REAL, CasingCode:TEXT, Joint:REAL, Description:TEXT
+  row0: WellCode=AB-001WO1WIN1 | SerialNo=3 | fDate=1395/01/14 | DepthPoint=2538.0 | CasingCode=210 | Joint=NULL | Description=window
+  row1: WellCode=AB-002 | SerialNo=1 | fDate=1388/02/24 | DepthPoint=120.0 | CasingCode=252 | Joint=10.0 | Description=
+
+### Lithology  (rows=131)
+cols: LithoCode:TEXT, LithoAbri:TEXT, LithoFar:TEXT, LithoLat:TEXT, LithoFile:TEXT, LithoColor:INTEGER, Priority:INTEGER, Bed1:REAL, Bed2:REAL, Bed3:REAL, Bed4:REAL, Bed5:REAL, HatchName:TEXT, LithologyWeathering:INTEGER, FillColor:INTEGER, Coefficient:REAL
+  row0: LithoCode=044 | LithoAbri=rSh | LithoFar=??? | LithoLat=Red Shale | LithoFile=\\icofcdbs1\wells\patterns\RedShale.dwg | LithoColor=241 | Priority=18 | Bed1=1.0 | Bed2=1.5 | Bed3=2.2 | Bed4=2.9 | Bed5=3.6 | HatchName=rSh             | LithologyWeathering=NULL | FillColor=241 | Coefficient=0.3
+  row1: LithoCode=057 | LithoAbri=Mcgl | LithoFar=0                                                  | LithoLat=Microconglomerate                                  | LithoFile=\\icofcdbs1\wells\patterns\Congl.dwg | LithoColor=256 | Priority=59 | Bed1=0.0 | Bed2=0.0 | Bed3=0.0 | Bed4=0.0 | Bed5=0.0 | HatchName=Congl           | LithologyWeathering=0 | FillColor=40 | Coefficient=0.0
+
+### M01  (rows=7,909)
+cols: Id:INTEGER, WellCode:TEXT, SerialNo:INTEGER, AzimuthOfSection:REAL, FromPoint:REAL, Angle:REAL, TVD:REAL, TVDSS:REAL, Direction:TEXT, SurveyAzimuth:REAL, SectionHD:REAL, Azimuth:REAL, VS:REAL, DLS:REAL, N_S:TEXT, E_W:TEXT, Northing:TEXT, Easting:TEXT, Description:TEXT
+  row0: Id=1 | WellCode=AB-001WO1 | SerialNo=1 | AzimuthOfSection=0.0 | FromPoint=2520.0 | Angle=0.23 | TVD=2519.72 | TVDSS=NULL | Direction=NULL | SurveyAzimuth=NULL | SectionHD=NULL | Azimuth=271.0 | VS=28.9 | DLS=0.0 | N_S=28.03 S | E_W=16.4W | Northing=NULL | Easting=NULL | Description=NULL
+  row1: Id=2 | WellCode=AB-001WO1 | SerialNo=2 | AzimuthOfSection=0.0 | FromPoint=2579.7 | Angle=3.9 | TVD=2579.38 | TVDSS=NULL | Direction=NULL | SurveyAzimuth=NULL | SectionHD=NULL | Azimuth=138.8 | VS=28.69 | DLS=2.04 | N_S=29.55 S | E_W=15.18W | Northing=NULL | Easting=NULL | Description=NULL
+
+### M04  (rows=11,653)
+cols: WellCode:TEXT, SerialNo:INTEGER, fDate:TEXT, FromPoint:REAL, Angle:REAL, Azimuth:REAL, TVD:REAL, N_S:TEXT, E_W:TEXT, SectionHD:REAL, DLS:REAL, VS:REAL, Direction:TEXT, Description:TEXT
+  row0: WellCode=AB-001WO1ST1 | SerialNo=1 | fDate=1395/02/01 | FromPoint=3050.0 | Angle=39.0 | Azimuth=242.2 | TVD=2992.99 | N_S=126.17 | E_W=186.22 | SectionHD=224.85 | DLS=0.87 | VS=NULL | Direction= | Description=
+  row1: WellCode=AB-001WO1ST1 | SerialNo=1 | fDate=1395/02/02 | FromPoint=3098.7 | Angle=41.2 | Azimuth=241.8 | TVD=3029.7 | N_S=140.73 | E_W=213.31 | SectionHD=255.52 | DLS=1.04 | VS=NULL | Direction= | Description=
+
+### MaterialTypes  (rows=14)
+cols: MaterialTypeCode:TEXT, MaterialType:TEXT
+  row0: MaterialTypeCode=01 | MaterialType=Weight Agent
+  row1: MaterialTypeCode=02 | MaterialType=Viscosifiers
+
+### Materials  (rows=98)
+cols: MaterialCode:TEXT, Material:TEXT, MaterialsTypeCode:TEXT
+  row0: MaterialCode=001 | Material=BARYTES | MaterialsTypeCode=99
+  row1: MaterialCode=002 | Material=BENTONITE | MaterialsTypeCode=99
+
+### Measures  (rows=79)
+cols: MeasureCode:TEXT, Measure:TEXT, MeasureSymbole:TEXT
+  row0: MeasureCode=010 | Measure=KG | MeasureSymbole=NULL
+  row1: MeasureCode=011 | Measure=TON | MeasureSymbole=NULL
+
+### MudType  (rows=70)
+cols: MudCode:TEXT, MudName:TEXT, MudTypeAbri:TEXT
+  row0: MudCode=01 | MudName=Oil Base Mud                   | MudTypeAbri=NULL
+  row1: MudCode=02 | MudName=Water Base Mud | MudTypeAbri=NULL
+
+### N01  (rows=61,970)
+cols: WellCode:TEXT, SerialNo:INTEGER, fDate:TEXT, FromPoint:REAL, ToPoint:REAL, MudCode:TEXT, Salinity:REAL, Viscosity:REAL, MinWeight:REAL, MaxWeight:REAL, MeasureCode:TEXT, WaterLoss:TEXT, PH:REAL, Calcium:REAL, SoildPercent:REAL, ReturnTemperature:TEXT, Fan600:REAL, Fan300:REAL, InitialGel:REAL, Gel10Minutes:REAL, OilPercent:REAL, OilPerWaterRatio:TEXT, HPHT:REAL, Stability:REAL, Alk:REAL, MBT:REAL, KCL:REAL, Description:TEXT, AirFoamCFM:TEXT, PF:TEXT, MF:TEXT, RepTime:TEXT, MudChangeDepth:REAL
+  row0: WellCode=AB-001WO1 | SerialNo=1 | fDate=1394/12/08 | FromPoint=3259.55 | ToPoint=3259.55 | MudCode=06 | Salinity=NULL | Viscosity=27.0 | MinWeight=68.0 | MaxWeight=68.0 | MeasureCode=NULL | WaterLoss= | PH=8.4 | Calcium=NULL | SoildPercent=NULL | ReturnTemperature=P.CH | Fan600=NULL | Fan300=NULL | InitialGel=NULL | Gel10Minutes=NULL | OilPercent=NULL | OilPerWaterRatio=NULL | HPHT=NULL | Stability=NULL | Alk=NULL | MBT=NULL | KCL=NULL | Description= | AirFoamCFM=NULL | PF=NULL | MF=NULL | RepTime=68         | MudChangeDepth=NULL
+  row1: WellCode=AB-001WO1 | SerialNo=1 | fDate=1394/12/09 | FromPoint=3259.55 | ToPoint=3259.55 | MudCode=06 | Salinity=110000.0 | Viscosity=27.0 | MinWeight=68.0 | MaxWeight=68.0 | MeasureCode=NULL | WaterLoss= | PH=8.4 | Calcium=920.0 | SoildPercent=NULL | ReturnTemperature=P.CH | Fan600=NULL | Fan300=NULL | InitialGel=NULL | Gel10Minutes=NULL | OilPercent=NULL | OilPerWaterRatio=NULL | HPHT=NULL | Stability=NULL | Alk=NULL | MBT=NULL | KCL=NULL | Description= | AirFoamCFM=NULL | PF=NULL | MF=NULL | RepTime=68         | MudChangeDepth=NULL
+
+### N05  (rows=61,969)
+cols: WellCode:TEXT, SerialNo:INTEGER, fDate:TEXT, FromPoint:REAL, ToPoint:REAL, TreatmentCode:TEXT, CompeletyLosses:TEXT, CompletelyLossesAmount:REAL, GraduallyLosses:TEXT, MinGraduallyLossesAmount:REAL, MaxGraduallyLossesAmount:REAL, TotalLossesAmount:REAL, Gain:TEXT, MinGainAmount:REAL, MaxGainAmount:REAL, TotalGainAmount:REAL, LossesAtUnit:REAL, Description:TEXT
+  row0: WellCode=AB-001WO1 | SerialNo=1 | fDate=1394/12/08 | FromPoint=3259.55 | ToPoint=3259.55 | TreatmentCode=NULL | CompeletyLosses=NULL | CompletelyLossesAmount=NULL | GraduallyLosses=NULL | MinGraduallyLossesAmount=NULL | MaxGraduallyLossesAmount=NULL | TotalLossesAmount=NULL | Gain=NULL | MinGainAmount=NULL | MaxGainAmount=NULL | TotalGainAmount=NULL | LossesAtUnit=NULL | Description=
+  row1: WellCode=AB-001WO1 | SerialNo=1 | fDate=1394/12/09 | FromPoint=3259.55 | ToPoint=3259.55 | TreatmentCode=NULL | CompeletyLosses=NULL | CompletelyLossesAmount=NULL | GraduallyLosses=NULL | MinGraduallyLossesAmount=NULL | MaxGraduallyLossesAmount=NULL | TotalLossesAmount=NULL | Gain=NULL | MinGainAmount=NULL | MaxGainAmount=NULL | TotalGainAmount=NULL | LossesAtUnit=NULL | Description=
+
+### NazzleSize  (rows=14)
+cols: NazzleSizeCode:TEXT, NazzleSizeGroup:TEXT
+  row0: NazzleSizeCode=01 | NazzleSizeGroup=7/32"
+  row1: NazzleSizeCode=02 | NazzleSizeGroup=8/32"
+
+### OAMOD  (rows=528,019)
+cols: ITEM:REAL, WellCode:TEXT, FDATE:TEXT, OperationCode:TEXT, FTIME:TEXT, TTIME:TEXT, Description:TEXT
+  row0: ITEM=1.0 | WellCode=AB-001WO1                                          | FDATE=1394/11/28 | OperationCode=RU         | FTIME=00:00    | TTIME=07:00    | Description=WAIT ON DAY LIGHT.                                          …
+  row1: ITEM=2.0 | WellCode=AB-001WO1                                          | FDATE=1394/11/29 | OperationCode=RU         | FTIME=00:00    | TTIME=07:00    | Description=WAIT ON DAY LIGHT.                                          …
+
+### Object  (rows=601)
+cols: ObjCode:TEXT, ObjName:TEXT, ObjAbri:TEXT, ObjTypeCode:TEXT
+  row0: ObjCode=00001 | ObjName=Sarajeh-003 WO1 | ObjAbri=SJ-003WO1 | ObjTypeCode=01
+  row1: ObjCode=00002 | ObjName=Sarajeh-003 WO1 ST1 | ObjAbri=SJ-003WO1ST1 | ObjTypeCode=01
+
+### OperationAnalysis  (rows=486,968)
+cols: SerialNo:INTEGER, WellCode:TEXT, fDate:TEXT, OperationCode:TEXT, FTime:TEXT, TTime:TEXT, Description:TEXT
+  row0: SerialNo=1 | WellCode=AB-001WO1 | fDate=1394/11/28 | OperationCode=RU         | FTime=00:00    | TTime=07:00    | Description=WAIT ON DAY LIGHT.
+  row1: SerialNo=1 | WellCode=AB-001WO1 | fDate=1394/11/29 | OperationCode=RU         | FTime=00:00    | TTime=07:00    | Description=WAIT ON DAY LIGHT.
+
+### Operations  (rows=73)
+cols: OperationCode:TEXT, OperationDesc:TEXT
+  row0: OperationCode=ACD        | OperationDesc=Time for any accident.
+  row1: OperationCode=BHAF       | OperationDesc=Lost time due to BHA failure (DHM, jar stabilizer, basically…
+
+### Owner  (rows=11)
+cols: OwnerCode:TEXT, OwnerName:TEXT
+  row0: OwnerCode=01 | OwnerName=NIOC
+  row1: OwnerCode=02 | OwnerName=Hormoz Petroleum Company
+
+### ReasonPulled  (rows=23)
+cols: ReasonPulledCode:TEXT, ReasonPulled:TEXT
+  row0: ReasonPulledCode=00I | ReasonPulled=G
+  row1: ReasonPulledCode=BHA | ReasonPulled=Change Bottom Hole Assembly
+
+### SolidControlParameter  (rows=77,788)
+cols: WellCode:TEXT, fDate:TEXT, SerialNo:INTEGER, CentrifugeCons:INTEGER, CentrifugeHour:REAL, CentrifugeUnderFlow:REAL, CentrifugeOverFlow:REAL, CentrifugeFeed:REAL, CentrifugeFPRS:REAL, ShakerSize1:TEXT, ShakerSize2:TEXT, ShakerHour:REAL, DesilterCons:INTEGER, DesilterHour:REAL, DesilterUnderFlow:REAL, DesilterOverFlow:REAL, DesilterFeed:REAL, DesilterFPRS:REAL, DesanderCons:INTEGER, DesanderHour:REAL, DesanderUnderFlow:REAL, DesanderOverFlow:REAL, DesanderFeed:REAL, DesanderFPRS:REAL, ClayJactorCons:INTEGER, ClayJactorHour:REAL, ClayJactorUnderFlow:REAL, ClayJactorOverFlow:REAL, ClayJactorFeed:REAL, ClayJactorFPRS:REAL, MudCleanerCons:INTEGER, MudCleanerHour:REAL, MudCleanerUnderFlow:REAL, MudCleanerOverFlow:REAL, MudCleanerFeed:REAL, MudCleanerFPRS:REAL
+  row0: WellCode=-- | fDate=1388/04/04 | SerialNo=139 | CentrifugeCons=NULL | CentrifugeHour=NULL | CentrifugeUnderFlow=NULL | CentrifugeOverFlow=NULL | CentrifugeFeed=NULL | CentrifugeFPRS=NULL | ShakerSize1=NULL | ShakerSize2=NULL | ShakerHour=NULL | DesilterCons=NULL | DesilterHour=NULL | DesilterUnderFlow=NULL | DesilterOverFlow=NULL | DesilterFeed=NULL | DesilterFPRS=NULL | DesanderCons=NULL | DesanderHour=NULL | DesanderUnderFlow=NULL | DesanderOverFlow=NULL | DesanderFeed=NULL | DesanderFPRS=NULL | ClayJactorCons=NULL | ClayJactorHour=NULL | ClayJactorUnderFlow=NULL | ClayJactorOverFlow=NULL | ClayJactorFeed=NULL | ClayJactorFPRS=NULL | MudCleanerCons=NULL | MudCleanerHour=NULL | MudCleanerUnderFlow=NULL | MudCleanerOverFlow=NULL | MudCleanerFeed=NULL | MudCleanerFPRS=NULL
+  row1: WellCode=-- | fDate=1388/04/05 | SerialNo=140 | CentrifugeCons=NULL | CentrifugeHour=NULL | CentrifugeUnderFlow=NULL | CentrifugeOverFlow=NULL | CentrifugeFeed=NULL | CentrifugeFPRS=NULL | ShakerSize1=NULL | ShakerSize2=NULL | ShakerHour=NULL | DesilterCons=NULL | DesilterHour=NULL | DesilterUnderFlow=NULL | DesilterOverFlow=NULL | DesilterFeed=NULL | DesilterFPRS=NULL | DesanderCons=NULL | DesanderHour=NULL | DesanderUnderFlow=NULL | DesanderOverFlow=NULL | DesanderFeed=NULL | DesanderFPRS=NULL | ClayJactorCons=NULL | ClayJactorHour=NULL | ClayJactorUnderFlow=NULL | ClayJactorOverFlow=NULL | ClayJactorFeed=NULL | ClayJactorFPRS=NULL | MudCleanerCons=NULL | MudCleanerHour=NULL | MudCleanerUnderFlow=NULL | MudCleanerOverFlow=NULL | MudCleanerFeed=NULL | MudCleanerFPRS=NULL
+
+### Table  (rows=508)
+cols: TitleCode:TEXT, SubjectCode:TEXT, ObjTypeCode:TEXT, TableCode:INTEGER
+  row0: TitleCode=001 | SubjectCode=001 | ObjTypeCode=01 | TableCode=1
+  row1: TitleCode=001 | SubjectCode=001 | ObjTypeCode=02 | TableCode=76
+
+### TableFields  (rows=92,650)
+cols: PrjCode:INTEGER, TableCode:INTEGER, FieldCode:INTEGER, FieldLat:TEXT, FieldFar:TEXT, MeasureCode:TEXT, Description:TEXT, QueryAllowed:TEXT
+  row0: PrjCode=1 | TableCode=1 | FieldCode=1 | FieldLat=WellCode | FieldFar=NULL | MeasureCode=NULL | Description=WellCode | QueryAllowed=NULL
+  row1: PrjCode=1 | TableCode=1 | FieldCode=2 | FieldLat=FieldCode | FieldFar=NULL | MeasureCode=NULL | Description=FieldCode | QueryAllowed=NULL
+
+### TimeAnalysis  (rows=108,605)
+cols: WellCode:TEXT, fDate:TEXT, ActivityTypeCode:TEXT, ActivityGroupCode:TEXT, ActivityCode:TEXT, Hours:TEXT, Description:TEXT
+  row0: WellCode=AB-001WO1 | fDate=1394/11/28 | ActivityTypeCode=01 | ActivityGroupCode=01 | ActivityCode=001 | Hours=24         | Description=NULL
+  row1: WellCode=AB-001WO1 | fDate=1394/11/29 | ActivityTypeCode=01 | ActivityGroupCode=01 | ActivityCode=001 | Hours=24         | Description=NULL
+
+### TimeBreakDown  (rows=0)
+cols: Id:INTEGER, WellCode:TEXT, HoleSize:TEXT, Est1:REAL, Est2:REAL, Act:REAL
+
+### WellProfiles  (rows=7)
+cols: WellProfileCode:TEXT, WellProfileName:TEXT, WellProfileAbri:TEXT
+  row0: WellProfileCode=01 | WellProfileName=Vertical | WellProfileAbri=
+  row1: WellProfileCode=02 | WellProfileName=Directional  | WellProfileAbri=Direc.
+
+### WellSituation  (rows=34)
+cols: WellSitCode:TEXT, WellSit:TEXT
+  row0: WellSitCode=00 | WellSit=Drilling well
+  row1: WellSitCode=01 | WellSit=Suspended well
+
+### WellType  (rows=15)
+cols: WellTypeCode:TEXT, WellType:TEXT
+  row0: WellTypeCode=01 | WellType=Exploration-Drilling
+  row1: WellTypeCode=02 | WellType=Delineation-Drilling
+
+### Zone  (rows=48)
+cols: ZoneCode:TEXT, ZoneName:TEXT
+  row0: ZoneCode=00 | ZoneName=NotApplicable
+  row1: ZoneCode=01 | ZoneName=Persian Gulf                                      
+
+### fileinfo  (rows=2)
+cols: title:TEXT, description:TEXT
+  row0: title=fromdepth                                                   … | description=1383/07/23                                                  …
+  row1: title=todepth                                                     … | description=1397/05/14                                                  …

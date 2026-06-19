@@ -395,6 +395,12 @@ model BitRun {
 
   bitClass BitClass? @map("bit_class")
 
+  // Drilling dysfunction flags (captured by the Operation Engineer; §10)
+  stickSlip  Boolean? @map("stick_slip")
+  whirl      Boolean?
+  bitBounce  Boolean? @map("bit_bounce")
+  bitBalling Boolean? @map("bit_balling")
+
   // Computed performance (nullable; recomputed by the analytics engine)
   mse           Decimal? @db.Decimal(14, 4)
   mseEfficiency Decimal? @map("mse_efficiency") @db.Decimal(6, 4)

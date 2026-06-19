@@ -1,0 +1,3 @@
+# Legacy NIDC SQLite -> ddr-app Supabase ETL (migration/etl.py)
+# sqlite3, os, re, uuid, datetime are Python stdlib — only psycopg (v3) is external.
+psycopg[binary]>=3.1

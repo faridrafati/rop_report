@@ -13,7 +13,17 @@ Usage: python etl.py
 import os, sys, re, sqlite3, uuid, datetime
 import psycopg
 
-SRC = r"C:\Users\Farid\Desktop\rop_report\sqlite_DB\new.sqlite"
+# Source sqlite. Resolves to <repo-root>/sqlite_DB/new.sqlite regardless of OS
+# (this script lives in <repo>/migration/), so it works the same on Windows and
+# Ubuntu. Override with SQLITE_SRC if the file lives elsewhere.
+SRC = os.environ.get("SQLITE_SRC") or os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "sqlite_DB", "new.sqlite"
+)
+if not os.path.exists(SRC):
+    sys.exit(
+        f"[etl] source sqlite not found: {SRC}\n"
+        f"      Copy new.sqlite into <repo>/sqlite_DB/ or set SQLITE_SRC=/path/to/new.sqlite"
+    )
 PG_DSN = os.environ.get("PG_DSN", "host=127.0.0.1 port=54322 dbname=postgres user=postgres password=postgres")
 MIG_USER = "697e3424-00c6-4263-9490-01523dbede98"  # existing profile (faridrafati@gmail.com)
 SAMPLE_N = int(os.environ.get("SAMPLE_N", "0"))

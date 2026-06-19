@@ -7,6 +7,7 @@
 #                       Supabase CLI, Python) — for a fresh machine with only internet
 #   ./run.sh setup      bootstrap only (install, db, migrate, seed, RLS gate) — no start
 #   ./run.sh start      start web + api (assumes setup already done)
+#   ./run.sh studio     open the DB admin UI (Prisma Studio) at http://localhost:5555
 #   ./run.sh test       run all tests (shared analytics + RLS gate)
 #   ./run.sh reset      drop + recreate the database (DESTRUCTIVE), then setup
 #   ./run.sh dump [f]   back up the WHOLE database → backups/drilliq_<ts>.sql.gz (or f)
@@ -338,7 +339,19 @@ run_tests() {
 start_app() {
   log "Starting web + api (pnpm dev) — Ctrl+C to stop"
   warn "Web: http://localhost:${WEB_PORT:-5173}   API: http://localhost:${API_PORT:-3000}/api   Swagger: /api/docs"
+  warn "DB admin (Prisma Studio): ./run.sh studio → http://localhost:5555"
   DATABASE_URL="${APP_URL}" pnpm dev
+}
+
+# Admin database browser (the local "Studio"). Connects as the OWNER role, which
+# is a Postgres superuser and therefore BYPASSES row-level security — so an admin
+# sees ALL tenants' data here, unlike the app's restricted drilliq_app role (which
+# is RLS-scoped and would show zero rows without app.current_client_id set).
+open_studio() {
+  start_db
+  warn "Prisma Studio (DB admin) → http://localhost:5555  — Ctrl+C to stop"
+  warn "Connected as the owner/superuser: shows ALL data across tenants (RLS bypassed)."
+  DATABASE_URL="${OWNER_URL}" pnpm --filter @drilliq/db studio
 }
 
 do_setup() {
@@ -359,6 +372,7 @@ case "${1:-all}" in
   deps)  ensure_pnpm; install_all_deps ;;
   setup) do_setup ;;
   start) check_prereqs; ensure_pnpm; start_db >/dev/null 2>&1 || true; start_app ;;
+  studio) check_prereqs; ensure_pnpm; open_studio ;;
   test)  check_prereqs; ensure_pnpm; install_deps; start_db; ensure_app_role; migrate >/dev/null 2>&1 || migrate; seed; run_tests ;;
   reset)
     check_prereqs; ensure_pnpm

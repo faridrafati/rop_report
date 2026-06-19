@@ -42,6 +42,7 @@ Then open:
 | API     | http://localhost:3000/api |
 | Swagger | http://localhost:3000/api/docs |
 | ROP Optimization tab | http://localhost:5173/rop |
+| DB admin (Prisma Studio) | http://localhost:5555 — via `./run.sh studio` |
 
 ### `run.sh` / `run.bat` subcommands
 
@@ -51,6 +52,7 @@ Then open:
 | _(none)_ / `all` | full bootstrap, then start web + api |
 | `setup` | bootstrap only (install, DB, migrate, seed, RLS gate) — no start |
 | `start` | start web + api (assumes setup done) |
+| `studio` | open the **DB admin UI** (Prisma Studio) at http://localhost:5555 — connects as the owner/superuser so it shows **all** tenants' data (the app's `drilliq_app` role is RLS-scoped and shows nothing without a tenant context) |
 | `test`  | run analytics unit tests **and** the RLS isolation gate |
 | `reset` | drop + recreate the database (**destructive**), then re-setup |
 | `dump [file]` | back up the **whole** database (schema, data, RLS policies, functions, grants) → `backups/drilliq_<timestamp>.sql.gz` (or `file`) |

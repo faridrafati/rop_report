@@ -7,6 +7,7 @@ REM    run.bat deps       check + install ALL prerequisites (Node, Docker, pnpm,
 REM                       Supabase CLI, Python) - for a fresh PC with only internet
 REM    run.bat setup      bootstrap only (install, db, migrate, seed, RLS gate)
 REM    run.bat start      start web + api (assumes setup already done)
+REM    run.bat studio     open the DB admin UI (Prisma Studio) at http://localhost:5555
 REM    run.bat test       run all tests (analytics + RLS gate)
 REM    run.bat reset      drop + recreate the database (DESTRUCTIVE), then setup
 REM    run.bat dump [f]   back up the WHOLE database -> backups\drilliq_<ts>.sql.gz (or f)
@@ -48,12 +49,13 @@ if /i "%CMD%"=="all"   goto :all
 if /i "%CMD%"=="deps"  goto :deps
 if /i "%CMD%"=="setup" goto :setup
 if /i "%CMD%"=="start" goto :start
+if /i "%CMD%"=="studio" goto :studio
 if /i "%CMD%"=="test"  goto :test
 if /i "%CMD%"=="reset" goto :reset
 if /i "%CMD%"=="dump"  goto :dump
 if /i "%CMD%"=="restore" goto :restore
 if /i "%CMD%"=="stop"  goto :stop
-echo [X] Unknown command "%CMD%". Use: all ^| deps ^| setup ^| start ^| test ^| reset ^| dump ^| restore ^| stop
+echo [X] Unknown command "%CMD%". Use: all ^| deps ^| setup ^| start ^| studio ^| test ^| reset ^| dump ^| restore ^| stop
 exit /b 1
 
 REM ----------------------------------------------------------------------------
@@ -208,6 +210,7 @@ exit /b 0
 :start_app
 echo [..] Starting web + api (pnpm dev). Press Ctrl+C to stop.
 echo     Web: http://localhost:5173   API: http://localhost:3000/api   Swagger: /api/docs
+echo     DB admin (Prisma Studio): run.bat studio -^> http://localhost:5555
 set "DATABASE_URL=%APP_URL%"
 call pnpm dev
 exit /b 0
@@ -242,6 +245,19 @@ call :check_prereqs || exit /b 1
 call :ensure_pnpm || exit /b 1
 call :start_db
 call :start_app
+exit /b 0
+
+REM Admin DB browser. Connects as the OWNER role (a Postgres superuser, so it
+REM BYPASSES RLS) -> an admin sees ALL tenants' data, unlike the app's restricted
+REM drilliq_app role which is RLS-scoped and would show zero rows.
+:studio
+call :check_prereqs || exit /b 1
+call :ensure_pnpm || exit /b 1
+call :start_db || exit /b 1
+echo [i] Prisma Studio (DB admin) -^> http://localhost:5555  (Ctrl+C to stop)
+echo     Connected as owner/superuser: shows ALL data across tenants (RLS bypassed).
+set "DATABASE_URL=%OWNER_URL%"
+call pnpm --filter @drilliq/db studio
 exit /b 0
 
 :test
